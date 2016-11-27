@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+<script src="./scripts/marshalAjax.js"></script>
+<script src="./scripts/jquery.crypt.js"></script>
+<script src="./scripts/session.js"></script>
+</head>
+<body>
+
+	<div id='logobox' class=''>
+		<div id='logo'></div>
+		<div id='titlebox'>
+			<input type="text" name="username" id="username"  class='loginbox' placeholder="Username" />
+			<input type="password" name="password" id="password" class='loginbox' placeholder="Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" onChange='check()'/>
+			<button id='signin' type="submit" class="btn-minimal loginbox" onClick="logIn();">Sign in</button>
+			<div class='forgotandnewbox'>
+				<div class='newaccount'><!-- Request an account--></div>
+				<div id='forgot' class='forgot' onClick="toggleVisibility('emailbox');">Forgot Password</div>
+			</div>
+		</div>
+	</div>
+
+
+<div id='emailbox' class='personcard'>
+	<div id='emailtext' class='emailtext'>Please enter your email address and an account update email will be sent you shortly</div>
+	<hr class='style-one'>
+	<div class='remineremail'>
+	<input type="text" id="reminderemail" class='reminderemail' placeholder="Email" />
+	<button type="submit" class="btn-minimal">Send Reminder Email</button>
+	</div>
+</div>
+
+<!--
+<div class='newaccountbox'>
+	<input type="text" name="username" id="username"  class='' placeholder="" />
+		<input type="text" name="username" id="username"  class='' placeholder="Email" />
+	<input type="text" name="username" id="username"  class='' placeholder="Email" />
+</div>
+-->
+
+
+
+</body>
+</html>

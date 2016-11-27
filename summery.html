@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<link rel="stylesheet" type="text/css" href="./css/summery.css" />
+
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+<script src="./scripts/marshalAjax.js"></script>
+<script src="./scripts/session.js"></script>
+<script src="./scripts/chart.js"></script>
+<script src="./scripts/summery.js"></script>
+
+
+</head>
+<body>
+
+ 	<div id='logobox'>
+		<div id='logo'></div>
+		<div id='titlebox'><input id='searchbox' type='text' onFocus='showEverythingDrop()' onKeyUp='generateEverythingDropDown()' /><button id='search' type="submit"><img class='smallbutton' src='./images/search.png' /></button>
+				<div id="everythingdropdown"></div>
+		</div>
+        
+        <navmenu>
+	        <authreport onclick="window.location = 'summery.html';"></authreport>
+            <div id='login' class='login' onclick="window.location = 'login.html';"></div>
+        </navmenu>
+
+	</div>
+
+	<div id="cardbox2" class="">
+
+	<regionsummerybox class="mapcard">
+		<mapbanner>
+			<toptextbox><maintext>Middle Kingdom</maintext><nametext>Fighter Authorization Summary by Region</nametext></toptextbox>
+			<smallertext>This chart is a break down of fighters by region. If a person has sword & board and polearm, this only counts as one. If they have autherizations in two (or more) different categories say sword & board and single rapier, then they will count in the armored and rapier totals.</smallertext>
+		</mapbanner>
+		<mapbox>
+            <loctext class='penttext'><a href='http://www.castlewalls.com/auths/authorization.html#r3'>Pentamere</a>                   </loctext>
+			<dot class='pentdot'></dot>
+			<line1 class='pentline1'></line1>
+			<line2 class='pentline2'></line2>
+			<line3 class='pentline3'></line3>
+			<dot class='pentdot2'></dot>
+			<bargraph id='pentamere' class='pentamerebarchart'>
+				<bar id='pentamerebar1' class=''>0</bar>
+				<bar id='pentamerebar2' class=''>0</bar>
+				<bar id='pentamerebar3' class=''>0</bar>
+				<bar id='pentamerebar4' class=''>0</bar>
+				<bar id='pentamerebar5' class=''>0</bar>
+				<bar id='pentamerebar6' class=''>0</bar>
+			</bargraph>
+
+            <loctext class='noaktext'><a href='http://www.castlewalls.com/auths/authorization.html#r5'>North Oaken</a></loctext>
+			<dot class='noakdot'></dot>
+			<line1 class='noakline1'></line1>
+			<line2 class='noakline2'></line2>
+			<line3 class='noakline3'></line3>
+			<dot class='noakdot2'></dot>
+			<bargraph id='northoaken' class='northoakenbarchart'>
+				<bar id='northoakenbar1' class=''>0</bar>
+				<bar id='northoakenbar2' class=''>0</bar>
+				<bar id='northoakenbar3' class=''>0</bar>
+				<bar id='northoakenbar4' class=''>0</bar>
+				<bar id='northoakenbar5' class=''>0</bar>
+				<bar id='northoakenbar6' class=''>0</bar>
+			</bargraph>
+
+            <loctext class='soaktext'><a href='http://www.castlewalls.com/auths/authorization.html#r4'>South Oaken</a></loctext>
+			<dot class='soakdot'></dot>
+			<line1 class='soakline1'></line1>
+			<line2 class='soakline2'></line2>
+			<line3 class='soakline3'></line3>
+			<dot class='soakdot2'></dot>
+			<bargraph id='southoaken' class='southoakenbarchart'>
+				<bar id='southoakenbar1' class=''>0</bar>
+				<bar id='southoakenbar2' class=''>0</bar>
+				<bar id='southoakenbar3' class=''>0</bar>
+				<bar id='southoakenbar4' class=''>0</bar>
+				<bar id='southoakenbar5' class=''>0</bar>
+				<bar id='southoakenbar6' class=''>0</bar>
+			</bargraph>
+
+            <loctext class='consttext'><a href='http://www.castlewalls.com/auths/authorization.html#r1'>Constellation</a></loctext>
+			<dot class='constdot'></dot>
+			<line1 class='constline1'></line1>
+			<line2 class='constline2'></line2>
+			<line3 class='constline3'></line3>
+			<dot class='constdot2'></dot>
+			<bargraph id='constellation' class='constellationbarchart'>
+				<bar id='constellationbar1' class=''>0</bar>
+				<bar id='constellationbar2' class=''>0</bar>
+				<bar id='constellationbar3' class=''>0</bar>
+				<bar id='constellationbar4' class=''>0</bar>
+				<bar id='constellationbar5' class=''>0</bar>
+				<bar id='constellationbar6' class=''>0</bar>
+			</bargraph>
+
+            <loctext class='midtext'><a href='http://www.castlewalls.com/auths/authorization.html#r2'>Midlands</a></loctext>
+			<dot class='middot'></dot>
+			<line1 class='midline1'></line1>
+			<line2 class='midline2'></line2>
+			<line3 class='midline3'></line3>
+			<dot class='middot2'></dot>
+			<bargraph id='midlands' class='midlandsbarchart'>
+				<bar id='midlandsbar1' class=''>0</bar>
+				<bar id='midlandsbar2' class=''>0</bar>
+				<bar id='midlandsbar3' class=''>0</bar>
+				<bar id='midlandsbar4' class=''>0</bar>
+				<bar id='midlandsbar5' class=''>0</bar>
+				<bar id='midlandsbar6' class=''>0</bar>
+			</bargraph>
+
+
+			<midrealmmap></midrealmmap>
+
+			<regionlegend>
+				<legendbox><colorbox class='marshal'></colorbox><legendtext>Marshal</legendtext></legendbox>
+				<legendbox><colorbox class='armored'></colorbox><legendtext>Armored</legendtext></legendbox>
+				<legendbox><colorbox class='rapier'></colorbox><legendtext>Rapier</legendtext></legendbox>
+				<legendbox><colorbox class='equestrian'></colorbox><legendtext>Equestrian</legendtext></legendbox>
+				<legendbox><colorbox class='youth'></colorbox><legendtext>Youth</legendtext></legendbox>
+				<legendbox><colorbox class='ct'></colorbox><legendtext>Cut & Thrust</legendtext></legendbox>
+			</regionlegend>
+		</mapbox>
+
+	</regionsummerybox>
+
+	<div id='detailsbox' class="card filterbox2">
+	<detailsheader>
+			<detailheaderbox><detailheadertext>Authorizations Details</detailheadertext></detailheaderbox>
+			<detailsmallertext>This grid is a breakdown of authorizations by type. If a person has an authorization in more than one skill, the total will increase for every authorization they have. Also, these are listed by category.  For example, if a person is an Armored Marshal and an Archery Marshal, it will count both in the Marshal total.</detailsmallertext>
+	</detailsheader>
+	<summerydetails>
+					<marshaldetail>
+						<marshaldetailheader>
+						<bigtext id='marshalbigtext' class="marshalfg">Marshal</bigtext>
+						<littletext id='marshallittletext'>This includes all people that have any type of marshal. This does includes those that have are Marshals In Training.</littletext>
+							<colorbox2 class="marshal">
+							<upper>
+								<box1></box1>
+								<box2></box2>
+								<box3></box3>
+								<box4></box4>
+							</upper>
+							<lower>
+								<box5></box5>
+								<box6></box6>
+								<box7></box7>
+								<box8></box8>
+							</lower>
+							</colorbox2><total id='marshaltotal'>144</total>
+							</marshaldetailheader>
+						<line></line>
+						<detailbox>
+							<detail><sumtot class="marshal"><sumnum>58</sumnum></sumtot><sumtype>Archery</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>31</sumnum></sumtot><sumtype>Armored</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>26</sumnum></sumtot><sumtype>Combat Archery</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>16</sumnum></sumtot><sumtype>Clerk of the Roster</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>4</sumnum></sumtot><sumtype>Rapier</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>4</sumnum></sumtot><sumtype>Youth</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>2</sumnum></sumtot><sumtype>Thrown Weapons</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>1</sumnum></sumtot><sumtype>Kingdom Earl Marshal</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>1</sumnum></sumtot><sumtype>Cut & Thrust</sumtype></detail>
+							<detail><sumtot class="marshal"><sumnum>1</sumnum></sumtot><sumtype>Siege</sumtype></detail>
+						<detailbox>
+					</marshaldetail>
+		</summerydetails>
+	 </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+[27-Jan-2016 22:05:00 America/Chicago] PHP Parse error:  syntax error, unexpected '"' in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 24
+[27-Jan-2016 22:08:33 America/Chicago] PHP Parse error:  syntax error, unexpected 'complete' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 26
+[27-Jan-2016 22:09:20 America/Chicago] PHP Parse error:  syntax error, unexpected 'complete' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 26
+[27-Jan-2016 22:09:43 America/Chicago] PHP Parse error:  syntax error, unexpected 'complete' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 26
+[27-Jan-2016 22:09:55 America/Chicago] PHP Parse error:  syntax error, unexpected 'Error' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 27
+[27-Jan-2016 22:10:53 America/Chicago] PHP Parse error:  syntax error, unexpected 'Error' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 27
+[27-Jan-2016 22:11:05 America/Chicago] PHP Parse error:  syntax error, unexpected 'Error' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 27
+[27-Jan-2016 22:11:43 America/Chicago] PHP Parse error:  syntax error, unexpected 'Error' (T_STRING) in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 27
+[27-Jan-2016 22:12:08 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 33
+[27-Jan-2016 22:13:07 America/Chicago] PHP Warning:  mysqli::query(): Empty query in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 24
+[27-Jan-2016 22:13:46 America/Chicago] PHP Warning:  mysqli::query(): Empty query in /home/rocco/public_html/auths/mid/updatepersonnote.php on line 24
+[17-Jun-2016 13:50:28 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/rocco/public_html/auths/mid/personheader.php on line 9

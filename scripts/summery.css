@@ -1,0 +1,417 @@
+
+#cardbox2
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    padding: 10px;
+    
+ align-items: flex-start
+}
+
+.filterbox
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 770px;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.filterbox2
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 770px;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+
+#mapbox
+{
+    display: block;
+    width: 335px;
+    height: 383px;
+    background-image: url("../images/midrealmmap4.png");
+
+    background-size: 335px 383px;
+    background-repeat: no-repeat;
+}
+
+#totals
+{
+    display: block;
+    width: 335px;
+    height: 190px;
+    
+}
+
+.mapcard
+{
+    position: relative;
+    margin: 20px;
+    background: #dddfde;
+    border: 5px solid #999999;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#constellation-holder
+{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 70px 0px 0px 130px;
+}
+
+#midlands-holder
+{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: -90px 0px 0px 45px;
+}
+
+#pentamere-holder
+{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: -170px 0px 0px 160px;
+}
+
+#southoaken-holder
+{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 135px 0px 0px 200px;
+}
+
+#northoaken-holder
+{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: -180px 0px 0px 250px;
+}
+
+.barchartbox
+{
+ display: flex;
+ width: 390px;
+ flex-wrap: wrap;
+}
+
+.barchart
+{
+ width: 150px;
+ margin: 10px;
+}
+
+.cattext
+{
+  margin: 0px 0px 0px 5px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  color: #666666;
+}
+
+small
+{
+  font-size: 9px;
+}
+
+.legendheadertext
+{
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 22px;
+  margin-top: 4px;
+  width: 390px;
+  color: #666666;
+}
+
+legendbox
+{
+  display: flex;
+  margin: 2px 2px 2px 20px;
+}
+
+regionlegend{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 330px;
+    margin: 10px 0px 0px 30px;
+    border-radius: 10px;
+    background-color: #bcbcbc;
+}
+
+marshallegend
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 110px;
+    height: 130px;
+    margin: 10px 0px 0px 10px;
+    border-radius: 10px;
+    background-color: #bcbcbc;
+}
+
+colorbox
+{
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  border-radius: 50%;
+}
+
+legendtext
+{
+  display: block;
+  margin: 0px 0px 0px 3px;
+  width: 68px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8pt;
+  color: #666666;  
+}
+
+.pentamere
+{
+  background-color: #BB9B00;
+}
+
+.midlands
+{
+  background-color: #009600;
+}
+
+.constellation
+{
+  background-color: #BB0000;
+}
+
+.southoaken
+{
+  background-color: #290D81;
+}
+
+.northoaken
+{
+  background-color: #016872;
+}
+
+.unset
+{
+  background-color: #333333;
+}
+
+.marshal
+{
+  background-color: #BB9B00;
+}
+
+.marshalfg
+{
+  color: #BB9B00;
+}
+
+
+.armored
+{
+  background-color: #009600;
+}
+
+.rapier
+{
+  background-color: #BB0000;
+}
+
+.equestrian
+{
+  background-color: #290D81;
+}
+
+.youth
+{
+  background-color: #016872;
+}
+
+.ct
+{
+  background-color: #333333;
+}
+
+.breakoutbox
+{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 100px;
+    height: 180px;
+    border: 3px solid #555555;
+    border-radius: 10px;
+}
+
+breakoutrow
+{
+  display: block;
+  margin: 3px;
+}
+
+
+tots
+{
+  font-size: 48pt;
+}
+
+type
+{
+  font-size: 10px;
+}
+
+
+marshaldetail
+{
+    display: flex;
+    width: 97%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid #ababab;
+    background-color: #cdcdcd;
+    border-radius:  20px;
+    padding:  10px;
+}
+
+marshaldetailheader
+{
+  display: flex;
+  width: 100%;  
+}
+
+bigtext
+{
+    display: block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;    
+    font-size: 32pt;
+    width: 380px;
+}
+
+colorbox2
+{
+    display: flex;
+    flex-direction: column;
+    height: 62px;
+    width: 400px;
+    margin: -11px -11px 0px 0px;
+    /* background-color: #666666; */
+    border-radius:  0px 20px 0px 0px;
+}
+
+line
+{
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #888888;
+}
+
+detailbox
+{
+  display: flex;
+  margin: 5px 0px 0px 0px;
+  justify-content: space-between;
+}
+
+detail
+{
+  display: block;
+}
+
+sumtot
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px 0px 20px 0px;    
+    margin: 5px;
+}
+
+sumtype
+{
+    display: block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 8pt;
+    width: 50px;
+    height: 50px;
+    padding: 0px 0px 0px 6px;
+    color: #666666;
+}
+
+sumnum
+{
+    display: block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20pt;
+    color: #DDDDDD;
+    padding: 7px 0px 0px 0px;
+    text-align: center;
+}
+
+upper
+{
+    display: flex;
+    height:  50%;
+    width:  100%;
+    /* background-color: rgba(255,255,255,0.2); */
+}
+
+lower
+{
+    display:block;
+    height: 50%;
+    width: 100%;
+    /* background-color: rgba(255,255,255,0.0); */
+}
+
+box1
+{
+    display:block;
+    width:  50%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);*/;
+}
+
+box2
+{
+    display: block;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+}
+
+box3
+{
+    display:block;    
+}
+
+box4
+{
+    display:block;    
+}

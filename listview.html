@@ -1,0 +1,324 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+
+
+</head>
+<body>
+
+	<div id='logobox'>
+		<div id='logo'></div>
+		<div id='titlebox'><input id='searchbox' type='text' /><button id='search' type="submit"><img class='smallbutton' src='./images/search.png' /></button></div>
+
+	</div>
+
+<!-- --------------------------------------------------------------- -->
+
+
+<div id='cardbox2'>
+<div id='personcard2'>
+		<div id='namebox2'>
+			<div id='shireicon' class='largeicon2 largeshireicon'></div>
+			<div id='name2'><div id='firstname2'>Tirnewydd</div><div id='lastname'>North Oaken</div></div>
+		</div>
+
+		<div class='filler'></div>
+ 		<div id='catarmored' class='cat' onClick="flipCat(event)"></div>
+ 		<div class='filler'></div>
+ 		<div id='catrapier'  class='cat' onClick="flipCat(event)"></div>
+		<div class='filler'></div>
+ 		<div id='cateq'      class='cat' onClick="flipCat(event)"></div>
+ 		<div class='filler'></div>
+ 		<div id='catyouth'   class='cat' onClick="flipCat(event)"></div>
+		<div class='filler'></div>
+ 		<div id='catmarshal' class='cat' onClick="flipCat(event)"></div>
+</div>
+</div>
+
+<!-- --------------------------------------------------------------- -->
+
+<div id='cardbox2'>
+		<div id='list' class='list'>
+		<div id='header' class=''>
+
+				<div id='catcard' class='catcard'>
+			   		<div class='listname'></div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='catagory' class='catagory'>Armored Combat</div>
+				<div id='caticons'>
+					<div id='ssh' class='auth2 smallicon'><div class='authtext2'>SSH</div></div>
+					<div id='tw' class='auth2 smallicon'><div class='authtext2'>TW</div></div>
+					<div id='gs' class='auth2 smallicon'><div class='authtext2'>GS</div></div>
+					<div id='sp' class='auth2 smallicon'><div class='authtext2'>SP</div></div>
+					<div id='pa' class='auth2 smallicon'><div class='authtext2'>PA</div></div>
+					<div id='ca' class='auth2 smallicon'><div class='authtext2'>CA</div></div>
+					<div id='sc' class='auth2 smallicon'><div class='authtext2'>SC</div></div>
+					<div id='se' class='auth2 smallicon'><div class='authtext2'>SE</div></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='catagory' class='catagory'>Rapier Combat</div>
+				<div id='caticons'>
+					<div id='sr' class='auth2 smallicon'><div class='authtext2'>SR</div></div>
+					<div id='da' class='auth2 smallicon'><div class='authtext2'>DG</div></div>
+					<div id='pd' class='auth2 smallicon'><div class='authtext2'>PD</div></div>
+					<div id='cs' class='auth2 smallicon'><div class='authtext2'>CS</div></div>
+					<div id='ls' class='auth2 smallicon'><div class='authtext2'>LS</div></div>
+					<div id='cut' class='auth2 smallicon'><div class='authtext2'>CUT</div></div>
+
+				</div>
+				</div>
+
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='catagory' class='catagory'>Equestrian</div>
+				<div id='caticons'>
+					<div id='gr' class='auth2 smallicon'><div class='authtext2'>GR</div></div>
+					<div id='mg' class='auth2 smallicon'><div class='authtext2'>MG</div></div>
+					<div id='mc' class='auth2 smallicon'><div class='authtext2'>AC</div></div>
+					<div id='cc' class='auth2 smallicon'><div class='authtext2'>CC</div></div>
+					<div id='dr' class='auth2 smallicon'><div class='authtext2'>DR</div></div>
+					<div id='ma' class='auth2 smallicon'><div class='authtext2'>MA</div></div>
+					<div id='js' class='auth2 smallicon'><div class='authtext2'>JS</div></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+				<div id='catagory' class='catagory'>Youth</div>
+				<div id='caticons'>
+					<div id='div1' class='auth2 smallicon'><div class='authtext2'>D1</div></div>
+					<div id='div2' class='auth2 smallicon'><div class='authtext2'>D2</div></div>
+					<div id='div3' class='auth2 smallicon'><div class='authtext2'>D3</div></div>
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='catagory' class='catagory'>Marshaling</div>
+				<div id='caticons'>
+					<div id='mar' class='auth2 smallicon'><div class='authtext2'>AR</div></div>
+					<div id='mrp' class='auth2 smallicon'><div class='authtext2'>RP</div></div>
+					<div id='meq' class='auth2 smallicon'><div class='authtext2'>EQ</div></div>
+					<div id='mac' class='auth2 smallicon'><div class='authtext2'>AR</div></div>
+					<div id='mtw' class='auth2 smallicon'><div class='authtext2'>TW</div></div>
+					<div id='myo' class='auth2 smallicon'><div class='authtext2'>Yo</div></div>
+					<div id='mse' class='auth2 smallicon'><div class='authtext2'>SE</div></div>
+					<div id='mct' class='auth2 smallicon'><div class='authtext2'>C&T</div></div>
+				</div>
+				</div>
+
+
+		</div> <!-- header -->
+
+<!------------------------------------------------- data ------------------------------------------------>
+		<div id='row' class='row'>
+				<div id='catcard' class='catcard'>
+			   		<div class='listname'>Brise Sanguine</div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='revssh' class='auth3 revssh smallicon'></div>
+					<div id='revtw' class='auth3 smallicon'></div>
+					<div id='revgs' class='auth3 smallicon'></div>
+					<div id='revsp' class='auth3 revsp smallicon'></div>
+					<div id='revpa' class='auth3 smallicon'></div>
+					<div id='revca' class='auth3 revca smallicon'></div>
+					<div id='revsc' class='auth3 smallicon'></div>
+					<div id='revse' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='revsr' class='auth3 smallicon'></div>
+					<div id='revda' class='auth3 smallicon'></div>
+					<div id='revpd' class='auth3 smallicon'></div>
+					<div id='revcs' class='auth3 smallicon'></div>
+					<div id='revls' class='auth3 smallicon'></div>
+					<div id='revcut' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='revgr' class='auth3 smallicon'></div>
+					<div id='revmg' class='auth3 smallicon'></div>
+					<div id='revmc' class='auth3 smallicon'></div>
+					<div id='revcc' class='auth3 smallicon'></div>
+					<div id='revdr' class='auth3 smallicon'></div>
+					<div id='revma' class='auth3 smallicon'></div>
+					<div id='revjs' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+				<div id='caticons'>
+					<div id='revdiv1' class='auth3 smallicon'></div>
+					<div id='revdiv2' class='auth3 smallicon'></div>
+					<div id='revdiv3' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='auth3 smallicon'></div>
+					<div id='mmrp' class='auth3 smallicon'></div>
+					<div id='mmeq' class='auth3 smallicon'></div>
+					<div id='mmac' class='auth3 smallicon'></div>
+					<div id='mmtw' class='auth3 smallicon'></div>
+					<div id='mmyo' class='auth3 smallicon'></div>
+					<div id='mmse' class='auth3 smallicon'></div>
+					<div id='mmct' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+		</div> <!-- end row -->
+
+
+
+
+		<div id='row' class='row'>
+				<div id='catcard' class='catcard'>
+			   		<div class='listname'>Comar gyr Mirand</div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='revssh' class='auth3 revssh smallicon'></div>
+					<div id='revtw' class='auth3 revtw smallicon'></div>
+					<div id='revgs' class='auth3 revgs smallicon'></div>
+					<div id='revsp' class='auth3 revsp smallicon'></div>
+					<div id='revpa' class='auth3 revpa smallicon'></div>
+					<div id='revca' class='auth3 revca smallicon'></div>
+					<div id='revsc' class='auth3 smallicon'></div>
+					<div id='revse' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='revsr' class='auth3 smallicon'></div>
+					<div id='revda' class='auth3 smallicon'></div>
+					<div id='revpd' class='auth3 smallicon'></div>
+					<div id='revcs' class='auth3 smallicon'></div>
+					<div id='revls' class='auth3 smallicon'></div>
+					<div id='revcut' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='revgr' class='auth3 smallicon'></div>
+					<div id='revmg' class='auth3 smallicon'></div>
+					<div id='revmc' class='auth3 smallicon'></div>
+					<div id='revcc' class='auth3 smallicon'></div>
+					<div id='revdr' class='auth3 smallicon'></div>
+					<div id='revma' class='auth3 smallicon'></div>
+					<div id='revjs' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+				<div id='caticons'>
+					<div id='revdiv1' class='auth3 smallicon'></div>
+					<div id='revdiv2' class='auth3 smallicon'></div>
+					<div id='revdiv3' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='auth3 mar smallicon'></div>
+					<div id='mmrp' class='auth3 smallicon'></div>
+					<div id='mmeq' class='auth3 smallicon'></div>
+					<div id='mmac' class='auth3 smallicon'></div>
+					<div id='mmtw' class='auth3 smallicon'></div>
+					<div id='mmyo' class='auth3 smallicon'></div>
+					<div id='mmse' class='auth3 smallicon'></div>
+					<div id='mmct' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+		</div> <!-- end row -->
+
+		<div id='row' class='row'>
+				<div id='catcard' class='catcard'>
+			   		<div class='listname'>Diccon de Reinport</div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='revssh' class='auth3 smallicon'></div>
+					<div id='revtw' class='auth3 smallicon'></div>
+					<div id='revgs' class='auth3 smallicon'></div>
+					<div id='revsp' class='auth3 smallicon'></div>
+					<div id='revpa' class='auth3 smallicon'></div>
+					<div id='revca' class='auth3 smallicon'></div>
+					<div id='revsc' class='auth3 smallicon'></div>
+					<div id='revse' class='auth3 revse smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='revsr' class='auth3 smallicon'></div>
+					<div id='revda' class='auth3 smallicon'></div>
+					<div id='revpd' class='auth3 smallicon'></div>
+					<div id='revcs' class='auth3 smallicon'></div>
+					<div id='revls' class='auth3 smallicon'></div>
+					<div id='revcut' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='revgr' class='auth3 smallicon'></div>
+					<div id='revmg' class='auth3 smallicon'></div>
+					<div id='revmc' class='auth3 smallicon'></div>
+					<div id='revcc' class='auth3 smallicon'></div>
+					<div id='revdr' class='auth3 smallicon'></div>
+					<div id='revma' class='auth3 smallicon'></div>
+					<div id='revjs' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+				<div id='caticons'>
+					<div id='revdiv1' class='auth3 smallicon'></div>
+					<div id='revdiv2' class='auth3 smallicon'></div>
+					<div id='revdiv3' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='auth3 smallicon'></div>
+					<div id='mmrp' class='auth3 smallicon'></div>
+					<div id='mmeq' class='auth3 smallicon'></div>
+					<div id='mmac' class='auth3 smallicon'></div>
+					<div id='mmtw' class='auth3 smallicon'></div>
+					<div id='mmyo' class='auth3 smallicon'></div>
+					<div id='mmse' class='auth3 mse smallicon'></div>
+					<div id='mmct' class='auth3 smallicon'></div>
+				</div>
+				</div>
+
+		</div> <!-- end row -->
+
+
+
+
+		</div>
+</div>
+</body>
+</html>

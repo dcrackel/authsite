@@ -1,0 +1,368 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-2.6.2.min.css"/>
+
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
+<script src="./scripts/marshal.js"></script>
+<script src="./scripts/marshalAjax.js"></script>
+<script src="./scripts/session.js"></script>
+<script src="./scripts/jquery.crypt.js"></script>
+<script src="./scripts/jquery.printElement.js"></script>
+<script type="text/javascript" src="./scripts/html2canvas.js"></script>
+
+</head>
+<body>
+
+	<div id='logobox'>
+		<div id='logo'></div>
+		<div id='titlebox'><input id='searchbox' type='text' onFocus='showEverythingDrop()' onKeyUp='generateEverythingDropDown()' /><button id='search' type="submit"><img class='smallbutton' src='./images/search.png' /></button>
+				<div id="everythingdropdown"></div>
+		</div>
+	<div id='login' class='login'><a href='login.html' class='login' style='text-decoration: none;'>login</a></div>
+	</div>
+
+
+<!-- --------------------------------------------------------------- -->
+
+<div id='personcard' class='' style='display: none'></div>
+<div id='cardbox' style='display: none'></div>
+
+
+				<div id='printablecard'>
+
+					<div id="cardfront" class="cardfront">
+						<div id="cardheader">
+							<span class='cardheaderbold'>Middle Kingdom Martial Activities Card</span><br>
+							<span class='cardheaderitil'>The bearer of this card is considered authorized in the following:</span><br>
+						</div>
+
+					<div id="cardautharea">
+						  <div id="cardarmored" class="cardarmored">
+								<div id="cardarmoredtitle">ARMORED</div>
+								<div id="cardarmoredbox">
+								  <div class="authrow"><span id="cardssh" class="flex op5"><span class="ssh smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="cardtw" class="flex op5"><span class="revtw smallbutton tinyicon"></span><div id="cardauthtext">Two weapon</div></span></div>
+								  <div class="authrow"><span id="cardgs" class="flex op5"><span  class="revgs  smallbutton tinyicon"></span><div id="cardauthtext">Great weapon</div></span></div>
+								  <div class="authrow"><span id="cardpa" class="flex op5"><span  class="revpa  smallbutton tinyicon"></span><div id="cardauthtext">Polearm</div></span></div>
+								  <div class="authrow"><span id="cardsp" class="flex op5"><span  class="revsp  smallbutton tinyicon"></span><div id="cardauthtext">Spear</div></span></div>
+							      <div class="authrow"><span id="cardysp" class="flex op5"><span  class="ysp   smallbutton tinyicon2"></span><div id="cardauthtext">Youth Sparing</div></span></div>
+								  <div class="authrow"><span id="cardca" class="flex op5"><span  class="revca smallbutton tinyicon"></span><div id="cardauthtext">Combat archery</div></span></div>
+								  <div class="authrow"><span id="cardsc" class="flex op5"><span  class="revsc smallbutton tinyicon"></span><div id="cardauthtext">Siege crew</div></span></div>
+								  <div class="authrow"><span id="cardse" class="flex op5"><span  class="revse smallbutton tinyicon"></span><div id="cardauthtext">Siege Engineer</div></span></div>
+								</div>
+							</div>
+							<div id="cardrapier" class="cardarmored">
+								<div id="cardarmoredtitle">RAPIER</div>
+								<div id="cardarmoredbox">
+								  <div class="authrow"><span id="cardsr" class="flex op5"><span class="revsr smallbutton tinyicon"></span><div id="cardauthtext">Single Rapier</div></span></div>
+								  <div class="authrow"><span id="cardda" class="flex op5"><span class="revda smallbutton tinyicon"></span><div id="cardauthtext">Dagger</div></span></div>
+								  <div class="authrow"><span id="cardpd" class="flex op5"><span class="revpd  smallbutton tinyicon"></span><div id="cardauthtext">Parry</div></span></div>
+								  <div class="authrow"><span id="cardcs" class="flex op5"><span class="revcs  smallbutton tinyicon"></span><div id="cardauthtext">Case</div></span></div>
+								  <div class="authrow"><span id="cardep" class="flex op5"><span class="revep  smallbutton tinyicon"></span><div id="cardauthtext">Epee</div></span></div>
+								  <div class="authrow"><span id="cardls" class="flex op5"><span class="revls  smallbutton tinyicon"></span><div id="cardauthtext">Longsword</div></span></div>
+							      <div class="authrow"><span id="cardcut" class="flex op5"><span class="revcut   smallbutton tinyicon"></span><div id="cardauthtext">Cut & Thrust</div></span></div>
+								  <div class="authrow"><span id="cardcut2h" class="flex op5"><span class="revcut2h smallbutton tinyicon"></span><div id="cardauthtext">C&T Two Handed</div></span></div>
+								</div>
+							</div>
+
+							<div id="cardyouth" class="cardarmored">
+								<div id="cardarmoredtitle">YOUTH</div>
+								<div id="cardarmoredbox">
+								  <div class="authrow"><span id="carddiv1" class="flex op5"><span class="revdiv1 smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv1rp" class="flex op5"><span class="revdiv1 smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
+								  <div class="authrow"><span id="carddiv2" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv22h" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Two handed</div></span></div>
+								  <div class="authrow"><span id="carddiv2rp" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
+							      <div class="authrow"><span id="carddiv3" class="flex op5"><span class="revdiv3   smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv32h" class="flex op5"><span class="revdiv3 smallbutton tinyicon"></span><div id="cardauthtext">Two handed</div></span></div>
+								  <div class="authrow"><span id="carddiv3rp" class="flex op5"><span class="revdiv3 smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
+								</div>
+							</div>
+
+							<div id="cardequstrian" class="cardarmored">
+								<div id="cardarmoredtitle">EQUESTRIAN</div>
+								<div id="cardarmoredbox">
+								  <div class="authrow"><span id="cardgr" class="flex op5"><span class="revgr smallbutton tinyicon"></span><div id="cardauthtext">General riding</div></span></div>
+								  <div class="authrow"><span id="cardmg" class="flex op5"><span class="revmg smallbutton tinyicon"></span><div id="cardauthtext">Mounted games</div></span></div>
+								  <div class="authrow"><span id="cardma" class="flex op5"><span class="revma  smallbutton tinyicon"></span><div id="cardauthtext">Mounted archery</div></span></div>
+								  <div class="authrow"><span id="carddr" class="flex op5"><span class="revdr  smallbutton tinyicon"></span><div id="cardauthtext">Driving</div></span></div>
+								  <div class="authrow"><span id="cardcc" class="flex op5"><span class="revcc  smallbutton tinyicon"></span><div id="cardauthtext">Crest combat</div></span></div>
+							      <div class="authrow"><span id="cardmc" class="flex op5"><span class="revmc   smallbutton tinyicon"></span><div id="cardauthtext">Mounted combat</div></span></div>
+								  <div class="authrow"><span id="cardjs" class="flex op5"><span class="revjs smallbutton tinyicon"></span><div id="cardauthtext">Joust</div></span></div>
+								</div>
+							</div>
+					</div> <!-- cardautharea -->
+
+						<div id="cardmarshalarea">
+							<div id="cardmarshal">
+								<div id="cardarmoredtitle">MARSHALLING</div>
+								<div id="cardmarshalbox">
+								  <div class="cardmarshaltext"><span id="cardmar" class="flex op5"><span class="ssh tinyicon3"></span><div>Armored combat</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmrp" class="flex op5"><span class="revsr tinyicon3"></span><div>Rapier</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmeq" class="flex op5"><span class="revjs tinyicon3"></span><div>Equestion</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmac" class="flex op5"><span class="revca tinyicon3"></span><div>Archery</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardcae" class="flex op5"><span class="revcae tinyicon3"></span><div>Archery Equip.</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmtw" class="flex op5"><span class="smallbutton tinyicon3"></span><div>Thrown weapons</div></span></div>
+							      <div class="cardmarshaltext"><span id="cardmyo" class="flex op5"><span class="ysp tinyicon4"></span><div>Youth Armored</div></span></div>
+							      <div class="cardmarshaltext"><span id="cardmar" class="flex op5"><span class="ysp tinyicon4"></span><div>Youth Rapier</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmse" class="flex op5"><span class="revsc tinyicon3"></span><div>Siege</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmct" class="flex op5"><span class="revse tinyicon3"></span><div>Cut & Thrust</div></span></div>
+								</div>
+							</div>
+						</div>
+
+					</div><!-- end cardfront -->
+
+					<!-- back of card -->
+					<div id="cardback">
+						<div id="cardheader">
+							<span class='cardheaderbold'>Middle Kingdom Martial Activities Card</span><br>
+							<span class='cardtext'>This card is your authorization card to participate in the SCA activites on the field in<br>
+													the &nbsp;Midrealm. &nbsp;&nbsp;It &nbsp;must &nbsp;be &nbsp;presented &nbsp;to &nbsp;the &nbsp;List &nbsp;Officials &nbsp;along &nbsp;&nbsp;with &nbsp;proof &nbsp;of<br>
+														 membership (i.e. - a blue membership card or Pale label with signed waiver) at &nbsp;SCA<br>
+														 events &nbsp;to &nbsp;register &nbsp;for participation &nbsp;and &nbsp;you &nbsp;may &nbsp;be equested &nbsp;to &nbsp;show &nbsp;it &nbsp;to &nbsp;any<br>
+														 member of the masrchallate at any time. &nbsp;This cardis the property of the office of the <br>
+														 Midrealm Earl Mashal. &nbsp;The bearer of &nbsp;this card &nbsp;acknowledges &nbsp;that they &nbsp;have &nbsp;read<br>
+														 the rules &nbsp;of &nbsp;the list &nbsp;and &nbsp;conventions of &nbsp;combat for the SCA &nbsp;and Middle Kingdom<br>
+							</span>
+						</div>
+
+						<div id="cardnamefields">
+						<div id="cardnamebox" class="nametext flex">SCA Name: <span id="cardscaname" class="len1 underline1">Gebhard Rauten</span></div>
+						<div id="cardlegalnamebox" class="nametext flex">Legal Name: <span id="cardlegalname" class="len2 underline1">Dwain Crackel</span></div>
+						<div id="cardsignbox" class="nametext flex">Signature of card carrier: <span class="len3 underline1"></span></div>
+						<div id="cardsignbox2" class="nametext flex">Signature of the Marshal who issued card: <span class="len4 underline1"></span></div>
+						<div id="carddatearea" class="nametext flex"><div id="carddateissued">Date Issued: 1-1-2015</div><div id="cardexpirebox">Date Expires: <span id="cardexp" class="underline1">4-30-18</span></div>
+						</div>
+					</div> <!-- end of back of card -->
+
+				</div>
+
+<div id='spacer'></div>
+
+<img id='cardimage' src='' onclick='printCard();' />
+
+
+<!-- --------------------------------------------------------------- -->
+
+<div id='listcard' style='display: none'>
+
+<div id='cardbox2'>
+<div id='groupheader' class='groupheader'>
+
+</div>
+</div>
+
+<!-- --------------------------------------------------------------- -->
+
+<div id='cardbox2'>
+		<div id='list' class='list'>
+		<div id='groupheader' class=''>
+
+				<div id='catcard' class='catcard'>
+			   		<div class='listname'></div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='catagory' class='catagory'>Ar</div>
+
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='catagory' class='catagory'>Ra</div>
+
+				</div>
+
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='catagory' class='catagory'>Eq</div>
+
+				</div>
+
+				<div id='youth' class='youth catcard'>
+				<div id='catagory' class='catagory'>Yo</div>
+
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='catagory' class='catagory'>Marshal</div>
+
+				</div>
+
+
+		</div> <!-- header -->
+
+		<div id='row0' class='row'></div>
+		<div id='rows'>
+<!------------------------------------------------- data ------------------------------------------------>
+
+		<div id='personrow1' class='row'>
+				<div id='catcard' class='catcard' onClick='forwardToPerson();'>
+			   		<div class='listname'></div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='armored' class='catarmored smallbutton smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				<div id='caticons'>
+
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+		</div> <!-- end row -->
+
+		<div id='personrow2' class='row'>
+				<div id='catcard' class='catcard' onClick='forwardToPerson();'>
+			   		<div class='listname'>Comar gyr Mirand</div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='armored' class='catarmored smallbutton smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				<div id='caticons'>
+
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='armoredicon smallbutton smallicon'></div>
+				</div>
+				</div>
+
+		</div> <!-- end row -->
+
+				<div id='personrow3' class='row'>
+						<div id='catcard' class='catcard' onClick='forwardToPerson();'>
+					   		<div class='listname'>Diccon de Reinport</div>
+						</div>
+
+					    <div id='armored' class='armored catcard'>
+						<div id='caticons'>
+							<div id='armored' class='catarmored smallbutton smallicon'></div>
+						</div>
+						</div>
+
+
+						<div id='rapier' class='rapier catcard'>
+						<div id='caticons'>
+							<div id='armored' class='catrapier smallbutton smallicon'></div>
+						</div>
+						</div>
+
+						<div id='equestrian' class='eq catcard'>
+						<div id='caticons'>
+							<div id='armored' class='smallbutton smallicon'></div>
+						</div>
+						</div>
+
+						<div id='youth' class='youth catcard'>
+							<div id='armored' class='smallbutton smallicon'></div>
+						<div id='caticons'>
+
+						</div>
+						</div>
+
+						<div id='marshal' class='marshal catcard'>
+						<div id='caticons'>
+							<div id='mmar' class='smallbutton smallicon'></div>
+						</div>
+						</div>
+
+		</div> <!-- end row -->
+
+		<div id='personrow4' class='row' >
+				<div id='catcard' class='catcard' onClick='forwardToPerson();'>
+			   		<div class='listname' >Diglach Mac Cein</div>
+				</div>
+
+			    <div id='armored' class='armored catcard'>
+				<div id='caticons'>
+					<div id='armored' class='catarmored smallbutton smallicon'></div>
+				</div>
+				</div>
+
+
+				<div id='rapier' class='rapier catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='equestrian' class='eq catcard'>
+				<div id='caticons'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				</div>
+				</div>
+
+				<div id='youth' class='youth catcard'>
+					<div id='armored' class='smallbutton smallicon'></div>
+				<div id='caticons'>
+
+				</div>
+				</div>
+
+				<div id='marshal' class='marshal catcard'>
+				<div id='caticons'>
+					<div id='mmar' class='armoredicon smallbutton smallicon'></div>
+				</div>
+				</div>
+
+
+		</div> <!-- end row -->
+
+
+		</div> <!-- end rows -->
+		</div>
+</div>
+
+</div> <!-- end list view -->
+
+</body>
+</html>

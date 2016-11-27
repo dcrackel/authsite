@@ -1,0 +1,2078 @@
+body
+{
+  background-color: #004904;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+}
+
+#logobox
+{
+  background-color: #dedede;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-top: 5px solid #999999;
+  border-bottom: 5px solid #999999;
+}
+
+.op3
+{
+ opacity: 0.3;
+ color: DDDDDD; 
+}
+
+.op5
+{
+ opacity: 0.5;
+}
+
+.op8
+{
+ opacity: 0.8;
+}
+
+.btn-minimal {
+  background-color: rgb(255,255,255);
+  border-radius: 0;
+  border: 1px solid rgb( 186, 186, 186 );
+  color: rgb( 186, 186, 186 );
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+  padding: 2px;
+}
+	
+
+#logo
+{
+  background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
+  /* display: block; */
+  /* position: relative; */
+  width: 234px;
+  height: 150px;
+  /* margin-left: 30%; */
+}
+
+navmenu
+{
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 100px;
+}
+
+
+.loginbox
+{
+  margin: 94px 0px 0px 0px; /*top right bottom left */
+}
+
+.login
+{
+    display:  block;    
+    background-image: url('../images/login2.png');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin:  5px;
+    background-size: 30px 30px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666666;
+    cursor: pointer;
+}
+
+
+.logout
+{
+    display:  block;
+    background-image: url('../images/logout.png');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin:  5px;
+    background-size: 30px 30px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #666666;
+}
+
+authreport
+{
+  background-image: url('../images/barchart.png');
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  margin:  5px;
+  cursor: pointer;
+  background-size: 30px 30px;
+}
+
+#titlebox
+{
+  background-image: url('../images/title.png');
+  background-repeat: no-repeat;
+  display: block;
+  position: relative;
+  /* width: 50%; */
+  height: 150px;
+  /* margin-left: 20px; */
+}
+
+#searchbox {
+  position: relative;
+  height: 30px;
+  width: 254px;
+  margin: 105px 0px 0px 25px;
+  padding: 0px 0px 0px 4px;
+  border: 1px solid #999999;
+  -moz-border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#search
+{
+  position: relative;
+  background: #ea0001;
+  
+  top: 6px;
+  left: -1px;
+  
+  width: 30px;
+  height: 30px; 
+
+  margin: 10px 0px 0px 0px;
+  padding: 0px;
+
+  border: 1px solid #999999;
+
+  -moz-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+
+.smallbutton
+{
+  width: 20px;
+  height: 20px; 
+}
+
+.personcard
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   width: 830px;
+   padding: 10px;
+
+   
+   background: #dedede;   
+   border: 5px solid #999999;
+
+   -moz-border-radius: 10px;
+   border-radius: 10px;     
+
+}
+
+#name
+{
+  display: flex;
+  flex-direction: column;  
+}
+
+.smallnametext
+{
+    display: none;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 9px;
+    color: #666666;
+}
+
+#namebox
+{
+  
+  display: flex;
+  flex-wrap: wrap;
+   
+  width: 50%; 
+}
+
+#name
+{
+  margin-left: 20px;
+}
+
+#personicon
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/person.png');
+  background-repeat: no-repeat;  
+}
+
+
+
+#emailbox
+{
+  display: none;
+}
+
+.reminderemail
+{
+	width: 300px;
+}
+
+.emailtext
+{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+   margin-left: auto;
+   margin-right: auto;
+  color: #666666; 
+}
+
+#firstname
+{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+
+  color: #666666; 
+}
+
+#firstname2
+{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+
+  color: #666666; 
+}
+
+#lastname{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+
+  color: #666666; 
+}
+
+#vanity
+{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    color: #666666;    
+
+}
+
+#region{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  margin: 0px 0px 0px 20px;
+  color: #666666; 
+}
+
+.lastmargin
+{
+	margin: 10px 0px 0px 0px;
+}
+
+.groupbox
+{
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 40%;
+}
+
+#printericon
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/print.png');
+  background-repeat: no-repeat;  
+}
+
+#locationicon
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/location.png');
+  background-repeat: no-repeat;  
+}
+
+#editicon
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/downarrow.png');
+  background-repeat: no-repeat;  
+}
+
+#trashicon
+{
+  display: block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-left: 265px;
+  margin-top: -46px;
+  background-image: url('../images/trash.png');
+  background-repeat: no-repeat; 
+}
+
+.locname
+{
+  margin-left: 20px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 24px;
+  color: #666666;
+  width: 260px;
+}
+
+.editlocname
+{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  background-color: #ffffff;
+  color: #666666; 
+
+  border: 0px solid #999999;
+  outline:0;
+    
+  height: 24px;
+  width: 250px;
+
+  margin-top: 5px;
+  margin-left: 0px;
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 10px;
+  padding-left: 10px;
+  
+  
+  -moz-border-radius: 10px 10px 10px 10px; 
+  border-radius: 10px 10px 10px 10px;    
+}
+
+#locationdropdown
+{
+  position: absolute;
+
+  width: 230px;
+  height: 280px;
+
+  border-top: 1px solid #999999;
+  background: #ffffff;
+  overflow: auto;
+  z-index: 10;
+  
+  padding: 10px;
+  
+  margin-left: 20px;
+  
+  -moz-border-radius: 0px 0px 10px 10px; 
+  border-radius: 0px 0px 10px 10px; 
+}
+
+.locitem
+{
+  display: flex;
+  margin: 0px 3px 0px 3px;
+
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  background-color: #ffffff;
+  color: #666666; 
+  
+  padding: 2px 2px 2px 4px;
+}
+
+.locitem:hover
+{
+  background-color: #DDDDDD;
+  -moz-border-radius: 10px; 
+  border-radius: 10px;  
+}
+
+.addpersonicon
+{
+  display: block;
+
+  width: 20px;
+  height: 20px;  
+  
+  padding-right: 4px;
+  
+  background-image: url('../images/addpersonsmall.png');
+  background-repeat: no-repeat;  
+}
+
+.personicon
+{
+  display: block;
+
+  width: 20px;
+  height: 20px;  
+  
+  padding-right: 4px;
+  
+  background-image: url('../images/personsmall.png');
+  background-repeat: no-repeat;  
+}
+
+.shireicon
+{
+  width: 20px;
+  height: 20px;  
+  
+  margin-right: 4px;
+  
+  background-image: url('../images/shireicon.png');
+  background-repeat: no-repeat;  
+}
+
+.baronyicon
+{
+  width: 20px;
+  height: 20px;  
+  
+  margin-right: 4px;
+  
+  background-image: url('../images/baronyicon.png');
+  background-repeat: no-repeat;  
+}
+
+#hiddenperson
+{
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   margin: 10px;
+}
+
+#personalinfobox
+{
+   justify-content: left;
+   width: 50%;
+   
+   padding-left: 76px;
+}
+
+#addressinfobox
+{
+   width: 30%;
+   padding-left: 14px;   
+   
+}
+
+.infoheader
+{
+  padding-top: 6px;
+  padding-bottom: 2px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  color: #666666;
+}
+
+.textinputbar
+{
+  border: 0px;
+  outline:0;
+  -moz-border-radius: 10px;
+  border-radius: 10px; 
+  
+  width: 250px;
+  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  color: #666666;  
+  
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.readonly
+{
+  background-color: #bbbbbb;
+}
+
+/* ------------------------------------ */
+
+#personnote
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   width: 900px;
+   padding: 10px;
+}
+
+#innerpersoncard
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 830px;
+    padding: 10px;
+    background: #dedede;
+    border: 5px solid #999999;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+personnotetext
+{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    color: #666666;
+    width: 150px;
+    margin: 0px 6px 0px 13px;
+    height: 40px;  
+}
+
+#personnotetxt {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #333333;
+    outline: none;
+    background: #CCCCCC;
+    width: 578px;
+    height: 50px;
+    padding: 7px;
+    border: 0px solid #333333;
+    border-radius: 10px;
+    resize: none;
+    -webkit-appearance: none;
+
+}
+
+#personnoteicon {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/personnote.png');
+    background-repeat: no-repeat;
+}
+
+#personnoteiconadd {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/personnoteadd.png');
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    margin-left: -70px;
+    margin-top: -46px;
+}
+
+#cardbox
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   width: 900px;
+   padding: 10px;
+}
+
+.card
+{
+  position: relative;	
+  width: 400px;
+  min-height: 100px;
+  margin: 20px;
+  background: #dddfde;
+  border: 5px solid #999999;
+
+  -moz-border-radius: 10px;
+  border-radius: 10px;  
+  
+}
+
+.cardheader
+{
+  margin: 5px;
+  display: flex;
+ 
+}
+
+.headertext
+{
+ text-align: center;
+  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 22px;
+  margin-top: 4px;
+  width: 272px;
+  color: #666666;
+}
+
+.vtext {
+  position: relative;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  color: #999999;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  margin-left: 55px;
+  margin-top: -28px;
+}
+
+.icon
+{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+#personote
+{
+    display: none;
+}
+
+.marshalicon
+{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 6px;
+}
+
+.largeicon
+{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.largeicon2
+{
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.postdate {
+  font-family: Verdana, Geneva, sans-serif;
+  float: left;
+  background: url(../images/cal.png) no-repeat;
+  background-color: #404040;  
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: 300;
+  margin-left: 10px;
+  
+}
+
+.expiredCard
+{
+  font-family: Verdana, Geneva, sans-serif;
+  float: left;
+  background: url(../images/cal.png) no-repeat;
+  background-color: #AA0000;  
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+
+.neverCard
+{
+  font-family: Verdana, Geneva, sans-serif;
+  float: left;
+
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: 300;
+  margin-left: 10px;
+
+-webkit-border-radius: 99px;
+-moz-border-radius: 99px;
+border-radius: 99px;
+
+  /* background-color:#E3A20B; */
+  background-color:#404040;
+}
+
+.expiredbox {
+position: relative;
+font-family: Verdana, Geneva, sans-serif;
+color: white;
+font-size: 0.7em;
+text-transform: uppercase;
+font-weight: 300;
+
+padding-top: 1px;
+padding-left: 2px;
+
+margin-top: 11px;
+margin-left: -10px;
+
+height: 16px;
+width: 60px;
+
+background-color: #ea0001;
+z-index: 2;
+
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+
+}
+
+
+.postmonth {
+  font-family: Verdana, Geneva, sans-serif;
+  color: #e4e4e4;
+  font-size: 0.7em;
+  line-height: 0.3em;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding-top: 10px;
+}
+
+
+.postday {
+  color: #e4e4e4;
+  font-size: 0.7em;  
+  padding-top: 8px;
+  font-weight: 300;
+}
+
+#armoredicon
+{
+  background-image: url('../images/armored.png');
+  background-repeat: no-repeat;  
+}
+
+.armoredicon
+{
+  background-image: url('../images/armored.png');
+  background-repeat: no-repeat;  
+}
+
+#rapiericon
+{
+  background-image: url('../images/rapier.png');
+  background-repeat: no-repeat;  
+}
+
+.rapiericon
+{
+  background-image: url('../images/rapier.png');
+  background-repeat: no-repeat;  
+}
+
+#canticon
+{
+    background-image: url('../images/cutandthrust.png');
+    background-repeat: no-repeat;      
+}
+
+.canticon
+{
+    background-image: url('../images/cutandthrust.png');
+    background-repeat: no-repeat;  
+}
+
+#equestrianicon
+{
+  background-image: url('../images/equestrian.png');
+  background-repeat: no-repeat;  
+}
+
+.equestrianicon
+{
+  background-image: url('../images/equestrian.png');
+  background-repeat: no-repeat;  
+}
+
+#youthicon
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+
+.youthicon
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+
+#mashallingicon
+{
+  background-image: url('../images/marshalling.png');
+  background-repeat: no-repeat;  
+}
+
+.seigeicon
+{
+  background-image: url('../images/siegemarshal.png');
+  background-repeat: no-repeat;  
+}
+
+.thrownicon
+{
+  background-image: url('../images/thrownweapons.png');
+  background-repeat: no-repeat;  
+}
+
+.archeryicon
+{
+  background-image: url('../images/camarshal.png');
+  background-repeat: no-repeat;  
+}
+
+.camarshalicon
+{
+  background-image: url('../images/archery.png');
+  background-repeat: no-repeat;  
+}
+		
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #999999;
+}
+
+
+.authbox
+{
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+
+.auth
+{
+  position: relative;
+  width: 40px;
+  height: 60px;
+  margin-right: 10px;
+  margin-top: 1px;
+  margin-bottom: 9px;
+}
+
+.authtext
+{
+  margin-top: 42px;
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9px;  
+}
+
+#ssh
+{
+  background-image: url('../images/shield.png');
+  background-repeat: no-repeat;  
+}
+
+.ssh
+{
+  background-image: url('../images/rev_shield.png');
+  background-repeat: no-repeat;  
+}
+
+.revssh
+{
+  background-image: url('../images/rev_shield.png');
+  background-repeat: no-repeat;  
+}
+
+#tw
+{
+  background-image: url('../images/twostick.png');
+  background-repeat: no-repeat;  
+}
+
+.revtw
+{
+  background-image: url('../images/rev_twostick.png');
+  background-repeat: no-repeat;  
+}
+
+#gs
+{
+  background-image: url('../images/greatweapon.png');
+  background-repeat: no-repeat;  
+}
+
+.revgs
+{
+  background-image: url('../images/rev_greatweapon.png');
+  background-repeat: no-repeat;  
+}
+
+#pa
+{
+  background-image: url('../images/polearm.png');
+  background-repeat: no-repeat;  
+}
+
+.revpa
+{
+  background-image: url('../images/rev_polearm.png');
+  background-repeat: no-repeat;  
+}
+
+#ysp
+{
+  background-image: url('../images/youthsparing.png');
+  background-repeat: no-repeat;  
+}
+
+.ysp
+{
+  background-image: url('../images/youthsparing.png');
+  background-repeat: no-repeat;  
+}
+#yrs
+{
+  background-image: url('../images/youthsparing.png');
+  background-repeat: no-repeat;  
+}
+
+.yrs
+{
+  background-image: url('../images/youthsparing.png');
+  background-repeat: no-repeat;  
+}
+#sp
+{
+  background-image: url('../images/spear.png');
+  background-repeat: no-repeat;  
+}
+
+.revsp
+{
+  background-image: url('../images/rev_spear.png');
+  background-repeat: no-repeat;  
+}
+
+#ca
+{
+  background-image: url('../images/combatarchery.png');
+  background-repeat: no-repeat;  
+}
+
+.revca
+{
+  background-image: url('../images/rev_combatarchery.png');
+  background-repeat: no-repeat;  
+}
+
+#sc
+{
+  background-image: url('../images/crew.png');
+  background-repeat: no-repeat;  
+}
+
+.revsc
+{
+  background-image: url('../images/rev_crew.png');
+  background-repeat: no-repeat;  
+}
+
+#se
+{
+  background-image: url('../images/siege.png');
+  background-repeat: no-repeat;  
+}
+
+.revse
+{
+  background-image: url('../images/rev_siege.png');
+  background-repeat: no-repeat;  
+}
+
+#sr
+{
+  background-image: url('../images/singlerapier.png');
+  background-repeat: no-repeat;  
+}
+
+.revsr
+{
+  background-image: url('../images/rev_singlerapier.png');
+  background-repeat: no-repeat;  
+}
+
+#da
+{
+  background-image: url('../images/dagger.png');
+  background-repeat: no-repeat;  
+}
+
+.revda
+{
+  background-image: url('../images/rev_dagger.png');
+  background-repeat: no-repeat;  
+}
+
+#pd
+{
+  background-image: url('../images/shield.png');
+  background-repeat: no-repeat;  
+}
+
+.revpd
+{
+  background-image: url('../images/rev_shield.png');
+  background-repeat: no-repeat;  
+}
+
+#cs
+{
+  background-image: url('../images/twostick.png');
+  background-repeat: no-repeat;  
+}
+
+.revcs
+{
+  background-image: url('../images/rev_twostick.png');
+  background-repeat: no-repeat;  
+}
+
+#ls
+{
+  background-image: url('../images/longsword.png');
+  background-repeat: no-repeat;  
+}
+
+.revls
+{
+  background-image: url('../images/rev_longsword.png');
+  background-repeat: no-repeat;  
+}
+
+#ep
+{
+  background-image: url('../images/epee.png');
+  background-repeat: no-repeat;  
+}
+
+.revep
+{
+  background-image: url('../images/rev_epee.png');
+  background-repeat: no-repeat;  
+}
+
+#cut
+{
+  background-image: url('../images/cut.png');
+  background-repeat: no-repeat;  
+}
+
+#cutda
+{
+  background-image: url('../images/dagger.png');
+  background-repeat: no-repeat;  
+}
+
+#cutpa
+{
+  background-image: url('../images/shield.png');
+  background-repeat: no-repeat;  
+}
+
+#cutca
+{
+  background-image: url('../images/twostick.png');
+  background-repeat: no-repeat;  
+}
+     
+#cut2h
+{
+  background-image: url('../images/ct-twohand.png');
+  background-repeat: no-repeat;  
+}
+     
+.revcut
+{
+  background-image: url('../images/rev_cut.png');
+  background-repeat: no-repeat;  
+}     
+     
+.revcut2h
+{
+  background-image: url('../images/rev_ct-twohand.png');
+  background-repeat: no-repeat;  
+}     
+     
+#gr
+{
+  background-image: url('../images/riding.png');
+  background-repeat: no-repeat;  
+}
+
+.revgr
+{
+  background-image: url('../images/rev_riding.png');
+  background-repeat: no-repeat;  
+}
+
+#mg
+{
+  background-image: url('../images/mountedgames.png');
+  background-repeat: no-repeat;  
+}
+
+.revmg
+{
+  background-image: url('../images/rev_mountedgames.png');
+  background-repeat: no-repeat;  
+}
+
+#mc
+{
+  background-image: url('../images/mountedcombat.png');
+  background-repeat: no-repeat;  
+}
+
+.revmc
+{
+  background-image: url('../images/rev_mountedcombat.png');
+  background-repeat: no-repeat;  
+}
+
+#cc
+{
+  background-image: url('../images/crestcombat.png');
+  background-repeat: no-repeat;  
+}
+
+.revcc
+{
+  background-image: url('../images/rev_crestcombat.png');
+  background-repeat: no-repeat;  
+}
+
+#dr
+{
+  background-image: url('../images/driving.png');
+  background-repeat: no-repeat;  
+}
+
+.revdr
+{
+  background-image: url('../images/rev_driving.png');
+  background-repeat: no-repeat;  
+}
+
+#ma
+{
+  background-image: url('../images/mountedarchery.png');
+  background-repeat: no-repeat;  
+}
+
+.revma
+{
+  background-image: url('../images/rev_mountedarchery.png');
+  background-repeat: no-repeat;  
+}
+
+#js
+{
+  background-image: url('../images/joust.png');
+  background-repeat: no-repeat;  
+}
+
+.revjs
+{
+  background-image: url('../images/rev_joust.png');
+  background-repeat: no-repeat;  
+}
+
+#div1
+{
+  background-image: url('../images/div1.png');
+  background-repeat: no-repeat;  
+}
+
+#div1rp
+{
+  background-image: url('../images/div1.png');
+  background-repeat: no-repeat;  
+}
+
+.revdiv1
+{
+  background-image: url('../images/rev_div1.png');
+  background-repeat: no-repeat;  
+}
+
+#div2
+{
+  background-image: url('../images/div2.png');
+  background-repeat: no-repeat;  
+}
+
+#div22h
+{
+  background-image: url('../images/div2.png');
+  background-repeat: no-repeat;  
+}
+
+#div2rp
+{
+  background-image: url('../images/div2.png');
+  background-repeat: no-repeat;  
+}
+
+
+
+.revdiv2
+{
+  background-image: url('../images/rev_div2.png');
+  background-repeat: no-repeat;  
+}
+
+
+#div3
+{
+  background-image: url('../images/div3.png');
+  background-repeat: no-repeat;  
+}
+
+#div32h
+{
+  background-image: url('../images/div3.png');
+  background-repeat: no-repeat;  
+}
+
+#div3rp
+{
+  background-image: url('../images/div3.png');
+  background-repeat: no-repeat;  
+}
+
+.revdiv3
+{
+  background-image: url('../images/rev_div3.png');
+  background-repeat: no-repeat;  
+}
+
+ 
+#mar
+ {
+   background-image: url('../images/armored.png');
+   background-repeat: no-repeat;  
+}
+
+.mar
+ {
+   background-image: url('../images/armored.png');
+   background-repeat: no-repeat;  
+}
+
+#mrp
+{
+  background-image: url('../images/rapier.png');
+  background-repeat: no-repeat;  
+}
+
+.mrp
+{
+  background-image: url('../images/rapier.png');
+  background-repeat: no-repeat;  
+}
+
+#meq
+{
+  background-image: url('../images/equestrian.png');
+  background-repeat: no-repeat;  
+}
+
+.meq
+{
+  background-image: url('../images/equestrian.png');
+  background-repeat: no-repeat;  
+}
+
+#mac
+{
+  background-image: url('../images/camarshal.png');
+  background-repeat: no-repeat;  
+}
+
+.mac
+{
+  background-image: url('../images/camarshal.png');
+  background-repeat: no-repeat;  
+}
+
+.revcae
+{
+  background-image: url('../images/rev_combatarcheryequipment.png');
+  background-repeat: no-repeat;  
+}
+
+#kem
+{
+  background-image: url('../images/KEM.png');
+  background-repeat: no-repeat;  
+}
+
+#dkem
+{
+  background-image: url('../images/DKEM2.png');
+  background-repeat: no-repeat;  
+}
+
+#cr
+{
+  background-image: url('../images/clerkofthelist2.png');
+  background-repeat: no-repeat;  
+}
+
+#ace
+{
+  background-image: url('../images/archery.png');
+  background-repeat: no-repeat;  
+}
+
+#cae
+{
+  background-image: url('../images/archery.png');
+  background-repeat: no-repeat;  
+}
+
+.cae
+{
+  background-image: url('../images/archery.png');
+  background-repeat: no-repeat;  
+}
+
+#mtw
+{
+  background-image: url('../images/thrownweapons.png');
+  background-repeat: no-repeat;  
+}
+
+.mtw
+{
+  background-image: url('../images/thrownweapons.png');
+  background-repeat: no-repeat;  
+}
+
+#myo
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+
+.myo
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+#mry
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+
+.mry
+{
+  background-image: url('../images/youth.png');
+  background-repeat: no-repeat;  
+}
+
+#mse
+{
+  background-image: url('../images/siegemarshal.png');
+  background-repeat: no-repeat;  
+}
+
+.mse
+{
+  background-image: url('../images/siegemarshal.png');
+  background-repeat: no-repeat;  
+}
+
+#mct
+{
+  background-image: url('../images/cutandthrust.png');
+  background-repeat: no-repeat;  
+}
+
+.mct
+{
+  background-image: url('../images/cutandthrust.png');
+  background-repeat: no-repeat;  
+}
+
+#mhc
+{
+  background-image: url('../images/dogmarshal2.png');
+  background-repeat: no-repeat;  
+}
+
+.mhc
+{
+  background-image: url('../images/dogmarshal2.png');
+  background-repeat: no-repeat;  
+}
+.forgotandnewbox
+{
+   display: flex;
+   margin-top: 10px;
+}
+
+.forgot
+{
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px; 
+  color: #666666;
+  padding-left: 60px;
+}
+
+.newaccount
+{
+  display: block;
+  position: relative;
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px; 
+  color: #666666;
+  width: 190px;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+.groupheader
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   min-width: 30px;
+   padding: 10px;
+   
+   background: #dedede;   
+   border: 5px solid #999999;
+
+   -moz-border-radius: 10px;
+   border-radius: 10px;  
+
+}
+
+#header
+{
+   display: flex;
+}
+
+
+#groupheader
+{
+   display: flex;
+}
+
+#cardbox2
+{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   min-width: 900px;
+   padding: 10px;
+}
+
+
+.catcard
+{
+   min-width: 30px;
+   margin: 4px 4px 4px 4px;
+   /* border-bottom: 1px solid #999999; */
+}
+
+
+.catagory
+{
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px; 
+  color: #666666;
+  /* border-bottom: 1px solid #999999; */
+  margin-bottom: 2px;
+  
+}
+
+#caticons
+{
+  display: flex;
+}
+
+.listname
+{
+  text-align: right;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px; 
+  color: #666666;
+  cursor: pointer;
+  width: 240px;
+}
+
+#namebox2
+{
+  
+  display: flex;
+  flex-wrap: wrap;
+   
+  width: 200px; 
+}
+
+#catbox
+{
+  display: flex;
+}
+
+
+
+.auth2
+{
+  position: relative;
+  width: 24px;
+  height: 30px;
+  margin: 2px;
+
+}
+
+.auth3
+{
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+
+}
+
+.authtext2
+{
+  margin-top: 21px;
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9px;  
+}
+
+.row
+{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  min-width: 552px;
+  border-bottom: 1px solid #999999; 
+}
+
+.cat
+{
+  position: relative;
+
+  height: 50px;
+  width: 50px;
+
+  background-image: url('../images/person.png');
+  background-repeat: no-repeat;  
+}
+
+.filler
+{
+  margin-left: 20px;
+}
+
+
+.largeshireicon
+{
+  background-image: url('../images/shire2.png');
+  background-repeat: no-repeat;  
+}
+
+.catarmored
+{
+  background-image: url('../images/armored2.png');
+  background-repeat: no-repeat;  
+}
+
+.catrapier
+{
+  background-image: url('../images/rapier2.png');
+  background-repeat: no-repeat;  
+}
+
+.cateq
+{
+  background-image: url('../images/equestrian2.png');
+  background-repeat: no-repeat;  
+}
+
+.catyouth
+{
+  background-image: url('../images/youth2.png');
+  background-repeat: no-repeat;  
+}
+
+.catmarshal
+{
+  background-image: url('../images/marshalling2.png');
+  background-repeat: no-repeat;  
+}
+
+
+
+.armoredauths
+{
+  display: flex;
+}
+
+.list
+{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   
+   margin-left: auto;
+   margin-right: auto;
+   
+   /* min-width: 830px; */
+   padding: 10px;
+
+   
+   background: #dedede;   
+   border: 5px solid #999999;
+
+   -moz-border-radius: 10px;
+   border-radius: 10px;   
+
+}
+
+.smallicon
+{
+  margin: 0px 4px 0 4px;
+  background-size: 20px 20px;
+}
+
+.tinyicon
+{
+  display: inline-block;
+  background-size: 18px 18px;
+  width: 18px;
+  height: 18px;
+  margin: 4px 3px 0px 6px;
+}
+
+.tinyicon2
+{
+  display: inline-block;
+  background-size: 16px 16px;
+  margin: 4px 3px 0px 6px;
+}
+
+.tinyicon3
+{
+  display: inline-block;
+  background-size: 18px 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0px 3px 0px 6px;
+}
+
+.tinyicon4
+{
+  display: inline-block;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0px 3px 0px 6px;
+}
+
+.medicon
+{
+  background-size: 30px 30px;
+}
+
+.largeicon2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+#everythingdropdown {
+  display: none;
+  position: absolute;
+  width: 230px; 
+  height: 280px;
+  border-top: 1px solid #999999;
+  background: #ffffff;
+  overflow: auto;
+  z-index: 10;
+  padding: 10px;
+  margin-left: 28px;
+  margin-top: -1px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.authdate
+{
+position: relative;
+width: 70px;	
+text-align: center;
+border: 1px;
+background: #CCCCCC;
+padding-top: 4px;
+padding-left: 2px;
+margin: 0px 5px 5px 2px;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 10px;
+-moz-border-radius: 0px 0px 10px 10px;
+border-radius: 10px 10px 10px 10px; 
+}
+
+.twenty
+{
+  width: 20px;
+  height: 20px;  
+}
+
+.authnote
+{
+position: relative;
+width: 265px;
+border: 1px;
+background: #CCCCCC;
+padding: 4px 5px 4px 5px;
+margin: 0px 5px 5px 2px;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 10px;
+-moz-border-radius: 0px 0px 10px 10px;
+border-radius: 10px 10px 10px 10px;
+ 
+}
+
+.tmptext{
+width: 265px;
+resize: none;
+outline: none;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 10px;
+-moz-border-radius: 0px 0px 10px 10px;
+border-radius: 10px 10px 10px 10px;
+}
+
+
+
+#printablecard
+{
+  display: none;
+  width: 900px;
+  height: 1000px; 
+  border: 4px solid #000000;
+  z-index: -1;
+}
+
+.cardfront
+{
+  display: block;
+  width: 900px;
+  height: 500px; 
+  background: #FFFFFF;
+  border: 1px solid #000000; 
+
+  background-image: url('../images/background.png');
+  background-repeat: no-repeat;
+  background-size: 406px 450px;
+  background-position: center; 
+}
+
+#cardback
+{
+  display: block;
+  width: 900px;
+  height: 500px; 
+  background: #FFFFFF;
+  border: 1px solid #000000; 
+  margig: 2px 0px 0px 0px;
+}
+
+#cardheader
+{
+   display: block;
+   width: 900px;	
+   margin: 20px 0px 00px 0px;
+  
+}
+
+.cardheaderbold
+{
+  display: block;
+  width: 500px;
+  font: bold 28px/28px "Times New Roman", Geneva;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.cardheaderitil
+{
+  display: block;
+  width: 580px;   
+  font: italic 22px/20px "Times New Roman", Geneva;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#cardautharea
+{
+   display: flex;
+   margin: 0px 0px 0px 10px;
+}
+
+.cardarmored
+{
+   display: block;
+   width: 200px;
+   height: 270px; 
+   margin: 0px 10px 0px 10px;
+}
+
+#cardarmoredtitle
+{
+  font: 22px/20px "Times New Roman", Geneva;
+  margin: 0px 0px 0px 10px;
+}
+
+#cardtext
+{
+  font: 18px/20px "Times New Roman", Geneva;
+}
+
+#cardarmoredbox
+{
+   display: block;
+   width: 200px;
+   height: 260px;
+   border: 1px solid #000000; 
+}
+
+#cardrapier
+{
+   display: block;
+   width: 200px;
+   height: 200px;
+   margin: 0px 10px 0px 9px;   
+}
+
+#cardyouth
+{
+   display: block;
+   width: 200px;
+   height: 200px;   
+   margin: 0px 10px 0px 9px;
+}
+
+#cardequstrian
+{
+   display: block;
+   width: 200px;
+   height: 200px;   
+   margin: 0px 10px 0px 9px;
+}
+
+#cardimage
+{
+   display: block;
+   position: relative;
+   top: 500px;
+}
+
+#cardmarshalarea
+{
+   margin: 30px 10px 10px 20px;
+}
+
+#cardmarshalbox
+{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 857px;
+   height: 50px;   
+   border: 1px solid #000000; 
+   margin: 0px 0px 0px 0px;
+}
+
+#cardauthtext
+{
+  font: 18px/19px "Times New Roman", Geneva;
+  margin-top: 4px;
+}
+
+.cardmarshaltext
+{
+  display: flex;
+  width: 160px;
+  height: 20px;
+  font: 17px/18px "Times New Roman", Geneva;
+  margin: 4px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  border: 0px solid #000000; 
+}
+
+.authrow
+{
+   display: flex;
+   flex-direction: row;
+}
+
+.mgleft1
+{
+	margin-left: 4px;
+}
+
+.cardtext
+{
+  display: block;
+  width: 800px;
+  height: 150px; 
+  text-align: justify;
+  text-justify: inter-word;
+  
+  font: 22px/24px "Times New Roman", Geneva;
+  
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.nametext
+{
+  font: 20px/24px "Times New Roman", Geneva;
+}
+
+#cardnamefields
+{
+  display: block;
+  width: 800px;
+  margin: 40px 0px 0px 50px;
+}
+
+.flex
+{
+  display: flex;
+}
+
+
+.len1
+{
+  width: 645px;
+}
+
+.len2
+{
+  width: 639px;
+}
+
+
+.len3
+{
+  width: 543px;
+}
+
+.len4
+{
+  width: 405px;
+}
+
+.underline1
+{
+   display: block;
+   border-bottom: 1px solid #000000; 
+   margin: 0px 0px 0px 5px
+}
+
+
+#cardsignbox
+{
+  margin: 30px 0px 0px 0px;
+}
+
+#cardsignbox2
+{
+  margin: 30px 0px 0px 0px;
+}
+
+#carddatearea
+{
+  margin: 30px 0px 0px 0px;
+}
+
+#carddateissued
+{
+  margin: 0px 0px 0px 0px;
+  padding: 8px 5px 5px 5px;  
+}
+
+#cardexpirebox
+{
+  display: flex;
+  margin: 0px 0px 0px 400px;
+  padding: 8px 5px 5px 5px;  
+  border: 1px solid #000000; 
+}
+
+.dateeditbox
+{
+
+  margin: 6px 0px 0px -20px;
+  padding: 5px;
+  width: 80px;
+  border-radius: 25px;
+  background: #efefef;
+  outline: 0;
+  border: 2px solid #666666;
+}

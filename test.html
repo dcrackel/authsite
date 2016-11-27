@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-2.6.2.min.css"/>
+
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+<script src="./scripts/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
+
+<script>
+
+function testdb()
+{
+	$.ajax({
+		url: "http://www.castlewalls.com/auths/mid/dropdown.php",
+		type: 'GET',
+		contentType: "application/json",
+		dataType: "json",
+		data: {s: 'geb' },
+		success: function (result) {
+
+		var res = "";
+
+			$.each(result, function(idx, obj) {
+				//alert(obj.login);
+				res = res + "<div class=''>" + obj.name + " " + obj.type + "</div>"
+			});
+
+		$("#result").html(res);
+
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		}
+	});
+}
+
+$(function(){
+
+            $('#demo').mobiscroll().date({
+                dateFormat: 'M dd, yyyy',
+                theme: 'wp',
+                accent: 'steel',
+                display: 'bubble',
+                mode: 'scroller',
+                maxDate: new Date(),
+                onShow: function () {
+                    $(this).mobiscroll('setDate', new Date($('#datebox').val()), false);
+                }
+            });
+
+
+});
+
+
+function showPop()
+{
+        $('#demo').mobiscroll('show');
+        return false;
+}
+
+function clearPop()
+{
+
+        $('#demo').mobiscroll('clear');
+        return false;
+}
+
+</script>
+
+</head>
+<body>
+
+
+<button onClick='testdb();'>test db</button>
+
+<div id="result"></div>
+
+
+<input id="demo" placeholder="Please Select ..." />
+
+<button id="clear" onClick="clearPop()">Clear</button>
+<button id="show" onClick="showPop()">Show</button>
+
+
+
+</body>
+</html>

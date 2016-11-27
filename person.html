@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>Midrealm Authorization look-up</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<script src="./scripts/jquery-1.11.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+
+
+</head>
+<body>
+
+	<div id='logobox'>
+		<div id='logo'></div>
+		<div id='titlebox'><input id='searchbox' type='text' onclick="locationDrop()" onkeyup="filterLocationDropDown()"/><button id='search' type="submit" onClick="forwardToList()"><img class='smallbutton' src='./images/search.png' /></button></div>
+	</div>
+
+<!-- --------------------------------------------------------------- -->
+
+<div id='personcard' class='personcard'>
+	<div id='namebox'>
+		<div id='personicon'></div>
+		<div id='name'><div id='firstname'>Gebhard</div><div id='lastname'>Rauten</div></div>
+	</div>
+
+	<div id='groupbox' class='groupbox'>
+		<div id='locationicon'></div>
+		<div id='groupname'><div id='locationname' class='locname' >Tirnewydd</div><div id='locationdropdown' style='display:none;'></div></div>
+	</div>
+
+	<div id='editicon' onClick='expandPersonalData();'></div>
+
+	<div id='hiddenperson' style="display: none;">
+	<div id='personalinfobox'>
+	<div class='infoheader'>Legal First Name</div>
+    <input class="textinputbar" value='Dwain' />
+	<div class='infoheader'>Legal Last Name</div>
+    <input class="textinputbar" value='Crackel' />
+	<div class='infoheader' >Member Number</div>
+    <input class="textinputbar readonly" value='1234567890' readonly />
+	<div class='infoheader'>Birth Day</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>Phone Number</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>Email Address</div>
+    <input class="textinputbar" />
+
+	</div>
+
+	<div id='addressinfobox'>
+	<div class='infoheader'>Street Address 1</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>Street Address 2</div>
+    <input class="textinputbar"  />
+	<div class='infoheader'>City</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>State</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>Zip Code</div>
+    <input class="textinputbar" />
+	<div class='infoheader'>Favorite Type of Pie</div>
+    <input class="textinputbar" />
+	</div>
+	</div> <!-- end personalinfobox -->
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<div id='cardbox'>
+	<div id='armored' class='card'>
+	<div id='armoredheader' class='cardheader'>
+		<div id='armoredicon' class='icon'></div>
+		<div class='headertext'>Armored Combat</div>
+		<div class='postdate'>
+			<div class='postmonth'>Dec</div>
+			<div class='postday'>18</div>
+		</div>
+	</div>
+	<hr class='style-one'>
+    <div id='authbox'>
+    	<div id='ssh' class='auth'><div class='authtext'>Sword & Shield</div></div>
+    	<div id='tw' class='auth'><div class='authtext'>Two Weapon</div></div>
+    	<div id='gs' class='auth'><div class='authtext'>Great Sword</div></div>
+     	<div id='sp' class='auth'><div class='authtext'>Spear</div></div>
+      	<div id='pa' class='auth'><div class='authtext'>Polearm</div></div>
+     	<div id='ca' class='auth'><div class='authtext'>Combat Archery</div></div>
+       	<div id='sc' class='auth'><div class='authtext'>Siege Crew</div></div>
+     	<div id='se' class='auth'><div class='authtext'>Siege Engine</div></div>
+    </div>
+
+	</div>
+
+	<div id='Rapier' class='card'>
+	<div id='armoredheader' class='cardheader'>
+	  <div id='rapiericon' class='icon'></div>
+	  <div class='headertext'>Rapier Combat</div>
+		<div class='postdate' style='background-color: #c61004;'>
+			<div class='postmonth'>OCT</div>
+			<div class='postday'>12</div>
+		</div>
+	</div>
+	<hr class='style-one'>
+    <div id='authbox'>
+    	<div id='sr' class='auth'><div class='authtext'>Single Rapier</div></div>
+    	<div id='da' class='auth'><div class='authtext'>Dagger</div></div>
+    	<div id='pd' class='auth'><div class='authtext'>Parry</div></div>
+     	<div id='cs' class='auth'><div class='authtext'>Case</div></div>
+     	<div id='ls' class='auth'><div class='authtext'>Long Sword</div></div>
+     	<div id='cut' class='auth'><div class='authtext'>Cut & Thrust</div></div>
+    </div>
+	</div>
+
+
+	<div id='Equestrian' class='card'>
+	<div id='armoredheader' class='cardheader'>
+		<div id='equestrianicon' class='icon'></div>
+		<div class='headertext'>Equestrian</div>
+		<div class='postdate'>
+			<div class='postmonth'>Sep</div>
+			<div class='postday'>2</div>
+		</div>
+	</div>
+	<hr class='style-one'>
+    <div id='authbox'>
+    	<div id='gr' class='auth'><div class='authtext'>General Riding</div></div>
+    	<div id='mg' class='auth'><div class='authtext'>Mounted Games</div></div>
+    	<div id='mc' class='auth'><div class='authtext'>Armored Combat</div></div>
+     	<div id='cc' class='auth'><div class='authtext'>Crest Combat</div></div>
+     	<div id='dr' class='auth'><div class='authtext'>Driving</div></div>
+     	<div id='ma' class='auth'><div class='authtext'>Mounted Archery</div></div>
+     	<div id='js' class='auth'><div class='authtext'>Joust</div></div>
+    </div>
+	</div>
+
+	<div id='Youth' class='card'>
+	<div id='armoredheader' class='cardheader'>
+		<div id='youthicon' class='icon'></div>
+		<div class='headertext'>Youth</div>
+		<div class='postdate'>
+			<div class='postmonth'>Oct</div>
+			<div class='postday'>13</div>
+		</div>
+	</div>
+	<hr class='style-one'>
+    <div id='authbox'>
+    	<div id='div1' class='auth'><div class='authtext'>Division 1</div></div>
+    	<div id='div2' class='auth'><div class='authtext'>Division 2</div></div>
+    	<div id='div3' class='auth'><div class='authtext'>Division 3</div></div>
+    </div>
+	</div>
+
+	<div id='Marshaling' class='card'>
+	<div id='armoredheader' class='cardheader'>
+		<div id='mashallingicon' class='icon'></div>
+		<div class='headertext'>Marshaling</div>
+		<div class='postdate'>
+			<div class='postmonth'>Jan</div>
+			<div class='postday'>22</div>
+		</div>
+	</div>
+	<hr class='style-one'>
+    <div id='authbox'>
+    	<div id='mar' class='auth'><div class='authtext'>Armored</div></div>
+    	<div id='mrp' class='auth'><div class='authtext'>Rapier</div></div>
+    	<div id='meq' class='auth'><div class='authtext'>Equestrian</div></div>
+     	<div id='mac' class='auth'><div class='authtext'>Archery</div></div>
+     	<div id='mtw' class='auth'><div class='authtext'>Thrown Weapons</div></div>
+     	<div id='myo' class='auth'><div class='authtext'>Youth</div></div>
+     	<div id='mse' class='auth'><div class='authtext'>Siege Engine</div></div>
+      	<div id='mct' class='auth'><div class='authtext'>Cut & Thrust</div></div>
+    </div>
+	</div>
+
+
+</div>
+
+</body>
+</html>
