@@ -181,7 +181,7 @@ function addPerson()
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {pId: 0, scaName: newUserFirstName, scaLast: newUserLastName, aFn:1},
+		data: {pId: 0, scaName: newUserFirstName, scaLast: newUserLastName, aFn:1, user: $.userName},
 		success: function (result) {
 			var newid = result;
 			loadPersonFromURL(newid);
@@ -195,6 +195,11 @@ function addPerson()
 
 function removePerson()
 {
+    if(!confirm("Are you sure you want to DELETE this person?"))
+    {
+        return;        
+    }
+    
 	var personId = $('#innerpersoncard').attr('pid');
 
 	$.ajax({
@@ -202,7 +207,7 @@ function removePerson()
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {pId: $('#innerpersoncard').attr('pid'), scaName: $("#searchbox").val(), aFn:0},
+		data: {pId: $('#innerpersoncard').attr('pid'), scaName: $("#searchbox").val(), aFn:0, user: $.userName},
 		success: function (result) {
 			loadPersonFromURL(-1);
 		},
@@ -252,15 +257,15 @@ function clearAuthTypesForReload()
                         $("#cardcc").addClass("op5");
                         $("#cardmc").addClass("op5");
                         $("#cardjs").addClass("op5");
-                        $("#cardmar").addClass("op5");
-                        $("#cardcae").addClass("op5");
-                        $("#cardmrp").addClass("op5");
-                        $("#cardmac").addClass("op5");
-                        $("#cardmeq").addClass("op5");
-                        $("#cardmse").addClass("op5");
-                        $("#cardmtw").addClass("op5");
-                        $("#cardmyo").addClass("op5");
-                        $("#cardmct").addClass("op5");
+                        $("#cardmar").addClass("op0");
+                        $("#cardcae").addClass("op0");
+                        $("#cardmrp").addClass("op0");
+                        $("#cardmac").addClass("op0");
+                        $("#cardmeq").addClass("op0");
+                        $("#cardmse").addClass("op0");
+                        $("#cardmtw").addClass("op0");
+                        $("#cardmyo").addClass("op0");
+                        $("#cardmct").addClass("op0");
                             
 }
 
@@ -593,7 +598,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mar' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmar").removeClass("op5");
+						$("#cardmar").removeClass("op0");
 						break;
 					case '38': //Combat Archery Equipment
 						if (obj.expire_date != null){
@@ -601,7 +606,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='cae' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardcae").removeClass("op5");
+						$("#cardcae").removeClass("op0");
 						break;
 					case '39': //rapier marshal
 						if (obj.expire_date != null){
@@ -609,7 +614,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mrp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmrp").removeClass("op5");
+						$("#cardmrp").removeClass("op0");
 						break;
 					case '40': //Archery marshal
 						if (obj.expire_date != null){
@@ -617,7 +622,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mac' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmac").removeClass("op5");
+						$("#cardmac").removeClass("op0");
 						break;
 					case '41': //Equestrian marshal
 						if (obj.expire_date != null){
@@ -625,7 +630,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='meq' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmeq").removeClass("op5");
+						$("#cardmeq").removeClass("op0");
 						break;
 					case '42': //Siege marshal
 						if (obj.expire_date != null){
@@ -633,7 +638,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mse' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmse").removeClass("op5");
+						$("#cardmse").removeClass("op0");
 						break;
 					case '43': //Thrown Weapon	 marshal
 						if (obj.expire_date != null){
@@ -641,7 +646,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mtw' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmtw").removeClass("op5");
+						$("#cardmtw").removeClass("op0");
 						break;
 					case '44': //Youth marshal
 						if (obj.expire_date != null){
@@ -649,7 +654,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='myo' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmyo").removeClass("op5");
+						$("#cardmyo").removeClass("op0");
 						break;
 					case '45': //Cut & Thrust marshal
 						if (obj.expire_date != null){
@@ -657,7 +662,7 @@ function buildPersonAuths(personId)
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mct' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
-						$("#cardmct").removeClass("op5");
+						$("#cardmct").removeClass("op0");
 						break;
 					case '46': //Clerk of Roster
 						if (obj.expire_date != null){
@@ -737,8 +742,12 @@ function buildPersonAuths(personId)
 
 
 		res = resArmored + resRapier + resCant + resEq + resYouth + resMarshal;
-
 		$("#cardbox").html(res);
+
+        sortPrintAuthBoxElements('#cardarmoredbox');
+        sortPrintAuthBoxElements('#cardrapierbox');
+        sortPrintAuthBoxElements('#cardyouthbox');
+        sortPrintAuthBoxElements('#cardequestrianbox');
 
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
@@ -747,6 +756,44 @@ function buildPersonAuths(personId)
 	});
 
 }
+
+
+function sortPrintAuthBoxElements(tagname)
+{
+        var hasFoundNoAuth = false;
+        var countOfAuths = 0;
+        var $boxelements = $(tagname).children();
+        $boxelements.sort(function(a,b){
+                var $first = $(a).children(":first"),
+                    $second = $(b).children(":first");
+
+                if ($first.hasClass('op5') && !$second.hasClass('op5')) {
+                    return 1;
+                
+                } else {
+                    return -1;
+                }
+            
+            });
+
+        $boxelements.each(function (index){
+                    if ( $(this).children(":first").hasClass('op5')){
+                        if(!hasFoundNoAuth){
+                            $(this).prepend("<armorednoauthheader class='authheader'>Not-Authorized</armorednoauthheader>");
+                            hasFoundNoAuth = true;
+                        }
+                    } else {
+                       countOfAuths++;
+                    }
+        });
+            
+        if(countOfAuths > 0){
+            $boxelements.first().prepend("<armoredauthheader class='authheader'>Authorized</armoredauthheader>");
+        }
+        
+        $(tagname).html($boxelements);    
+}
+
 
 function buildPersonNote(personId)
 {

@@ -8,6 +8,7 @@
 	$scaName = $_GET['scaName'];
     $scaLast = $_GET['scaLast'];
 	$addfunction = $_GET['aFn'];
+    $user = $_GET['user'];
 
 	$today = date("Y-m-d H:i:s");
 
@@ -34,7 +35,8 @@
 	}
 
 	if (strpos($addfunction,'0') !== false) {
-		$sql = "delete from authorization where person_id = $personId;";
+		//$sql = "delete from authorization where person_id = $personId;";
+        $sql = "update authorization set deleted = 1, deleted_by = '" . $user . "'";
 
 		if ($conn->query($sql) === TRUE) {
 			$final_res = 0;
@@ -42,7 +44,8 @@
 			$final_res =json_encode("Error2: " . $sql . " " . $conn->error) ;
 		}
 
-		$sql = "delete from person where person_id = $personId;";
+		//$sql = "delete from person where person_id = $personId;";
+        $sql = "update person set deleted = 1, deleted_by = '" . $user . "'";
 		if ($conn->query($sql) === TRUE) {
 			$final_res = $final_res + 1;
 		} else {

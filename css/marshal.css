@@ -37,6 +37,11 @@ body
  opacity: 0.8;
 }
 
+.op0
+{
+ opacity: 0.0;
+}
+
 .btn-minimal {
   background-color: rgb(255,255,255);
   border-radius: 0;
@@ -1900,6 +1905,29 @@ border-radius: 10px 10px 10px 10px;
    border: 1px solid #000000; 
 }
 
+#cardrapierbox
+{
+   display: block;
+   width: 200px;
+   height: 260px;
+   border: 1px solid #000000; 
+}
+
+#cardyouthbox
+{
+   display: block;
+   width: 200px;
+   height: 260px;
+   border: 1px solid #000000; 
+}
+
+#cardequestrianbox
+{
+   display: block;
+   width: 200px;
+   height: 260px;
+   border: 1px solid #000000; 
+}
 #cardrapier
 {
    display: block;
@@ -1949,7 +1977,7 @@ border-radius: 10px 10px 10px 10px;
 
 #cardauthtext
 {
-  font: 18px/19px "Times New Roman", Geneva;
+  font: 16px/17px "Times New Roman", Geneva;
   margin-top: 4px;
 }
 
@@ -1967,7 +1995,7 @@ border-radius: 10px 10px 10px 10px;
 .authrow
 {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
 }
 
 .mgleft1
@@ -2075,4 +2103,15 @@ border-radius: 10px 10px 10px 10px;
   background: #efefef;
   outline: 0;
   border: 2px solid #666666;
+}
+
+.authheader
+{
+    background: #000000;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 8pt;
+    text-transform: uppercase;
 }

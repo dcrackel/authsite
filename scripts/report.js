@@ -1,5 +1,3 @@
-var x = 0;
-
 $(document).ready(function() {
     
     $('#alllocation').html(populateLocations());
@@ -11,18 +9,8 @@ $(document).ready(function() {
 
 function addfilter(tagname)
 {
-    // $(  "searchbox" ).clone().appendTo( "everythingbar" );
-   $('#'+ tagname).after('<searchbox id="everythinsearch'+x+'">' +
-                         '<locationdropdown id="allauthtype" class="allauthtype" style="display: none;"><div id="updateauthtype" authtypeid="1" class="locitem" onclick="changeType()" ;="">' +
-                         '<div class=""></div> Please Select </div>' +
-                         '<div id="updateauthtype" authtypeid="1" class="locitem" onclick="changeType()" ;=""><div class=""></div> Authorization</div>' +
-                         '<div id="updateauthtype" authtypeid="1" class="locitem" onclick="changeType()" ;=""><div class=""></div> Location</div></locationdropdown><filtertype id="topfilter">' +
-                         '<input id="edittype" class="authtype" groupid="0" value="" onclick="authTypeDrop("allauthtype","edittype")" onkeyup="" style="border-radius: 10px;"></filtertype>     <locationdropdown id="alllocation" class="allauthtype" style="display: none;"></locationdropdown><filterdata>'+                        
-                         '<input id="editlocationname" class="locationtype" groupid="0" value="" onclick="locationDrop("alllocation", "editlocationname")" onkeyup="filterLocationDropDown()" style="border-radius: 10px;"></filterdata>'+
-                         '<removebox onclick="$(this).parent().remove();"><removeicon></removeicon><removetext>Remove</removetext></removebox>'+            
-                         '</searchbox>'); 
+    $('#'+ tagname).after('<searchbox><filtertype><select><option value="authtype">----</option></select></filtertype><filterdata><select><option value="">----</option></select></filterdata><removebox onClick="$(this).parent().remove();"><removeicon></removeicon><removetext>Remove</removetext></removebox></searchbox>');
     
-    x++;
 }
 
 /*
@@ -32,47 +20,47 @@ function removefilter(this)
 }
 */
 
-function authTypeDrop(tagname, parenttag)
+function authTypeDrop(tagname)
 {
 
 		if ($('#'+tagname).is(":visible"))
 		{
-			hideAuthTypeDrop(tagname, parenttag);
+			hideAuthTypeDrop(tagname);
 		} else {
 			$('#'+tagname).show();
-			$('#'+parenttag).css("-moz-border-radius","10px 10px 0px 0px");
-			$('#'+parenttag).css("border-radius","10px 10px 0px 0px");
+			$('#editlocationname').css("-moz-border-radius","10px 10px 0px 0px");
+			$('#editlocationname').css("border-radius","10px 10px 0px 0px");
 		}
 	
 }
 
-function hideAuthTypeDrop(tagname, parenttag)
+function hideAuthTypeDrop(tagname)
 {
 	$('#'+tagname).hide();
-	$('#'+parenttag).css("-moz-border-radius","10px 10px 10px 10px");
-	$('#'+parenttag).css("border-radius","10px 10px 10px 10px");
+	$('#editlocationname').css("-moz-border-radius","10px 10px 10px 10px");
+	$('#editlocationname').css("border-radius","10px 10px 10px 10px");
 }
 
 
-function locationDrop(tagname, parenttag)
+function locationDrop(tagname)
 {
 
 		if ($('#'+tagname).is(":visible"))
 		{
-			hideLocationDrop(tagname, parenttag);
+			hideLocationDrop(tagname);
 		} else {
 			$('#'+tagname).show();
-			$('#'+parenttag).css("-moz-border-radius","10px 10px 0px 0px");
-			$('#'+parenttag).css("border-radius","10px 10px 0px 0px");
+			$('#editlocationname').css("-moz-border-radius","10px 10px 0px 0px");
+			$('#editlocationname').css("border-radius","10px 10px 0px 0px");
 		}
 	
 }
 
-function hideLocationDrop(tagname, parenttag)
+function hideLocationDrop(tagname)
 {
 	$('#'+tagname).hide();
-	$('#'+parenttag).css("-moz-border-radius","10px 10px 10px 10px");
-	$('#'+parenttag).css("border-radius","10px 10px 10px 10px");
+	$('#editlocationname').css("-moz-border-radius","10px 10px 10px 10px");
+	$('#editlocationname').css("border-radius","10px 10px 10px 10px");
 }
 
 function filterLocationDropDown()

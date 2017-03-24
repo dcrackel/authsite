@@ -1073,20 +1073,13 @@ sumnum
 total
 {
     display: block;
-    /* position: absolute; */
+    position: absolute;
     z-index:  2;
-    /* margin: -5px 0px 0px -138px; */
+    margin: -5px 0px 0px -138px;
     font-family: Verdana, Geneva, sans-serif;
     font-weight: bold;
     font-size: 32pt;
     color: #dedede;
-}
-
-#marshaltotal
-{
-    display: block;
-    z-index:  3;
-    margin: -5px 0px 0px -138px; 
 }
 
 upper
@@ -1234,7 +1227,6 @@ searchbox
 {
     display: flex;
     flex-direction: row;
-    margin: 10px 0px 10px 0px;
 }
 
 addbox
@@ -1276,7 +1268,7 @@ removebox
     width: 105px;
     height: 20px;
     padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 80px;
+    margin: 0px 0px 0px 405px;
     border-radius: 20px;
 }
 
@@ -1373,7 +1365,7 @@ filterdata
 }
 
 
-.allauthtype {
+#allauthtype {
     position: absolute;
     width: 230px;
     height: 280px;
