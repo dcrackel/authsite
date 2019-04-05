@@ -295,6 +295,7 @@ function buildPersonAuths(personId)
 	var youthdate = new Date(1900, 1, 1);
 	var eqdate = new Date(1900, 1, 1);
 	var tempDate = new Date(1900, 1, 1);
+    var globalDate = new Date(1900, 1, 1);
 	var today = new Date();
 
 	$.ajax({
@@ -305,7 +306,6 @@ function buildPersonAuths(personId)
 		data: {pId: personId},
 		success: function (result) {
 
-
 		$.each(result, function(idx, obj) {
 
 				switch(obj.type_id) {
@@ -314,6 +314,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='ssh' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardssh").removeClass("op5");
@@ -322,6 +323,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='tw' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardtw").removeClass("op5");
@@ -330,6 +332,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='gs' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardgs").removeClass("op5");
@@ -338,6 +341,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='sp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardsp").removeClass("op5");
@@ -346,6 +350,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='pa' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardpa").removeClass("op5");
@@ -354,6 +359,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='ysp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardysp").removeClass("op5");
@@ -362,6 +368,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='ca' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardca").removeClass("op5");
@@ -370,6 +377,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='sc' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardsc").removeClass("op5");
@@ -378,6 +386,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resArmored = resArmored + "<div id='se' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardse").removeClass("op5");
@@ -386,6 +395,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='sr' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardsr").removeClass("op5");
@@ -394,6 +404,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='da' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardda").removeClass("op5");
@@ -402,6 +413,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='pd' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardpd").removeClass("op5");
@@ -410,6 +422,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='cs' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardcs").removeClass("op5");
@@ -418,6 +431,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='ls' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardls").removeClass("op5");
@@ -426,6 +440,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='ep' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardep").removeClass("op5");
@@ -434,6 +449,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > rapierdate) rapierdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='cut' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardcut").removeClass("op5");
@@ -442,6 +458,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > armoreddate) armoreddate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resRapier = resRapier + "<div id='yrs' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardrsp").removeClass("op5");
@@ -489,6 +506,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div1' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv1").removeClass("op5");
@@ -497,6 +515,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div1rp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv1rp").removeClass("op5");
@@ -505,6 +524,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div2' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv2").removeClass("op5");
@@ -513,6 +533,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div22h' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv22h").removeClass("op5");
@@ -521,6 +542,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div2rp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv2rp").removeClass("op5");
@@ -530,6 +552,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div3' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv3").removeClass("op5");
@@ -538,6 +561,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div32h' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv32h").removeClass("op5");
@@ -546,6 +570,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > youthdate) youthdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resYouth = resYouth + "<div id='div3rp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddiv3rp").removeClass("op5");
@@ -555,6 +580,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='gr' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardgr").removeClass("op5");
@@ -563,6 +589,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='mg' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmg").removeClass("op5");
@@ -571,6 +598,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='ma' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardma").removeClass("op5");
@@ -579,6 +607,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='dr' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#carddr").removeClass("op5");
@@ -587,6 +616,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='cc' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardcc").removeClass("op5");
@@ -595,6 +625,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='mc' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmc").removeClass("op5");
@@ -603,6 +634,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > eqdate) eqdate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resEq = resEq + "<div id='js' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardjs").removeClass("op5");
@@ -613,6 +645,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mar' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmar").removeClass("op0");
@@ -621,6 +654,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='cae' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardcae").removeClass("op0");
@@ -629,6 +663,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mrp' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmrp").removeClass("op0");
@@ -637,6 +672,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mac' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmac").removeClass("op0");
@@ -645,6 +681,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='meq' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmeq").removeClass("op0");
@@ -653,6 +690,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mse' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmse").removeClass("op0");
@@ -661,6 +699,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mtw' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmtw").removeClass("op0");
@@ -669,6 +708,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='myo' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmyo").removeClass("op0");
@@ -677,6 +717,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mry' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardrym").removeClass("op0");
@@ -694,6 +735,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mhc' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$('#cardmhc').removeClass("op0");
@@ -703,6 +745,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='cr' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						break;
@@ -710,6 +753,7 @@ function buildPersonAuths(personId)
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
+                            if (tempDate > globalDate) globalDate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='kem' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						break;
@@ -719,7 +763,7 @@ function buildPersonAuths(personId)
 				}
 		});
 
-   		    $("#cardexp").text((tempDate.getMonth() +1) + "-" + tempDate.getDay() + "-" + tempDate.getFullYear());
+   		    $("#cardexp").text((globalDate.getMonth() +1) + "-" + globalDate.getDate() + "-" + globalDate.getFullYear());
 
 			if (marshaldate.getFullYear() > 1969){
 			  var expiredCard = "postdate";
