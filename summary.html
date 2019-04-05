@@ -2,7 +2,7 @@
 <head>
   
 <title>Midrealm Authorization look-up</title>
-<link rel="image_src" href="http://www.castlewalls.com/auths/images/logo.png" / >
+<link rel="image_src" href="./images/logo.png" / >
 <link rel="stylesheet" type="text/css" href="./css/marshal.css" />
 <link rel="stylesheet" type="text/css" href="./css/summery.css" />
 
@@ -15,11 +15,11 @@
 
 
     <meta property="og:locale" content="en_US">    
-    <meta property="og:image" content="http://www.castlewalls.com/auths/images/BigLogo.jpg" />
+    <meta property="og:image" content="./images/logo.jpg" />
     <meta property="og:type" content="article">
     <meta property="og:title" content="The Midrealm's Martial Authorizations">
     <meta property="og:description" content="If you have participated in martial activities in the Midrealm, you have an authorization page. Take a look! If you do not, please contact your regional marshal.">
-    <meta property="og:url" content="http://www.castlewalls.com/auths/summary.html">
+    <meta property="og:url" content="summary.html">
     <meta property="og:site_name" content="Midrealm's Martial Authorizations">    
     
 </head>
@@ -32,8 +32,11 @@
 		</div>
         
         <navmenu>
+            <activereport onclick="window.location = 'activereport.html';"></activereport>
 	        <authreport onclick="window.location = 'summary.html';"></authreport>
-            <div id='login' class='login' onclick="window.location = 'login.html';"></div>
+            <loginbutton>
+            <a href='login.html' class='login' style='text-decoration: none;'></a>
+            </loginbutton>
         </navmenu>
 
 	</div>
@@ -46,7 +49,7 @@
 			<smallertext>This chart is a break down of fighters by region. If a person has sword & board and polearm, this only counts as one. If they have autherizations in two (or more) different categories say sword & board and single rapier, then they will count in the armored and rapier totals.</smallertext>
 		</mapbanner>
 		<mapbox>
-			<loctext class='penttext'><a href='http://www.castlewalls.com/auths/authorization.html#r3'>Pentamere</a></loctext>
+			<loctext class='penttext'><a href='http://marshaldb.midrealm.org/authorization.html#r3'>Pentamere</a></loctext>
 			<dot class='pentdot'></dot>
 			<line1 class='pentline1'></line1>
 			<line2 class='pentline2'></line2>
@@ -61,7 +64,7 @@
 				<bar id='pentamerebar6' class=''>0</bar>
 			</bargraph>
 
-            <loctext class='noaktext'><a href='http://www.castlewalls.com/auths/authorization.html#r5'>North Oaken</a></loctext>
+            <loctext class='noaktext'><a href='http://marshaldb.midrealm.org/authorization.html#r5'>North Oaken</a></loctext>
 			<dot class='noakdot'></dot>
 			<line1 class='noakline1'></line1>
 			<line2 class='noakline2'></line2>
@@ -76,7 +79,7 @@
 				<bar id='northoakenbar6' class=''>0</bar>
 			</bargraph>
 
-            <loctext class='soaktext'><a href='http://www.castlewalls.com/auths/authorization.html#r4'>South Oaken</a></loctext>
+            <loctext class='soaktext'><a href='http://marshaldb.midrealm.org/authorization.html#r4'>South Oaken</a></loctext>
 			<dot class='soakdot'></dot>
 			<line1 class='soakline1'></line1>
 			<line2 class='soakline2'></line2>
@@ -91,7 +94,7 @@
 				<bar id='southoakenbar6' class=''>0</bar>
 			</bargraph>
 
-            <loctext class='consttext'><a href='http://www.castlewalls.com/auths/authorization.html#r1'>Constellation</a></loctext>
+            <loctext class='consttext'><a href='http://marshaldb.midrealm.org/authorization.html#r1'>Constellation</a></loctext>
 			<dot class='constdot'></dot>
 			<line1 class='constline1'></line1>
 			<line2 class='constline2'></line2>
@@ -106,7 +109,7 @@
 				<bar id='constellationbar6' class=''>0</bar>
 			</bargraph>
 
-            <loctext class='midtext'><a href='http://www.castlewalls.com/auths/authorization.html#r2'>Midlands</a></loctext>
+            <loctext class='midtext'><a href='http://marshaldb.midrealm.org/authorization.html#r2'>Midlands</a></loctext>
 			<dot class='middot'></dot>
 			<line1 class='midline1'></line1>
 			<line2 class='midline2'></line2>

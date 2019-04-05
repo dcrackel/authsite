@@ -1,8 +1,8 @@
 <?php
-    $hostname="localhost";
-    $username="rocco";
-    $password="M1dr34lm";
-    $dbname="rocco_auths";
+    $hostname="localhost:3306";
+    $username="marshaldbmidreal"; //marshaldbmidreal_authsite rocco_auths
+    $password="Cando@123"; //Dr4g0nMidrealm! Dr4g0n
+    $dbname="marshald_marshaldb"; //marshald_marshaldb rocco_auths
 
 	$pId = $_GET['pId'];
 	$tId = $_GET['tId'];

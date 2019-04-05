@@ -37,7 +37,7 @@ var armoredsmalltext 	= 'This includes all people who have any type of Armored, 
 var rapiersmalltext 	= 'This includes all people who have any type of Rapier authorization.';
 var equestriansmalltext = 'This includes all people who have any type of Equestrian authorization.';
 var youthsmalltext 		= 'This includes all Youth fighters.  A youth is anyone under 18 who has not authorized to fight with adults after age 16.';
-var ctsmalltext 		= 'This includes all people who have any type of Cut & Thrust authorization.';
+//var ctsmalltext 		= 'This includes all people who have any type of Cut & Thrust authorization.';
 
 
 $( document ).ready(function() {
@@ -49,7 +49,7 @@ $( document ).ready(function() {
 	rapierdetails = getDetailForCategory(5);
 	equestriandetails = getDetailForCategory(8);
 	youthdetails = getDetailForCategory(6);
-	ctdetails = getDetailForCategory(9);
+	//ctdetails = getDetailForCategory(9);
 
 
 
@@ -60,7 +60,7 @@ $( document ).ready(function() {
 	$('summerydetails').append(buildSummeryDetail('Rapier', rapierdetails, rapiersmalltext, 5));
 	$('summerydetails').append(buildSummeryDetail('Equestrian', equestriandetails, equestriansmalltext, 8));
 	$('summerydetails').append(buildSummeryDetail('Youth', youthdetails, youthsmalltext, 6));
-	$('summerydetails').append(buildSummeryDetail('ct', ctdetails, ctsmalltext, 9));
+	//$('summerydetails').append(buildSummeryDetail('ct', ctdetails, ctsmalltext, 9));
 });
 
 function buildSummeryDetail(category, array, smalltext, typeId)
@@ -107,7 +107,7 @@ function getSummeryData()
 	var rows = 0;
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/summerytotals.php",
+		url: "https://marshaldb.midrealm.org/mid/summerytotals.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -200,7 +200,7 @@ function getDetailForCategory(categoryId)
 {
 	var ret = [] ;
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/summerydetails.php",
+		url: "https://marshaldb.midrealm.org/mid/summerydetails.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",

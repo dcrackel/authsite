@@ -1,0 +1,318 @@
+.filterbox3
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 890px;
+    /* padding: 10px; */
+    align-items: flex-start;
+}
+
+detailsheader2 {
+    background-color: #d0d0d0;
+    width: 100%;
+    /* height: 150px; */
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 15px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.loctext
+{
+  margin-top: 4px;
+  text-align: center;  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9px;  
+}
+
+regionbox
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 0px 10px;
+}
+
+.region1
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_Constellation.png');
+  background-repeat: no-repeat;
+}
+
+.region1select
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_Constellation2.png');
+  background-repeat: no-repeat;
+}
+
+.region2
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_midlands.png');
+  background-repeat: no-repeat;  
+}
+
+.region2select
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_midlands2.png');
+  background-repeat: no-repeat;  
+}
+
+.region3
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_pentamere.png');
+  background-repeat: no-repeat;  
+}
+
+.region3select
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_pentamere2.png');
+  background-repeat: no-repeat;  
+}
+
+.region4
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_soaken.png');
+  background-repeat: no-repeat;  
+}
+
+.region4select
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_soaken2.png');
+  background-repeat: no-repeat;  
+}
+
+.region5
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_noaken.png');
+  background-repeat: no-repeat;  
+}
+
+.region5select
+{
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../images/loc_noaken2.png');
+  background-repeat: no-repeat;  
+}
+
+.marshalicon2 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0px 10px 0px 10px;
+}
+
+auttypebox
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 0px 10px;    
+}
+
+authtext
+{
+    margin-top: 0px;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 9px;
+}
+    
+.authType1
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/marshalling2.png);
+    background-repeat: no-repeat;
+}
+
+.authType1select
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/marshalling.png);
+    background-repeat: no-repeat;
+}
+
+.authType3
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/armored2.png);
+    background-repeat: no-repeat;
+}
+
+.authType3select
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/armored.png);
+    background-repeat: no-repeat;
+}
+
+.authType5
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/rapier2.png);
+    background-repeat: no-repeat;
+}
+
+.authType5select
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/rapier.png);
+    background-repeat: no-repeat;
+}
+
+.authType6
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/youth2.png);
+    background-repeat: no-repeat;
+}
+
+.authType6select
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/youth.png);
+    background-repeat: no-repeat;
+}
+
+.authType8
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/equestrian2.png);
+    background-repeat: no-repeat;
+}
+
+.authType8select
+{
+    width: 50px;
+    height: 50px;
+    
+    background-image: url(../images/equestrian.png);
+    background-repeat: no-repeat;
+}
+
+reportsection
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+reportrow
+{
+    display:flex;
+    width: 100%;
+    margin: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+}
+
+reportrow:hover{
+    background: #aaaaaa;
+}
+
+reportrow2
+{
+    display: flex;
+    width: 100%;
+    margin: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+    border-bottom: 1px solid #999999;
+    border-top: 1px solid #999999;
+    margin: 0px 0px 0px 0px;
+}
+
+rowitem
+{
+    margin: 5px;
+}
+
+rowdata
+{
+    width: 50%;
+    padding: 5px 0px 0px 0px;
+}
+
+rowcheckboxes
+{
+    display: flex;
+    width: 50%;
+}
+
+rowcheckboxes2
+{
+    display: flex;
+    width: 50%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+#branch
+{
+    font-size: 9px;
+    font-weight: 300;
+    color: #999999;
+}
+
+.container2
+{
+    padding: 0px 0px 0px 15px;
+    margin: 0px;
+}
+
+.expired
+{
+    color:red;
+}

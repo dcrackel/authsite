@@ -32,13 +32,13 @@
             <everythingheader>Search by all fields in this box</everythingheader>
             <everythingbar>
                 <searchbox id='everythinsearch1'>    
-                    <locationdropdown id='allauthtype' style="display: none;"></locationdropdown>
-                    <filtertype>
-                        <input id="editauthtype" class="authtype" groupid="0" value="" onClick="authTypeDrop('allauthtype')" onkeyup="" style="border-radius: 10px;">
+                    <locationdropdown id='allauthtype' class='allauthtype' style="display: none;"></locationdropdown>
+                    <filtertype id='topfilter'>
+                        <input id="edittype" class="authtype" groupid="0" value="" onClick="authTypeDrop('allauthtype','edittype')" onkeyup="" style="border-radius: 10px;">
                     </filtertype>
-                    <locationdropdown id='alllocation' style="display: none;"></locationdropdown>
+                    <locationdropdown id='alllocation' class='allauthtype' style="display: none;"></locationdropdown>
                     <filterdata>
-                        <input id="editlocationname" class="locationtype" groupid="0" value="" onClick="locationDrop('alllocation')" onkeyup="filterLocationDropDown()" style="border-radius: 10px;">
+                        <input id="editlocationname" class="locationtype" groupid="0" value="" onClick="locationDrop('alllocation', 'editlocationname')" onkeyup="filterLocationDropDown()" style="border-radius: 10px;">
                     </filterdata>
                     
                 </searchbox>
@@ -49,24 +49,14 @@
         <anything>
             <anythingheader>Search by any fields in this box</anythingheader>
             <anythingbar>
-                <searchbox id='anythingsearch1'>    
-                    <filtertype>
-                    <select>
-                      <option value="authtype">----</option>                
-                      <option value="authtype">Auth Type</option>
-                      <option value="loctype">Location</option>
-                    </select>
+                <searchbox id='anythingsearch1'> 
+                    <locationdropdown id='allauthtype2' class='allauthtype' style="display: none;"></locationdropdown>
+                    <filtertype id='bottomfilter'>
+                    <input id="edittype2" class="authtype" value="" onClick="authTypeDrop('allauthtype2','edittype2')" onkeyup="" style="border-radius: 10px;">
                     </filtertype>
-                    
+                    <locationdropdown id='alllocation2' class='allauthtype' style="display: none;"></locationdropdown>
                     <filterdata>
-                    <select>
-                        <option value="">----</option>                
-                        <option value="">Sword & Shield</option>
-                        <option value="">Two Weapons</option>
-                        <option value="">Great Weapon</option>
-                        <option value="">Spear</option>
-                        <option value="">Polearm</option>
-                    </select>
+                        <input id="editlocationname2" class="locationtype" groupid="0" value="" onClick="locationDrop('alllocation2', 'editlocationname2')" onkeyup="filterLocationDropDown()" style="border-radius: 10px;">
                     </filterdata>
                 </searchbox>
                 <addbox onClick="addfilter('anythingsearch1')"><addicon></addicon><addtext>Add another filter</addtext></addbox>

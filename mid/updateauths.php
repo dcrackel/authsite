@@ -4,11 +4,13 @@
     $password="Cando@123"; //Dr4g0nMidrealm! Dr4g0n
     $dbname="marshald_marshaldb"; //marshald_marshaldb rocco_auths
 
-	$authid = $_GET['aId'];
-	$authnote = $_GET['authnote'];
-	$issued = $_GET['iss'];
+	$personId = $_GET['pId'];
 
-	//echo 'authid ' . $authid  . ' note ' . $note . ' issued ' . $issued;
+	$year2  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+2);
+	$expireDate = date("Y-m-d", $year2);
+	$today = date("Y-m-d h:i");
+
+	//echo 'personId ' . $personId  . ' authid ' . $authid . ' addfunction ' . $addfunction . ' usernote ' . $usernote;
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,10 +20,11 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "update authorization set `note` = '$authnote', issued = '$issued' where auth_id = $authid";
+	$sql = "update marshald_marshaldb.authorization set expire_date = '$today' where auth_id = 17312"; //person_id = $personId and 
+    echo $sql;
 
 	if ($conn->query($sql) === TRUE) {
-		$final_res =json_encode($authnote);
+		$final_res =json_encode("Complete") ;
 	} else {
 		$final_res =json_encode("Error: " . $sql . "<br>" . $conn->error) ;
 	}
@@ -30,3 +33,4 @@
 	echo $final_res;
 
 ?>
+

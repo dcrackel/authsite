@@ -1,8 +1,8 @@
 <?php
-    $hostname="localhost";
-    $username="rocco";
-    $password="M1dr34lm";
-    $dbname="rocco_auths";
+    $hostname="localhost:3306";
+    $username="marshaldbmidreal"; //marshaldbmidreal_authsite rocco_auths
+    $password="Cando@123"; //Dr4g0nMidrealm! Dr4g0n
+    $dbname="marshald_marshaldb"; //marshald_marshaldb rocco_auths
 
 	$personId = $_GET['pId'];
 	$authid = $_GET['aId'];
@@ -31,11 +31,17 @@
 		$sql = "delete from authorization where person_id = $personId AND type_id = $authid";
 	}
 
-
 	if ($conn->query($sql) === TRUE) {
-		$final_res =json_encode("Complete") ;
+		$final_res = 0;
 	} else {
-		$final_res =json_encode("Error: " . $sql . "<br>" . $conn->error) ;
+		$final_res =json_encode("Error1: " . $sql . "<br>" . $conn->error) ;
+	}
+
+    $sql2= "update authorization set expire_date = '$expireDate' where type_id IN (Select type_id from auth_type where category_id = (SELECT category_id from auth_type where type_id = $authid)) AND person_id = $personId";
+	if ($conn->query($sql2) === TRUE) {
+		$final_res = $final_res+1;
+	} else {
+		$final_res = json_encode("Error2: " . $sql . "<br>" . $conn->error) ;
 	}
 
 	$conn->close();

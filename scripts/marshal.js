@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    if (location.protocol == 'http:') location.href = location.href.replace(/^http:/, 'https:')
 	var s = readCookie('mrm');
 	var xmlDoc = $.parseXML( s );
 	var $xml = $( xmlDoc );
@@ -7,7 +7,8 @@ $(document).ready(function() {
 	$.pId = $xml.find('pid').text();
 	$.rank = parseInt($xml.find('rank').text());
 	$.userName = $xml.find('username').text();
-
+    $.loggedInUserName = "";
+    
 	if ($.rank == 46 || $.rank == 47){
 		$.inEditMode = true;
 	}
@@ -72,7 +73,8 @@ function printCard()
 {
 	$('#cardimage').width(315);
 	$('#cardimage').height(350);
-	$("#cardimage").printElement();
+    setTimeout(function(){ $("#cardimage").printElement();}, 1000);  
+	//$("#cardimage").printElement();
 }
 
 
@@ -83,7 +85,7 @@ $(document).click(function(event) {
 function logIn()
 {
 	var hash = $().crypt({method: "md5",source: $('#password').val()})
-	loginUser($('#username').val(),hash);
+	loginUser($('#username').val(), hash);
 }
 
 function forwardToPerson()
@@ -415,9 +417,9 @@ function setSelectionRange(input, selectionStart, selectionEnd) {
 
 function changeToTextField(tagid, typeid)
 {
-	//if (!$.session.changeDateBox) {
+	//if (!$.session.changeDateBox) { amoredtxt
             if ($('#' + tagid + "txt").length){
-
+                console.log("Hello");
             } else {
 				//alert($('#' + tagid + 'date').css('opacity'));
 				if ($('#' + tagid + 'date').css('opacity') == '0.5') return;
@@ -429,7 +431,7 @@ function changeToTextField(tagid, typeid)
 
 				var t = m + "/" + expday + "/" + expyear;
                 //$('#' + tagid).text('').append($('<input />',{'value' : t}).val(t));
-                $('#' + tagid + 'date').html('<input id="'+tagid +'txt" class="dateeditbox" value="' + t + '">');
+                $('#' + tagid + 'date').html('<input id="'+tagid +'txt" class="dateeditbox" onChange="updateAuthExpireDate("","","");" value="' + t + '">');
 
 			 };
 			 $.session.changeDateBox = true;

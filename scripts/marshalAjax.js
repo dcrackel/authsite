@@ -1,7 +1,5 @@
-		var monthNames = new Array("Jan", "Feb", "Mar",
-		"Apr", "May", "Jun", "Jul", "Aug", "Sep",
-		"Oct", "Nov", "Dec");
-
+var monthNames = new Array("Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec");
+var server = "https://marshaldb.midrealm.org/mid/"; //http://www.castlewalls.com/auths/mid/
 
 function getEverythingDropDownData(filterString)
 {
@@ -9,16 +7,16 @@ function getEverythingDropDownData(filterString)
 	filterString = escape(filterString);
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/dropdown.php",
+		url: server + "dropdown.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {s: filterString},
+		data: {s: filterString, l: $.userName},
 		success: function (result) {
             var rows = 0;
 
 			$.each(result, function(idx, obj) {
-				//alert(obj.login);
+				//alert(obj);
 				//res = res + "<div class=''>" + obj.name + " " + obj.type + "</div>"
 				var icon = "";
 				var onClick = "";
@@ -61,7 +59,7 @@ function buildPersonHeader(personId)
 	var res = "";
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/personheader.php",
+		url: server + "personheader.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -177,7 +175,7 @@ function addPerson()
     }
     
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/addremoveperson.php",
+		url: server + "addremoveperson.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -203,11 +201,11 @@ function removePerson()
 	var personId = $('#innerpersoncard').attr('pid');
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/addremoveperson.php",
+		url: server + "addremoveperson.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {pId: $('#innerpersoncard').attr('pid'), scaName: $("#searchbox").val(), aFn:0, user: $.userName},
+		data: {pId: $('#innerpersoncard').attr('pid'), scaName: $("#searchbox").val(), aFn:0, user: $.loggedInUserName},
 		success: function (result) {
 			loadPersonFromURL(-1);
 		},
@@ -226,6 +224,7 @@ function clearAuthTypesForReload()
                         $("#cardsp").addClass("op5");
                         $("#cardpa").addClass("op5");
                         $("#cardysp").addClass("op5");
+                        $("#cardrsp").addClass("op5");
                         $("#cardca").addClass("op5");
                         $("#cardsc").addClass("op5");
                         $("#cardse").addClass("op5");
@@ -235,11 +234,12 @@ function clearAuthTypesForReload()
                         $("#cardcs").addClass("op5");
                         $("#cardls").addClass("op5");
                         $("#cardep").addClass("op5");
-                        
                         $("#cardcut").addClass("op5");
+                        
+                       /*$("#cardcut").addClass("op5");
                         $("#cardcutda").addClass("op5");
                         $("#cardcutpa").addClass("op5");
-                        $("#cardcutca").addClass("op5");
+                        $("#cardcutca").addClass("op5"); */
                         
                         $("#carddiv1").addClass("op5");
                         $("#carddiv1rp").addClass("op5");
@@ -265,7 +265,8 @@ function clearAuthTypesForReload()
                         $("#cardmse").addClass("op0");
                         $("#cardmtw").addClass("op0");
                         $("#cardmyo").addClass("op0");
-                        $("#cardmct").addClass("op0");
+                        $("#cardrym").addClass("op0");
+                        //$("#cardmct").addClass("op0");
                             
 }
 
@@ -282,7 +283,7 @@ function buildPersonAuths(personId)
 	var res = "";
 	var resArmored = "";
 	var resRapier = "";
-    var resCant = ""; 
+    //var resCant = ""; 
 	var resEq = ""
 	var resYouth = "";
 	var resMarshal = "";
@@ -290,14 +291,14 @@ function buildPersonAuths(personId)
 	var marshaldate = new Date(1900, 1, 1);
 	var armoreddate = new Date(1900, 1, 1);
 	var rapierdate = new Date(1900, 1, 1);
-    var cantdate = new Date(1900, 1, 1);
+    //var cantdate = new Date(1900, 1, 1);
 	var youthdate = new Date(1900, 1, 1);
 	var eqdate = new Date(1900, 1, 1);
 	var tempDate = new Date(1900, 1, 1);
 	var today = new Date();
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/personauths.php",
+		url: server + "personauths.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -429,9 +430,25 @@ function buildPersonAuths(personId)
 						resRapier = resRapier + "<div id='ep' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardep").removeClass("op5");
 						break;
+                    case '20': //Cut & Thrust - Sword
+						if (obj.expire_date != null){
+							tempDate = new Date(obj.expire_date);
+							if (tempDate > rapierdate) rapierdate = tempDate;
+						}
+						resRapier = resRapier + "<div id='cut' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
+						$("#cardcut").removeClass("op5");
+						break;                        
+  					case '52': //Youth Sparing
+						if (obj.expire_date != null){
+							tempDate = new Date(obj.expire_date);
+							if (tempDate > armoreddate) armoreddate = tempDate;
+						}
+						resRapier = resRapier + "<div id='yrs' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
+						$("#cardrsp").removeClass("op5");
+						break;                      
                         
         //--- Cut and thrust -----------------------------------------------------------                
-					case '20': //Cut & Thrust - Sword
+		/*			case '20': //Cut & Thrust - Sword
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > cantdate) cantdate = tempDate;
@@ -465,7 +482,7 @@ function buildPersonAuths(personId)
 						resCant = resCant + "<div id='cutca' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardcutca").removeClass("op5");
 						break;                        
-                        
+             */           
         //--- Youth -----------------------------------------------------------   
                         
 					case '22': //Div I weapon & shield
@@ -656,14 +673,32 @@ function buildPersonAuths(personId)
 						resMarshal = resMarshal + "<div id='myo' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmyo").removeClass("op0");
 						break;
-					case '45': //Cut & Thrust marshal
+                    case '51': //Rapier Youth marshal
+						if (obj.expire_date != null){
+							tempDate = new Date(obj.expire_date);
+							if (tempDate > marshaldate) marshaldate = tempDate;
+						}
+						resMarshal = resMarshal + "<div id='mry' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
+						$("#cardrym").removeClass("op0");
+						break;                        
+                        
+					/* case '45': //Cut & Thrust marshal
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > marshaldate) marshaldate = tempDate;
 						}
 						resMarshal = resMarshal + "<div id='mct' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
 						$("#cardmct").removeClass("op0");
-						break;
+						break; */
+                    case '53':  //Hound Coursing Marshal
+						if (obj.expire_date != null){
+							tempDate = new Date(obj.expire_date);
+							if (tempDate > marshaldate) marshaldate = tempDate;
+						}
+						resMarshal = resMarshal + "<div id='mhc' class='auth'><div class='authtext'>" + obj.type + "</div></div>";
+						$('#cardmhc').removeClass("op0");
+						break;    
+                        
 					case '46': //Clerk of Roster
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
@@ -713,13 +748,13 @@ function buildPersonAuths(personId)
 			    if (resRapier.length > 0) resRapier = "<div id='Rapier' class='card'><div id='armoredheader' class='cardheader'><div id='rapiericon' class='marshalicon'></div><div class='headertext'>Rapier Combat</div>			<div id='rapierdate' class='postdate'>  <div id='rapiermonth' class='postmonth'></div><div id='rapierday' class='postday'></div><div id='rapieryear' class='vtext'></div>		</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resRapier + "</div></div>";
 		   	  }
             
-			if (cantdate.getFullYear() > 1969){
+			/* if (cantdate.getFullYear() > 1969){
 			  var expiredCard = "postdate";
 			  if (cantdate < today) { expiredCard = "expiredCard"; }
 			  if (resCant.length > 0) resCant = "<div id='Cant' class='card'><div id='armoredheader' class='cardheader'><div id='canticon' class='marshalicon'></div><div class='headertext'>Cut & Thrust Combat</div>			<div id='cantdate' class='" + expiredCard + "'>  <div id='cantmonth' class='postmonth'>"+monthNames[cantdate.getMonth()]+"</div><div id='cantday' class='postday'>"+cantdate.getDate()+"</div><div id='cantyear' class='vtext'>"+cantdate.getFullYear()+"</div>		</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resCant + "</div></div>";
 			  } else {
 			    if (resCant.length > 0) resCant = "<div id='Cant' class='card'><div id='armoredheader' class='cardheader'><div id='canticon' class='marshalicon'></div><div class='headertext'>Cut & Thrust Combat</div>			<div id='cantdate' class='postdate'>  <div id='cantmonth' class='postmonth'></div><div id='cantday' class='postday'></div><div id='cantyear' class='vtext'></div>		</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resCant + "</div></div>";
-		   	  }            
+		   	  }    */        
 
 
 			if (youthdate.getFullYear() > 1969){
@@ -741,13 +776,15 @@ function buildPersonAuths(personId)
 
 
 
-		res = resArmored + resRapier + resCant + resEq + resYouth + resMarshal;
-		$("#cardbox").html(res);
+		//res = resArmored + resRapier + resCant + resEq + resYouth + resMarshal;
+		res = resArmored + resRapier + resEq + resYouth + resMarshal;
+        $("#cardbox").html(res);
 
         sortPrintAuthBoxElements('#cardarmoredbox');
         sortPrintAuthBoxElements('#cardrapierbox');
         sortPrintAuthBoxElements('#cardyouthbox');
         sortPrintAuthBoxElements('#cardequestrianbox');
+        sortPrintAuthBoxElements('#cardmarshalbox');
 
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
@@ -763,32 +800,38 @@ function sortPrintAuthBoxElements(tagname)
         var hasFoundNoAuth = false;
         var countOfAuths = 0;
         var $boxelements = $(tagname).children();
-        $boxelements.sort(function(a,b){
+        /* $boxelements.sort(function(a,b){
                 var $first = $(a).children(":first"),
                     $second = $(b).children(":first");
 
                 if ($first.hasClass('op5') && !$second.hasClass('op5')) {
                     return 1;
-                
                 } else {
                     return -1;
                 }
             
-            });
+            }); */
 
         $boxelements.each(function (index){
-                    if ( $(this).children(":first").hasClass('op5')){
+                    if ( $(this).children(":first").hasClass('op5') || $(this).children(":first").hasClass('op0')){
                         if(!hasFoundNoAuth){
-                            $(this).prepend("<armorednoauthheader class='authheader'>Not-Authorized</armorednoauthheader>");
+                            //$(this).prepend("<armorednoauthheader class='authheader'>Not-Authorized</armorednoauthheader>");
                             hasFoundNoAuth = true;
-                        }
-                    } else {
-                       countOfAuths++;
+                        } 
+                        
+                        $(this).children(":first").removeClass("op5");
+                        $(this).children(":first").removeClass("op0");
+                    } else { 
+                        //has this auth
+                        $(this).find(".tinybox").addClass("redbox");
+                        $(this).find(".tinybox2").addClass("redbox");
+                        countOfAuths++;
                     }
         });
             
         if(countOfAuths > 0){
-            $boxelements.first().prepend("<armoredauthheader class='authheader'>Authorized</armoredauthheader>");
+            //$boxelements.first().prepend("<armoredauthheader class='authheader'>Authorized</armoredauthheader>");
+            
         }
         
         $(tagname).html($boxelements);    
@@ -812,13 +855,13 @@ function buildPersonAuthsEdit(personId)
 	var res = "";
 	var resArmored = "";
 	var resRapier = "";
-    var resCant = "";
+    //var resCant = "";
 	var resEq = ""
 	var resYouth = "";
 	var resMarshal = "";
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/personauths.php",
+		url: server + "personauths.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -828,14 +871,14 @@ function buildPersonAuthsEdit(personId)
 		var marshaldate = new Date(1966, 1, 1);
 		var armoreddate = new Date(1966, 1, 1);
 		var rapierdate = new Date(1966, 1, 1);
-        var cantdate = new Date(1966,1,1);
+        //var cantdate = new Date(1966,1,1);
 		var youthdate = new Date(1966, 1, 1);
 		var eqdate = new Date(1966, 1, 1);
 		var tempDate = new Date(1966, 1, 1);
 
 		var armorednotes = "";
 		var rapiernotes = "";
-        var cantnotes = "";
+        //var cantnotes = "";
 		var youthnotes = "";
 		var eqnotes = "";
 		var marshalnotes = "";
@@ -857,11 +900,12 @@ function buildPersonAuthsEdit(personId)
 		resRapier = resRapier + "<div id='cs' authid='17' class='auth op5' onClick='auth(event)'><div class='authtext'>Case</div></div>";
 		resRapier = resRapier + "<div id='ls' authid='18' class='auth op5' onClick='auth(event)'><div class='authtext'>Two Hander</div></div>";
         resRapier = resRapier + "<div id='yrs' authid='52' class='auth op5' onClick='auth(event)'><div class='authtext'>Youth Sparring</div></div>";
+        resRapier = resRapier + "<div id='cut' authid='20' class='auth op5' onClick='auth(event)'><div class='authtext'>Cut & Thrust</div></div>";
             
-		resCant = resCant + "<div id='cut' authid='20' class='auth op5' onClick='auth(event)'><div class='authtext'>Sword</div></div>";
-		resCant = resCant + "<div id='cutda' authid='21' class='auth op5' onClick='auth(event)'><div class='authtext'>Dagger</div></div>";
-		resCant = resCant + "<div id='cutpa' authid='49' class='auth op5' onClick='auth(event)'><div class='authtext'>Pary</div></div>";
-		resCant = resCant + "<div id='cutca' authid='50' class='auth op5' onClick='auth(event)'><div class='authtext'>Case</div></div>";            
+		//resCant = resCant + "<div id='cut' authid='20' class='auth op5' onClick='auth(event)'><div class='authtext'>Sword</div></div>";
+		//resCant = resCant + "<div id='cutda' authid='21' class='auth op5' onClick='auth(event)'><div class='authtext'>Dagger</div></div>";
+		//resCant = resCant + "<div id='cutpa' authid='49' class='auth op5' onClick='auth(event)'><div class='authtext'>Pary</div></div>";
+		//resCant = resCant + "<div id='cutca' authid='50' class='auth op5' onClick='auth(event)'><div class='authtext'>Case</div></div>";            
 
 		resYouth = resYouth + "<div id='div1' authid='22' class='auth op5' onClick='auth(event)'><div class='authtext'>Weapon & Shield</div></div>";
 		resYouth = resYouth + "<div id='div1rp' authid='23' class='auth op5' onClick='auth(event)'><div class='authtext'>Rapier</div></div>";
@@ -889,7 +933,7 @@ function buildPersonAuthsEdit(personId)
 		resMarshal = resMarshal + "<div id='mtw' authid='43' class='auth op5' onClick='auth(event)'><div class='authtext'>Thrown Weapons</div></div>";
 		resMarshal = resMarshal + "<div id='myo' authid='44' class='auth op5' onClick='auth(event)'><div class='authtext'>Armored Youth</div></div>";
         resMarshal = resMarshal + "<div id='mry' authid='51' class='auth op5' onClick='auth(event)'><div class='authtext'>Rapier Youth</div></div>";
-		resMarshal = resMarshal + "<div id='mct' authid='45' class='auth op5' onClick='auth(event)'><div class='authtext'>Cut & Thrust</div></div>";
+		//resMarshal = resMarshal + "<div id='mct' authid='45' class='auth op5' onClick='auth(event)'><div class='authtext'>Cut & Thrust</div></div>";
         resMarshal = resMarshal + "<div id='mhc' authid='53' class='auth op5' onClick='auth(event)'><div class='authtext'>Hound Coursing</div></div>";
 		resMarshal = resMarshal + "<div id='cr' authid='46' class='auth op5' onClick='auth(event)'><div class='authtext'>Clerk of the Roster</div></div>";
 		resMarshal = resMarshal + "<div id='kem' authid='47' class='auth op5' onClick='auth(event)'><div class='authtext'>Kingdom Earl Marshal</div></div>";
@@ -905,10 +949,10 @@ function buildPersonAuthsEdit(personId)
 			resRapier = resRapier + "<div id='rapiernotes' class='card'><div id='rapierheader' class='cardheader'><div id='rapiericon' class='marshalicon'></div><div class='headertext'>Rapier Auth Notes</div></div>				<hr class='style-one'><div id='rapiernotesbox' class='authbox'></div></div>";
 			}
 
-		if (resCant.length > 0){
+		/* if (resCant.length > 0){
 			resCant = "<div id='Cant' class='card'><div id='armoredheader' class='cardheader'><div id='canticon' class='marshalicon'></div><div class='headertext'>Cut & Thrust Combat</div>			<div id='cantdate' class='postdate' prefix='cant' typeid='5' onclick=changeToTextField('cant','9') >  <div id='cantmonth' class='postmonth'>Jan</div><div id='cantday' class='postday'>1</div><div id='cantyear' class='vtext'>2000</div>		</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resCant + "</div></div>";
 			resCant = resCant + "<div id='rapiernotes' class='card'><div id='rapierheader' class='cardheader'><div id='canticon' class='marshalicon'></div><div class='headertext'>Cut & Thrust Auth Notes</div></div>				<hr class='style-one'><div id='cantnotesbox' class='authbox'></div></div>";
-			}            
+			}  */          
             
 
 		if (resEq.length > 0){
@@ -925,7 +969,8 @@ function buildPersonAuthsEdit(personId)
 			resMarshal = "<div id='Marshaling' class='card'><div id='armoredheader' class='cardheader'><div id='mashallingicon' class='marshalicon'></div><div class='headertext'>Marshaling</div>	<div id='marshaldate' class='postdate'  prefix='marshal' typeid='1' onclick=changeToTextField('marshal','1')> <div id='marshalmonth' prefix='marshal' class='postmonth'>Jan</div><div id='marshalday' prefix='marshal' class='postday'>1</div><div prefix='marshal' id='marshalyear' class='vtext'>2000</div>	</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resMarshal + "</div></div>";
 			resMarshal = resMarshal + "<div id='marshalnotes' class='card'><div id='marshalheader' class='cardheader'><div id='mashallingicon' class='marshalicon'></div><div class='headertext'>Marshal Notes</div></div>				<hr class='style-one'><div id='marshalnotesbox' class='authbox'></div></div>";
 		}
-		res = resArmored + resRapier + resCant + resEq + resYouth + resMarshal;
+		//res = resArmored + resRapier + resCant + resEq + resYouth + resMarshal;
+        res = resArmored + resRapier + resEq + resYouth + resMarshal;   
 		$("#cardbox").html(res);
 
 		$.each(result, function(idx, obj) {
@@ -1051,6 +1096,14 @@ function buildPersonAuthsEdit(personId)
 						rapiernotes = rapiernotes + "<div id='ls' class='catarmored smallicon twenty'></div><div id='lsissued' class='authdate'>"+obj.issued+"</div><div id='lsnote' class='authnote' onClick='swapTextEdit(event)'; onChange='updateAuth("+obj.auth_id+",'ls')';>"+obj.note+"</div>";
 						$('#ls').removeClass("op5");
 						break;
+					case '20': //Cut & Thrust - Sword
+						if (obj.expire_date != null){
+							tempDate = new Date(obj.expire_date);
+							if (tempDate > rapierdate) rapierdate = tempDate;
+						}
+						rapiernotes = rapiernotes + "<div id='cut' class='catarmored smallicon twenty'></div><div id='cutissued' class='authdate'>"+obj.issued+"</div><div id='cutnote' class='authnote' onClick='swapTextEdit(event)'; onChange='updateAuth("+obj.auth_id+",'cut')';>"+obj.note+"</div>";
+						$('#cut').removeClass("op5");
+						break;                        
                     case '52': //Rapier Youth Sparring
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
@@ -1060,15 +1113,15 @@ function buildPersonAuthsEdit(personId)
 						$('#yrs').removeClass("op5");
 						break;
 //-----------------------------------------------------------------------------------------------
-					case '20': //Cut & Thrust - Sword
+					/* case '20': //Cut & Thrust - Sword
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > cantdate) cantdate = tempDate;
 						}
-						cantnotes = cantnotes + "<div id='cut' class='catarmored smallicon twenty'></div><div id='cutissued' class='authdate'>"+obj.issued+"</div><div id='cutnote' class='authnote' onClick='swapTextEdit(event)'; onChange='updateAuth("+obj.auth_id+",'cut')';>"+obj.note+"</div>";
+						rapiernotes = rapiernotes + "<div id='cut' class='catarmored smallicon twenty'></div><div id='cutissued' class='authdate'>"+obj.issued+"</div><div id='cutnote' class='authnote' onClick='swapTextEdit(event)'; onChange='updateAuth("+obj.auth_id+",'cut')';>"+obj.note+"</div>";
 						$('#cut').removeClass("op5");
 						break;
-					case '21': //Cut & Thrust - dagger
+					   case '21': //Cut & Thrust - dagger
 						if (obj.expire_date != null){
 							tempDate = new Date(obj.expire_date);
 							if (tempDate > cantdate) cantdate = tempDate;
@@ -1091,7 +1144,7 @@ function buildPersonAuthsEdit(personId)
 						}
 						cantnotes = cantnotes + "<div id='cutca' class='catarmored smallicon twenty'></div><div id='cutcaissued' class='authdate'>"+obj.issued+"</div><div id='cutcanote' class='authnote' onClick='swapTextEdit(event)'; onChange='updateAuth("+obj.auth_id+",'cutca')';>"+obj.note+"</div>";
 						$('#cutca').removeClass("op5");
-						break;                        
+						break;  */                      
 //-----------------------------------------------------------------------------------------------
                     case '22': //Div I weapon & shield
 						if (obj.expire_date != null){
@@ -1391,7 +1444,7 @@ function buildPersonAuthsEdit(personId)
 			}
 			$('#rapiernotesbox').html(rapiernotes);
             
-			if (cantdate.getFullYear() > 1969){
+			/* if (cantdate.getFullYear() > 1969){
 				$('#cantyear').text(rapierdate.getFullYear());
 				$('#cantmonth').text(monthNames[rapierdate.getMonth()]);
 				$('#cantmonth').attr('monthnum',armoreddate.getMonth());
@@ -1408,7 +1461,7 @@ function buildPersonAuthsEdit(personId)
 				$('#cantmonth').text('');
 				$('#cantday').text('');
 			}
-			$('#cantnotesbox').html(cantnotes);            
+			$('#cantnotesbox').html(cantnotes);     */       
             
 
 			if (youthdate.getFullYear() > 1969){
@@ -1458,7 +1511,7 @@ function buildGroupHeader(groupId, regionId)
 	var res = "";
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/groupheader.php",
+		url: server + "groupheader.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1503,7 +1556,7 @@ function buildGroupList(groupId, regionId)
 
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/groupauths.php",
+		url: server + "groupauths.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1629,7 +1682,7 @@ function auth(event)
 
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/addremoveauth.php",
+		url: server + "addremoveauth.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1655,7 +1708,7 @@ function updateAuthExpireDate(typeId, expireDate, tagid)
 	if (isNaN(timestamp) == true) return;
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/updateexpiredate.php",
+		url: server + "updateexpiredate.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1685,7 +1738,7 @@ function loginUser(username, pass)
 
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/login.php",
+		url: server + "login.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1710,6 +1763,7 @@ function loginUser(username, pass)
 			if (pId > 0)
 			{
 				createCookie('mrm', '<session><rank>'+ rank +'</rank><pid>'+ pId +'</pid><username>'+ $.userName +'</username></session>',1);
+                $.loggedInUserName = $.userName;
 				window.location.replace("authorization.html");
 			} else {
 				alert("Account information is invalid.");
@@ -1765,14 +1819,22 @@ function updatePerson()
 		gId = "";
 	}
 
+            console.log("pId=" + personId + "&editfirstname=" + escape(editfirstname) + "&editfirstlast=" + escape(editfirstlast) + "&legalfirst=" + legalfirst + "&legallast=" + legallast + "&mSembernumber" + membernumber + "&bod" + bod + "&phonenum=" + phonenum + "&email=" + email + "&address1=" + address1 + "&address2" + address2 + "&city" + city + "&state=" + state + "&zip=" + zip + "&passhash=" + passhash + "&groupid=" + gId + "&pietext=" + pie);
+    
+    if (editfirstname == "undefined"){
+        console.log("UNDEFINED!");
+        return;
+    }
+    
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/updateperson.php",
+		url: server + "updateperson.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
 		data: {pId: personId, editfirstname: escape(editfirstname), editfirstlast: escape(editfirstlast), legalfirst: legalfirst, legallast: legallast, membernumber: membernumber, bod: bod, phonenum: phonenum, email: email, address1: address1, address2: address2, city: city, state: state, zip: zip, passhash: passhash, groupid: gId, pietext: pie},
 		success: function (result) {
 			//prompt(result, result);
+            console.log("Here");
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert("Error updatePerson:" + errorThrown);
@@ -1786,7 +1848,7 @@ function updateAuth(authid, authtype)
 	//alert('authid: ' + authid + " authtype: " + authtype + " issued:" + $('#' + authtype + 'issued').text() + " note: " + $('#temptxt').val());
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/updateauth.php",
+		url: server + "updateauth.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1808,7 +1870,7 @@ function populateLocations()
 
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/locationsdropdown.php",
+		url: server + "locationsdropdown.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1852,7 +1914,7 @@ function getRegionByGroupID(groupId)
 	//groupId = $('#locationname').attr("branchid");
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/getregionbygroupid.php",
+		url: server + "getregionbygroupid.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1879,7 +1941,7 @@ function getPersonNote(personId)
 {
 
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/getpersonnote.php",
+		url: server + "getpersonnote.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
@@ -1918,7 +1980,7 @@ function updatePersonNote(personId)
     var personnote = escape($('#personnotetxt').val());
     
 	$.ajax({
-		url: "http://www.castlewalls.com/auths/mid/updatepersonnote.php",
+		url: server + "updatepersonnote.php",
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",

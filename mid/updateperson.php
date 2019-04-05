@@ -1,8 +1,8 @@
 <?php
-    $hostname="localhost";
-    $username="rocco";
-    $password="M1dr34lm";
-    $dbname="rocco_auths";
+    $hostname="localhost:3306";
+    $username="marshaldbmidreal"; //marshaldbmidreal_authsite rocco_auths
+    $password="Cando@123"; //Dr4g0nMidrealm! Dr4g0n
+    $dbname="marshald_marshaldb"; //marshald_marshaldb rocco_auths
 
 	$pid = $_GET['pId'];
 	$editfirstname = $_GET['editfirstname'];
@@ -58,11 +58,13 @@
 	$sql = "UPDATE person SET first_legal='$legalfirst',last_legal='$legallast',first_SCA='$editfirstname',last_SCA='$editfirstlast',member_number=$membernumber,phone='$phonenum',address1='$address1',address2='$address2',city='$city',state='$state',email='$email',birthdate='$bod', pie='$pie' $ziptext $groupid $addhash WHERE person_id = $pid;";
 	//$sql = mysql_real_escape_string($sql);
 
-	if ($conn->query($sql) === TRUE) {
-		$final_res = 0;
-	} else {
-		$final_res =json_encode("Error: " . $sql . "<br>" . $conn->error . "<br>" . $pid) ;
-	}
+    if (strlen($editfirstname) > 2) {
+        if ($conn->query($sql) === TRUE) {
+            $final_res = 0;
+        } else {
+            $final_res =json_encode("Error: " . $sql . "<br>" . $conn->error . "<br>" . $pid) ;
+        }
+    }
 
 	$conn->close();
 	echo $final_res;
