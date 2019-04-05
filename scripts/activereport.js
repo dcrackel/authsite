@@ -80,25 +80,25 @@ function populateReport()
 		data: {},
 		success: function (result) {
             var auths = [];
-            var extraStyle = "";
+            var extraStyle = "expired";
 			$.each(result, function(idx, obj) {                    
                if (lastPersonId == 0){
                    res += buildHeader();
                } 
-               if (obj.person_id == 4861)
-                   console.log("hello there");
-                if (obj.person_id == 4864)
+               if (obj.person_id == 4960)
                    console.log("hello there");
                if ((obj.person_id != lastPersonId) && (lastPersonId != 0)){         
-                   extraStyle = "";
+                   extraStyle = "expired";
                    var expireDate = new Date (obj.expire_date);                  
                    var today = new Date();
-                   if (lastExpire < today) extraStyle = "expired";  
+                   if (lastExpire > today) extraStyle = "";  
                     res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
                     res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
                     auths = [];
                     
                }
+                 if (obj.person_id == 4960)
+                   console.log("hello there");
                
 
                auths.push(obj.type_id);
@@ -118,8 +118,7 @@ function populateReport()
 			alert("Error updateAuth:" + errorThrown);
 		}
 	});
-
-
+    
 	return res;
 }
 
@@ -179,6 +178,7 @@ function buildArmoredHeader()
         ret += "<rowitem id='authtype'><div id='sc' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='se' class='catarmored smallicon twenty container2'></div></rowitem>";       
         ret += "</rowcheckboxes></reportrow2>";
+   
     
     return ret;
 }
