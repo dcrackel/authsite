@@ -1,0 +1,76 @@
+.expcard {
+    position: relative;
+    /* width: 400px; */
+    min-height: 100px;
+    margin: 20px;
+    background: #dddfde;
+    border: 5px solid #999999;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.exprow
+{
+    display: flex;
+    margin: 10px 0px 5px 0px;
+}
+
+.expheader
+{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    /* font-weight: bold; */
+    color: #666666;
+    padding: 10px 10px 5px 10px;
+    border-bottom: 1px solid #999999; 
+}
+
+.exptext
+{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    margin: 0px 10px 0px 10px;
+    width: 150px; 
+}
+
+.expdatebox {
+    padding: 2px 2px 2px 10px;
+    width: 80px;
+    border-radius: 25px;
+    background: #efefef;
+    outline: 0;
+    border: 1px solid #666666;
+}
+
+#add1y
+{
+    background-image: url(../images/add1y.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.add1y
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px 0px 10px;
+    cursor: pointer;
+}
+
+#add2y
+{
+    background-image: url(../images/add2y.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.add2y
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px 0px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Midrealm Authorization DataBase - Dynamic Reporting</title>
+<link rel="stylesheet" type="text/css" href="./css/marshal.css" />
+<link rel="stylesheet" type="text/css" href="./css/summery.css" />
+<link rel="stylesheet" type="text/css" href="./css/dyanmicreport.css" />
+<link rel="stylesheet" type="text/css" href="./css/checkbox.css" />
+<script src="./scripts/jquery-3.3.1.min.js"></script>
+<script src="./scripts/marshal.js"></script>
+<script src="./scripts/marshalAjax.js"></script>
+<script src="./scripts/session.js"></script>
+<script src="./scripts/jquery.crypt.js"></script>
+<script src="./scripts/activereport.js"></script>
+    
+</head>
+    <body>
+	<div id='logobox'>
+		<div id='logo'></div>
+		<div id='titlebox'><input id='searchbox' type='text' onFocus='showEverythingDrop()' onKeyUp='generateEverythingDropDown()' /><button id='search' type="submit"><img class='smallbutton' src='./images/search.png' /></button>
+				<div id="everythingdropdown"></div>
+		</div>
+	
+        
+        <navmenu>
+            <activereport onclick="window.location = 'activereport.html';"></activereport>
+	        <authreport onclick="window.location = 'summary.html';"></authreport>
+            <loginbutton>
+            <a href='login.html' class='login' style='text-decoration: none;'></a>
+            </loginbutton>
+        </navmenu>
+
+        <!-- 
+        <div id='login' class='login'>
+            <a href='login.html' class='login' style='text-decoration: none;'>login</a>
+        </div> -->
+	</div>
+
+        
+    <div id='detailsbox' class='card filterbox3'>
+        <detailsheader2>
+            <detailheaderbox>
+                <detailheadertext>Dynamic Report</detailheadertext>
+            </detailheaderbox>
+            <detailsmallertext></detailsmallertext>
+        </detailsheader2>
+        <everything>
+            <everythingheader>Select a Region</everythingheader>
+            <everythingbar>
+                <searchbox id='everythinsearch1'>    
+                    <regionbox onclick="selectRegion(1)"><region1 class='region1'></region1><regiontext></regiontext><div class="loctext">Constellation</div></regionbox>
+                    <regionbox onclick="selectRegion(2)"><region2 class='region2'></region2><regiontext></regiontext><div class="loctext">MidLands</div></regionbox>
+                    <regionbox onclick="selectRegion(3)"><region3 class='region3'></region3><regiontext></regiontext><div class="loctext">Pentamere</div></regionbox>
+                    <regionbox onclick="selectRegion(4)"><region4 class='region4'></region4><regiontext></regiontext><div class="loctext">South Oaken</div></regionbox>
+                    <regionbox onclick="selectRegion(5)"><region5 class='region5'></region5><regiontext></regiontext><div class="loctext">North Oaken</div></regionbox>
+                </searchbox>
+                
+            </everythingbar>
+            
+        </everything>
+        <anything>
+            <anythingheader>Select a Authorizing Type</anythingheader>
+            <anythingbar>
+                <searchbox id='anythingsearch1'> 
+                    
+    <div id="authbox" class="authbox">
+
+        <auttypebox onclick="selectAuthType(3)"><authType3 class='authType3'></authType3><authtext>Armored</authtext></auttypebox>
+        <auttypebox onclick="selectAuthType(5)"><authType5 class='authType5'></authType5><authtext>Rapier</authtext></auttypebox>
+        <auttypebox onclick="selectAuthType(6)"><authType6 class='authType6'></authType6><authtext>Youth</authtext></auttypebox>
+        <auttypebox onclick="selectAuthType(8)"><authType8 class='authType8'></authType8><authtext>Equestrian</authtext></auttypebox>
+        <auttypebox onclick="selectAuthType(1)"><authType1 class='authType1'></authType1><authtext>Marshaling</authtext></auttypebox>
+
+    </div>
+                    
+                    
+                </searchbox>
+                
+            </anythingbar>
+        </anything>
+
+      <reportsection>
+        <reportheader>
+        </reportheader>          
+        <reportbody>
+
+        </reportbody>
+      </reportsection>    
+        
+        
+        </div>  
+    </body>
+</html>

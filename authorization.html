@@ -1,7 +1,6 @@
 <html>
 <head>
-     
-    <title>Midrealm Authorization look-up</title>
+    <title>Midrealm Authorization look-up v1.12.2</title>
     <link rel="image_src" href="http://www.castlewalls.com/auths/images/logo.png" / >
     <link rel="stylesheet" type="text/css" href="./css/marshal.css" />
     <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-2.6.2.min.css"/>
@@ -15,12 +14,11 @@
     <script src="./scripts/jquery.printElement.js"></script>
     <script src="./scripts/html2canvas.js"></script>
 
-    <meta property="og:locale" content="en_US">    
-    <meta property="og:image" content="http://www.castlewalls.com/auths/images/BigLogo.jpg" />
+    <meta property="og:url"   content="http://marshaldb.midrealm.org/authorization.html" />
+    <meta property="og:image" content="http://marshaldb.midrealm.org/images/logo.png" />
     <meta property="og:type" content="article">
     <meta property="og:title" content="The Midrealm's Martial Authorizations">
     <meta property="og:description" content="If you have participated in martial activities in the Midrealm, you have an authorization page. Take a look! If you do not, please contact your regional marshal.">
-    <meta property="og:url" content="http://www.castlewalls.com/auths/authorization.html">
     <meta property="og:site_name" content="Midrealm's Martial Authorizations">
 
 </head>
@@ -34,6 +32,7 @@
 	
         
         <navmenu>
+            <activereport onclick="window.location = 'activereport.html';"></activereport>
 	        <authreport onclick="window.location = 'summary.html';"></authreport>
             <loginbutton>
             <a href='login.html' class='login' style='text-decoration: none;'></a>
@@ -287,55 +286,55 @@
 						  <div id="cardarmored" class="cardarmored">
 								<div id="cardarmoredtitle">ARMORED</div>
 								<div id="cardarmoredbox">
-                                    <div class="authrow"><span id="cardssh" class="flex op5"><span class="ssh smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
-								  <div class="authrow"><span id="cardtw" class="flex op5"><span class="revtw smallbutton tinyicon"></span><div id="cardauthtext">Two weapon</div></span></div>
-								  <div class="authrow"><span id="cardgs" class="flex op5"><span  class="revgs  smallbutton tinyicon"></span><div id="cardauthtext">Great weapon</div></span></div>
-								  <div class="authrow"><span id="cardpa" class="flex op5"><span  class="revpa  smallbutton tinyicon"></span><div id="cardauthtext">Polearm</div></span></div>
-								  <div class="authrow"><span id="cardsp" class="flex op5"><span  class="revsp  smallbutton tinyicon"></span><div id="cardauthtext">Spear</div></span></div>
-							      <div class="authrow"><span id="cardysp" class="flex op5"><span  class="ysp   smallbutton tinyicon2"></span><div id="cardauthtext">Youth Sparing</div></span></div>
-                                  <div class="authrow"><span id="cardca" class="flex op5"><span  class="revca smallbutton tinyicon"></span><div id="cardauthtext">Combat archery</div></span></div>
-								  <div class="authrow"><span id="cardsc" class="flex op5"><span  class="revsc smallbutton tinyicon"></span><div id="cardauthtext">Siege crew</div></span></div>
-								  <div class="authrow"><span id="cardse" class="flex op5"><span  class="revse smallbutton tinyicon"></span><div id="cardauthtext">Siege Engineer</div></span></div>
+								  <div class="authrow"><span id="cardssh" class="flex"><span class="tinybox"></span><div id="cardauthtext">Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="cardtw" class="flex"><span class="tinybox"></span><div id="cardauthtext">Two weapon</div></span></div>
+								  <div class="authrow"><span id="cardgs" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Great weapon</div></span></div>
+								  <div class="authrow"><span id="cardpa" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Polearm</div></span></div>
+								  <div class="authrow"><span id="cardsp" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Spear</div></span></div>
+							      <div class="authrow"><span id="cardysp" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Youth Sparing</div></span></div>
+								  <div class="authrow"><span id="cardca" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Combat archery</div></span></div>
+								  <div class="authrow"><span id="cardsc" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Siege crew</div></span></div>
+								  <div class="authrow"><span id="cardse" class="flex"><span  class="tinybox"></span><div id="cardauthtext">Siege Engineer</div></span></div>
 								</div>
 							</div>
 							<div id="cardrapier" class="cardarmored">
 								<div id="cardarmoredtitle">RAPIER</div>
 								<div id="cardrapierbox">
-								  <div class="authrow"><span id="cardsr" class="flex op5"><span class="revsr smallbutton tinyicon"></span><div id="cardauthtext">Single Rapier</div></span></div>
-								  <div class="authrow"><span id="cardda" class="flex op5"><span class="revda smallbutton tinyicon"></span><div id="cardauthtext">Dagger</div></span></div>
-								  <div class="authrow"><span id="cardpd" class="flex op5"><span class="revpd  smallbutton tinyicon"></span><div id="cardauthtext">Parry</div></span></div>
-								  <div class="authrow"><span id="cardcs" class="flex op5"><span class="revcs  smallbutton tinyicon"></span><div id="cardauthtext">Case</div></span></div>
-								  <div class="authrow"><span id="cardep" class="flex op5"><span class="revep  smallbutton tinyicon"></span><div id="cardauthtext">Epee</div></span></div>
-								  <div class="authrow"><span id="cardls" class="flex op5"><span class="revls  smallbutton tinyicon"></span><div id="cardauthtext">Longsword</div></span></div>
-							      <div class="authrow"><span id="cardcut" class="flex op5"><span class="revcut   smallbutton tinyicon"></span><div id="cardauthtext">Cut & Thrust</div></span></div>
-								  <div class="authrow"><span id="cardcut2h" class="flex op3"><span class="revcut2h smallbutton tinyicon"></span><div id="cardauthtext">C&T Two Handed</div></span></div>
+								  <div class="authrow"><span id="cardsr" class="flex"><span class="tinybox"></span><div id="cardauthtext">Single Rapier</div></span></div>
+								  <div class="authrow"><span id="cardda" class="flex"><span class="tinybox"></span><div id="cardauthtext">Dagger</div></span></div>
+								  <div class="authrow"><span id="cardpd" class="flex"><span class="tinybox"></span><div id="cardauthtext">Parry</div></span></div>
+								  <div class="authrow"><span id="cardcs" class="flex"><span class="tinybox"></span><div id="cardauthtext">Case</div></span></div>
+								  <div class="authrow"><span id="cardep" class="flex"><span class="tinybox"></span><div id="cardauthtext">Epee</div></span></div>
+								  <div class="authrow"><span id="cardls" class="flex"><span class="tinybox"></span><div id="cardauthtext">Longsword</div></span></div>
+							      <div class="authrow"><span id="cardrsp" class="flex"><span class="tinybox"></span><div id="cardauthtext">Youth Sparing</div></span></div>
+                                  <div class="authrow"><span id="cardcut" class="flex"><span class="tinybox"></span><div id="cardauthtext">Cut & Thrust</div></span></div>
 								</div>
 							</div>
 
 							<div id="cardyouth" class="cardarmored">
 								<div id="cardarmoredtitle">YOUTH</div>
 								<div id="cardyouthbox">
-								  <div class="authrow"><span id="carddiv1" class="flex op5"><span class="revdiv1 smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
-								  <div class="authrow"><span id="carddiv1rp" class="flex op5"><span class="revdiv1 smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
-								  <div class="authrow"><span id="carddiv2" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
-								  <div class="authrow"><span id="carddiv22h" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Two handed</div></span></div>
-								  <div class="authrow"><span id="carddiv2rp" class="flex op5"><span class="revdiv2  smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
-							      <div class="authrow"><span id="carddiv3" class="flex op5"><span class="revdiv3   smallbutton tinyicon"></span><div id="cardauthtext">Weapon/shield</div></span></div>
-								  <div class="authrow"><span id="carddiv32h" class="flex op5"><span class="revdiv3 smallbutton tinyicon"></span><div id="cardauthtext">Two handed</div></span></div>
-								  <div class="authrow"><span id="carddiv3rp" class="flex op5"><span class="revdiv3 smallbutton tinyicon"></span><div id="cardauthtext">Rapier</div></span></div>
+								  <div class="authrow"><span id="carddiv1" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div1 Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv1rp" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div1 Rapier</div></span></div>
+								  <div class="authrow"><span id="carddiv2" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div2 Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv22h" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div2 Two handed</div></span></div>
+								  <div class="authrow"><span id="carddiv2rp" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div2 Rapier</div></span></div>
+							      <div class="authrow"><span id="carddiv3" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div3 Weapon/shield</div></span></div>
+								  <div class="authrow"><span id="carddiv32h" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div3 Two handed</div></span></div>
+								  <div class="authrow"><span id="carddiv3rp" class="flex "><span class="tinybox"></span><div id="cardauthtext">Div3 Rapier</div></span></div>
 								</div>
 							</div>
 
 							<div id="cardequstrian" class="cardarmored">
 								<div id="cardarmoredtitle">EQUESTRIAN</div>
 								<div id="cardequestrianbox">
-								  <div class="authrow"><span id="cardgr" class="flex op5"><span class="revgr smallbutton tinyicon"></span><div id="cardauthtext">General riding</div></span></div>
-								  <div class="authrow"><span id="cardmg" class="flex op5"><span class="revmg smallbutton tinyicon"></span><div id="cardauthtext">Mounted games</div></span></div>
-								  <div class="authrow"><span id="cardma" class="flex op5"><span class="revma  smallbutton tinyicon"></span><div id="cardauthtext">Mounted archery</div></span></div>
-								  <div class="authrow"><span id="carddr" class="flex op5"><span class="revdr  smallbutton tinyicon"></span><div id="cardauthtext">Driving</div></span></div>
-								  <div class="authrow"><span id="cardcc" class="flex op5"><span class="revcc  smallbutton tinyicon"></span><div id="cardauthtext">Crest combat</div></span></div>
-							      <div class="authrow"><span id="cardmc" class="flex op5"><span class="revmc   smallbutton tinyicon"></span><div id="cardauthtext">Mounted combat</div></span></div>
-								  <div class="authrow"><span id="cardjs" class="flex op5"><span class="revjs smallbutton tinyicon"></span><div id="cardauthtext">Joust</div></span></div>
+								  <div class="authrow"><span id="cardgr" class="flex "><span class="tinybox"></span><div id="cardauthtext">General riding</div></span></div>
+								  <div class="authrow"><span id="cardmg" class="flex "><span class="tinybox"></span><div id="cardauthtext">Mounted games</div></span></div>
+								  <div class="authrow"><span id="cardma" class="flex "><span class="tinybox"></span><div id="cardauthtext">Mounted archery</div></span></div>
+								  <div class="authrow"><span id="carddr" class="flex "><span class="tinybox"></span><div id="cardauthtext">Driving</div></span></div>
+								  <div class="authrow"><span id="cardcc" class="flex "><span class="tinybox"></span><div id="cardauthtext">Crest combat</div></span></div>
+							      <div class="authrow"><span id="cardmc" class="flex "><span class="tinybox"></span><div id="cardauthtext">Mounted combat</div></span></div>
+								  <div class="authrow"><span id="cardjs" class="flex "><span class="tinybox"></span><div id="cardauthtext">Joust</div></span></div>
 								</div>
 							</div>
 					</div> <!-- cardautharea -->
@@ -344,16 +343,16 @@
 							<div id="cardmarshal">
 								<div id="cardarmoredtitle">MARSHALLING</div>
 								<div id="cardmarshalbox">
-								  <div class="cardmarshaltext"><span id="cardmar" class="flex op0"><span class="ssh tinyicon3"></span><div>Armored combat</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmrp" class="flex op0"><span class="revsr tinyicon3"></span><div>Rapier</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmeq" class="flex op0"><span class="revjs tinyicon3"></span><div>Equestion</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmac" class="flex op0"><span class="revca tinyicon3"></span><div>Archery</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardcae" class="flex op0"><span class="revcae tinyicon3"></span><div>Archery Equip.</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmtw" class="flex op0"><span class="smallbutton tinyicon3"></span><div>Thrown weapons</div></span></div>
-							      <div class="cardmarshaltext"><span id="cardmyo" class="flex op0"><span class="ysp tinyicon4"></span><div>Youth Armored</div></span></div>
-							      <div class="cardmarshaltext"><span id="cardmar" class="flex op0"><span class="ysp tinyicon4"></span><div>Youth Rapier</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmse" class="flex op0"><span class="revsc tinyicon3"></span><div>Siege</div></span></div>
-								  <div class="cardmarshaltext"><span id="cardmct" class="flex op0"><span class="revse tinyicon3"></span><div>Cut & Thrust</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmar" class="flex "><span class="tinybox2"></span><div>Armored combat</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmrp" class="flex "><span class="tinybox2"></span><div>Rapier</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmeq" class="flex "><span class="tinybox2"></span><div>Equestion</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmac" class="flex "><span class="tinybox2"></span><div>Archery</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardcae" class="flex "><span class="tinybox2"></span><div>Combat Archery</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmtw" class="flex "><span class="tinybox2"></span><div>Thrown weapons</div></span></div>
+							      <div class="cardmarshaltext"><span id="cardmyo" class="flex "><span class="tinybox2"></span><div>Youth Armored</div></span></div>
+							      <div class="cardmarshaltext"><span id="cardrym" class="flex "><span class="tinybox2"></span><div>Youth Rapier</div></span></div>
+								  <div class="cardmarshaltext"><span id="cardmse" class="flex "><span class="tinybox2"></span><div>Siege</div></span></div>
+								  <!-- <div class="cardmarshaltext"><span id="cardmct" class="flex "><span class="tinybox2"></span><div>Cut & Thrust</div></span></div> -->
 								</div>
 							</div>
 						</div>
@@ -378,7 +377,7 @@
 						<div id="cardnamebox" class="nametext flex">SCA Name: <span id="cardscaname" class="len1 underline1"></span></div>
 						<div id="cardlegalnamebox" class="nametext flex">Legal Name: <span id="cardlegalname" class="len2 underline1"></span></div>
 						<div id="cardsignbox" class="nametext flex">Signature of card carrier: <span class="len3 underline1"></span></div>
-						<div id="cardsignbox2" class="nametext flex">Signature of the Marshal who issued card: <span class="len4 underline1"></span></div>
+						<div id="cardsignbox2" class="nametext flex"> <!-- Signature of the Marshal who issued card: <span class="len4 underline1"></span> --></div> 
 						<div id="carddatearea" class="nametext flex"><div id="carddateissued">Date Issued: 1-1-2015</div><div id="cardexpirebox">Date Expires: <span id="cardexp" class="underline1">4-30-18</span></div>
 						</div>
 					</div> <!-- end of back of card -->
