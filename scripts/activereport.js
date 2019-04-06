@@ -64,6 +64,11 @@ function shouldRunReport()
     if (selectedRegion > 0 && selectedAuth > 0) populateReport();
 }
 
+function filterReportData()
+{
+    //adelaisput suff here
+}
+
 
 function populateReport()
 {
@@ -162,7 +167,7 @@ function buildHeader(auths)
 
 function buildArmoredHeader()
 { 
-    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfiler' type='text' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfiler' onKeyUp='filterReportData()' type='text' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='ssh' title='Sword and Board' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='tw'  title='Two Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='gs'  title='Great Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
