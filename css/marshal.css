@@ -116,9 +116,22 @@ authreport
   background-size: 30px 30px;
 }
 
+
 activereport
 {
   background-image: url('../images/massedit.png');
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  margin:  5px;
+  cursor: pointer;
+  display: none;
+  background-size: 30px 30px;
+}
+
+activereportno
+{
+  /* background-image: url('../images/massedit.png'); */ 
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;

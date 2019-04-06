@@ -21,8 +21,10 @@ $(document).ready(function() {
 	{
 	   $("loginbutton").html("<a href='' onClick=logOut() class='logout' style='text-decoration: none;'></a>");
        //$("#login").css('background-image','url("../images/logout.png")');
+       $("activereport").show();
 	}
-
+    
+    
     //clear pops for the editing the date area
     $(document).on('touchstart click', function (event) {
        	clearPops(event);
