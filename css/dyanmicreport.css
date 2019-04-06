@@ -339,7 +339,7 @@ rowcheckboxes2
     color:red;
 }
 
-#activereportfiler
+.activereportfilter
 {
     display: block;
     width: 200px;
