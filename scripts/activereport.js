@@ -85,8 +85,6 @@ function populateReport()
                if (lastPersonId == 0){
                    res += buildHeader();
                } 
-               if (obj.person_id == 4960)
-                   console.log("hello there");
                if ((obj.person_id != lastPersonId) && (lastPersonId != 0)){         
                    extraStyle = "expired";
                    var expireDate = new Date (obj.expire_date);                  
@@ -97,10 +95,7 @@ function populateReport()
                     auths = [];
                     
                }
-                 if (obj.person_id == 4960)
-                   console.log("hello there");
                
-
                auths.push(obj.type_id);
                lastPersonId = obj.person_id;
                lastExpire = new Date (obj.expire_date);
@@ -167,16 +162,16 @@ function buildHeader(auths)
 
 function buildArmoredHeader()
 { 
-    var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
-        ret += "<rowitem id='authtype'><div id='ssh' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='tw' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='gs' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='sp' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='pr' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='ysp' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='ca' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='sc' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='se' class='catarmored smallicon twenty container2'></div></rowitem>";       
+    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfiler' type='text' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
+        ret += "<rowitem id='authtype'><div id='ssh' title='Sword and Board' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='tw'  title='Two Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='gs'  title='Great Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='sp'  title='Spear' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='pa'  title='Polearm' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='ysp' title='Your Sparing armored' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='ca'  title='Combat Archery' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='sc' title='Seige Crew' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='se' title='Seige Engine' class='catarmored smallicon twenty container2'></div></rowitem>";       
         ret += "</rowcheckboxes></reportrow2>";
    
     
@@ -186,13 +181,13 @@ function buildArmoredHeader()
 function buildRapierHeader()
 { //rapier ids 12sr 16da 15pd 17cs 18ls 19ep 20c&t 52youthspar
     var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
-        ret += "<rowitem id='authtype'><div id='sr' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='da' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='pd' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='cs' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='ls' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='yrs' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='cut' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='sr' title='Single Rapier' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='da' title='Dagger' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='pd' title='Parry Device' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='cs' title='Case' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='ls' title='Sword and Board' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='yrs' title='Youth Rapier' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='cut' title='Cut and Thrust' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "</rowcheckboxes></reportrow2>";
     
     return ret;
@@ -201,13 +196,13 @@ function buildRapierHeader()
 function buildHorseyHeader()
 {
     var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
-        ret += "<rowitem id='authtype'><div id='gr' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mg' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='ma' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='dr' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='cc' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mc' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='js' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='gr' title='General Riding' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mg' title='Games' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='ma' title='Archery' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='dr' title='Driving' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='cc' title='Crest Combat' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mc' title='Mounted Combat' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='js' title='Joust' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "</rowcheckboxes></reportrow2>";
     
     return ret;
@@ -216,14 +211,14 @@ function buildHorseyHeader()
 function buildYouthHeader()
 {
     var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
-        ret += "<rowitem id='authtype'><div id='div1' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='divrp' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='div2' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='div22h' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='divrp' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='div3' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='div32h' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='div3rp' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div1'   title='Division 1 Armored (6-9)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='divrp'  title='Division 1 Rapier (6-9)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div2'   title='Division 2 Armored (10-14)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div22h' title='Division 2 Armored Two Handed Weapons' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='divrp'  title='Division 2 Rapier (10-14)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div3'   title='Division 3 Armored (14-17)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div32h' title='Division 3 Armored Two Handed Weapons' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='div3rp' title='Division 3 Rapier (14-17)' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "</rowcheckboxes></reportrow2>";
     
     return ret;
@@ -232,16 +227,16 @@ function buildYouthHeader()
 function buildMarshalHeader()
 { //37 armored 38 ca 39 rapier 40 archer 41 horse 42 seige 43 thrown 44 armored youth 51 youth rapier 53 hound
     var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
-        ret += "<rowitem id='authtype'><div id='mar' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='cae' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mrp' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mac' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='meq' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mse' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mtw' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='myo' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mry' class='catarmored smallicon twenty container2'></div></rowitem>";
-        ret += "<rowitem id='authtype'><div id='mhc' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mar' title='Armored Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='cae' title='Combat Archery Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mrp' title='Rapier Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mac' title='Target Archery Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='meq' title='Equestrian Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mse' title='Seige Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mtw' title='Thrown Weapon Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='myo' title='Youth Marshal (Armored)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mry' title='Youth Marshal (Rapier)' class='catarmored smallicon twenty container2'></div></rowitem>";
+        ret += "<rowitem id='authtype'><div id='mhc' title='Hound Coursing Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "</rowcheckboxes></reportrow2>";
     
     return ret;
@@ -264,41 +259,41 @@ function makeCheckBoxes(auths, pid)
 function makeArmoredCheckedBoxes(auths, pid)
 {
     var ret = "";
-    ret += "<rowitem id='authtype'><label class='container'><input id='at1' type='checkbox' onChange='auth(1,"+pid+")' "; 
+    ret += "<rowitem id='authtype'><label class='container'><input id='at1' title='Sword and Board' type='checkbox' onChange='auth(1,"+pid+")' "; 
     if ($.inArray("1", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Sword and Board' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='2' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='2' title='Two Stick' authid='' type='checkbox'";
     if ($.inArray("2", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Two Stick' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='3' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='3' title='Great Weapon' authid='' type='checkbox'";
     if ($.inArray("3", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Great Weapon' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='4' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='4' title='Spear' authid='' type='checkbox'";
     if ($.inArray("4", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Spear' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='5' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='5' title='Polearm' authid='' type='checkbox'";
     if ($.inArray("5", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Polearm' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='6' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='6' title='Youth Sparing' authid='' type='checkbox'";
     if ($.inArray("6", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Youth Sparing' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='9' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='9' title='Combat Archery' authid='' type='checkbox'";
     if ($.inArray("9", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Combat Archery' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='10' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='10' title='Seige Crew' authid='' type='checkbox'";
     if ($.inArray("10", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Seige Crew' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='11' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='11' title='Seige Engine' authid='' type='checkbox'";
     if ($.inArray("11", auths) > -1) ret += " checked='checked' ";    
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Seige Engine' class='checkmark'></span></label></rowitem>";
     
     return ret;
 }
@@ -307,37 +302,33 @@ function makeArmoredCheckedBoxes(auths, pid)
 function makeRapierCheckedBoxes(auths)
 {
     var ret = "";
-    ret += "<rowitem id='authtype'><label class='container'><input id='12' authid='' type='checkbox'"; 
+    ret += "<rowitem id='authtype'><label class='container'><input id='12' title='Single Rapier' authid='' type='checkbox'"; 
     if ($.inArray("12", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Single Rapier' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='15' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='15' title='Dagger' authid='' type='checkbox'";
     if ($.inArray("15", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Dagger' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='16' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='16' title='Parry Device' authid='' type='checkbox'";
     if ($.inArray("16", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Parry Device' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='17' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='17' title='Case' authid='' type='checkbox'";
     if ($.inArray("17", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Case' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='18' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='18' title='Long Sword' authid='' type='checkbox'";
     if ($.inArray("18", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Long Sword' class='checkmark'></span></label></rowitem>";
     
-    /* ret += "<rowitem id='authtype'><label class='container'><input id='19' authid='' type='checkbox'";
-    if ($.inArray("19", auths) > -1) ret += " checked='checked' "; //19 is epee Midrealm doesn't approve
-    ret += "><span class='checkmark'></span></label></rowitem>"; */
-    
-    ret += "<rowitem id='authtype'><label class='container'><input id='20' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='20' title='Youth Sparing' authid='' type='checkbox'";
     if ($.inArray("20", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Youth Sparing' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='52' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='52' title='Cut and Thrust' authid='' type='checkbox'";
     if ($.inArray("52", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Cut and Thrust' class='checkmark'></span></label></rowitem>";
     
     return ret;
 }
@@ -346,37 +337,37 @@ function makeRapierCheckedBoxes(auths)
 function makeYouthCheckedBoxes(auths)
 {
     var ret = "";
-    ret += "<rowitem id='authtype'><label class='container'><input id='22' authid='' type='checkbox'"; 
+    ret += "<rowitem id='authtype'><label class='container'><input id='22' title='Division 1 Armored (6-9)' authid='' type='checkbox'"; 
     if ($.inArray("22", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 1 Armored (6-9)' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='23' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='23' title='Division 1 Rapier (6-9)' authid='' type='checkbox'";
     if ($.inArray("23", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 1 Rapier (6-9)' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='24' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='24' title='Division 2 Armored (10-14)' authid='' type='checkbox'";
     if ($.inArray("24", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 2 Armored (10-14)' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='25' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='25' title='Division 2 Armored Two Handed' authid='' type='checkbox'";
     if ($.inArray("25", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 2 Armored Two Handed' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='26' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='26' title='Division 2 Rapier (10-14)' authid='' type='checkbox'";
     if ($.inArray("26", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 2 Rapier (10-14)' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='27' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='27' title='Division 3 Armored (14-17)' authid='' type='checkbox'";
     if ($.inArray("27", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 3 Armored (14-17)' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='28' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='28' title='Division 3 Armored Two Handed' authid='' type='checkbox'";
     if ($.inArray("28", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 3 Armored Two Handed' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='29' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='29' title='Division 3 Armored Rapier (14-17)' authid='' type='checkbox'";
     if ($.inArray("29", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Division 3 Armored Rapier (14-17)' class='checkmark'></span></label></rowitem>";
     
     return ret;
 }
@@ -385,33 +376,33 @@ function makeYouthCheckedBoxes(auths)
 function makeHorseyCheckedBoxes(auths)
 {
     var ret = "";
-    ret += "<rowitem id='authtype'><label class='container'><input id='30' authid='' type='checkbox'"; 
+    ret += "<rowitem id='authtype'><label class='container'><input id='30' title='General Riding' authid='' type='checkbox'"; 
     if ($.inArray("30", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='General Riding' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='31' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='31' title='Games' authid='' type='checkbox'";
     if ($.inArray("31", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Games' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='32' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='32' title='Archery' authid='' type='checkbox'";
     if ($.inArray("32", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Archery' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='33' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='33' title='Driving' authid='' type='checkbox'";
     if ($.inArray("33", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Driving' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='34' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='34' title='Crest Combat' authid='' type='checkbox'";
     if ($.inArray("34", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Crest Combat' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='35' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='35' title='Mounted Combat' authid='' type='checkbox'";
     if ($.inArray("35", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Mounted Combat' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='36' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='36' title='Joust' authid='' type='checkbox'";
     if ($.inArray("36", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Joust' class='checkmark'></span></label></rowitem>";
         
     return ret;
 }
@@ -420,57 +411,45 @@ function makeHorseyCheckedBoxes(auths)
 function makeMarshalCheckedBoxes(auths)
 {
     var ret = "";
-    ret += "<rowitem id='authtype'><label class='container'><input id='37' authid='' type='checkbox'"; 
+    ret += "<rowitem id='authtype'><label class='container'><input id='37' title='Armored Marshal' authid='' type='checkbox'"; 
     if ($.inArray("37", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Armored Marshal' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='38' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='38' title='Combat Archery Marshal' authid='' type='checkbox'";
     if ($.inArray("38", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Combat Archery Marshal' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='39' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='39' title='Rapier Mashal' authid='' type='checkbox'";
     if ($.inArray("39", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Rapier Mashal' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='40' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='40' title='Target Archery Marshal' authid='' type='checkbox'";
     if ($.inArray("40", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Target Archery Marshal' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='41' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='41' title='Equestrian Marshal' authid='' type='checkbox'";
     if ($.inArray("41", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Equestrian Marshal' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='42' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='42' title='Seige Marshal' authid='' type='checkbox'";
     if ($.inArray("42", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Seige Marshal' class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='43' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='43' title='Thrown Weapons Marshal' authid='' type='checkbox'";
     if ($.inArray("43", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Thrown Weapons Marshal' class='checkmark'></span></label></rowitem>";
         
-    ret += "<rowitem id='authtype'><label class='container'><input id='44' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='44' title='Youth Marshal (armored)' authid='' type='checkbox'";
     if ($.inArray("44", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Youth Marshal (armored)' class='checkmark'></span></label></rowitem>";
     
-    /*ret += "<rowitem id='authtype'><label class='container'><input id='45' authid='' type='checkbox'";
-    if ($.inArray("45", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
-    
-    ret += "<rowitem id='authtype'><label class='container'><input id='46' authid='' type='checkbox'";
-    if ($.inArray("46", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
-    
-    ret += "<rowitem id='authtype'><label class='container'><input id='47' authid='' type='checkbox'";
-    if ($.inArray("47", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>"; */
-    
-    ret += "<rowitem id='authtype'><label class='container'><input id='51' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='51' title='Youth Marshal (rapier)' authid='' type='checkbox'";
     if ($.inArray("51", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Youth Marshal (rapier) class='checkmark'></span></label></rowitem>";
     
-    ret += "<rowitem id='authtype'><label class='container'><input id='53' authid='' type='checkbox'";
+    ret += "<rowitem id='authtype'><label class='container'><input id='53' title='Hound Coursing Marshal' authid='' type='checkbox'";
     if ($.inArray("53", auths) > -1) ret += " checked='checked' ";
-    ret += "><span class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Hound Coursing Marshal' class='checkmark'></span></label></rowitem>";
     
     return ret;
 }
