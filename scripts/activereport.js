@@ -66,7 +66,13 @@ function shouldRunReport()
 
 function filterReportData()
 {
-    //adelaisput suff here
+    //adelais put stuff here
+    
+    var value = $("#activereportfilter").val().toLowerCase();
+    $("reportrow").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+
 }
 
 
@@ -167,7 +173,7 @@ function buildHeader(auths)
 
 function buildArmoredHeader()
 { 
-    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfiler' onKeyUp='filterReportData()' type='text' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfilter' onKeyUp='filterReportData()' type='text' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='ssh' title='Sword and Board' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='tw'  title='Two Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='gs'  title='Great Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
