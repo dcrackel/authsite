@@ -6,5 +6,9 @@ This website is used to track fighters and authorizations they currently hold, w
 
 https://marshaldb.midrealm.org/authorization.html
 
+This has a deployment pipeline via: https://dcrackel.deployhq.com/projects/marshaldbdeploy/servers
+It is triggered when code is merged into Master.
+
+
 This is maintained by: Dwain Crackel - dcrackel@gmail.com
 
