@@ -445,7 +445,7 @@ function makeMarshalCheckedBoxes(auths)
     
     ret += "<rowitem id='authtype'><label class='container'><input id='51' title='Youth Marshal (rapier)' authid='' type='checkbox'";
     if ($.inArray("51", auths) > -1) ret += " checked='checked' ";
-    ret += "><span title='Youth Marshal (rapier) class='checkmark'></span></label></rowitem>";
+    ret += "><span title='Youth Marshal (rapier)' class='checkmark'></span></label></rowitem>";
     
     ret += "<rowitem id='authtype'><label class='container'><input id='53' title='Hound Coursing Marshal' authid='' type='checkbox'";
     if ($.inArray("53", auths) > -1) ret += " checked='checked' ";
