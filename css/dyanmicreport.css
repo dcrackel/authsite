@@ -293,6 +293,7 @@ reportrow2
     border-bottom: 1px solid #999999;
     border-top: 1px solid #999999;
     margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 2px;
 }
 
 rowitem
@@ -330,10 +331,25 @@ rowcheckboxes2
 .container2
 {
     padding: 0px 0px 0px 15px;
-    margin: 0px;
+    margin: 6px 0px 0px 0px;
 }
 
 .expired
 {
     color:red;
+}
+
+#activereportfiler
+{
+    display: block;
+    width: 200px;
+    border-radius: 20px;
+    border: 1px solid #666666;
+    outline: none;
+    padding: 4px 15px 4px 15px;
+    margin: 0px 0px 4px 0px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
 }
