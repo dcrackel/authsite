@@ -65,14 +65,11 @@ function shouldRunReport()
 }
 
 function filterReportData()
-{
-    //adelais put stuff here
-    
+{ 
     var value = $("#activereportfilter").val().toLowerCase();
     $("reportrow").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-
 }
 
 
