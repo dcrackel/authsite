@@ -72,6 +72,14 @@ function filterReportData()
     });
 }
 
+function clearField()
+{
+    if ($("#activereportfilter").val() == "Type here to filter results...")
+    {
+        $("#activereportfilter").val("");
+    }
+}
+
 
 function populateReport()
 {
@@ -170,7 +178,7 @@ function buildHeader(auths)
 
 function buildArmoredHeader()
 { 
-    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfilter' class='activereportfilter' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id='name'><input id='activereportfilter' class='activereportfilter' onClick='clearField()' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id='branch'></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='ssh' title='Sword and Board' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='tw'  title='Two Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='gs'  title='Great Sword' class='catarmored smallicon twenty container2'></div></rowitem>";
