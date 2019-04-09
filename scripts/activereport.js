@@ -196,7 +196,7 @@ function buildArmoredHeader()
 
 function buildRapierHeader()
 { //rapier ids 12sr 16da 15pd 17cs 18ls 19ep 20c&t 52youthspar
-    var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id=''><input id='activereportfilter' class='activereportfilter' onClick='clearField()' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='sr' title='Single Rapier' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='da' title='Dagger' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='pd' title='Parry Device' class='catarmored smallicon twenty container2'></div></rowitem>";
@@ -211,7 +211,7 @@ function buildRapierHeader()
 
 function buildHorseyHeader()
 {
-    var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id=''><input id='activereportfilter' class='activereportfilter' onClick='clearField()' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='gr' title='General Riding' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='mg' title='Games' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='ma' title='Archery' class='catarmored smallicon twenty container2'></div></rowitem>";
@@ -226,7 +226,7 @@ function buildHorseyHeader()
 
 function buildYouthHeader()
 {
-    var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id=''><input id='activereportfilter' class='activereportfilter' onClick='clearField()' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='div1'   title='Division 1 Armored (6-9)' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='divrp'  title='Division 1 Rapier (6-9)' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='div2'   title='Division 2 Armored (10-14)' class='catarmored smallicon twenty container2'></div></rowitem>";
@@ -242,7 +242,7 @@ function buildYouthHeader()
 
 function buildMarshalHeader()
 { //37 armored 38 ca 39 rapier 40 archer 41 horse 42 seige 43 thrown 44 armored youth 51 youth rapier 53 hound
-    var ret = "<reportrow2><rowdata><rowitem id=''></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
+    var ret = "<reportrow2><rowdata><rowitem id=''><input id='activereportfilter' class='activereportfilter' onClick='clearField()' onKeyUp='filterReportData()' type='text' value='Type here to filter results...' /></rowitem><rowitem id=''></rowitem></rowdata><rowcheckboxes>";
         ret += "<rowitem id='authtype'><div id='mar' title='Armored Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='cae' title='Combat Archery Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
         ret += "<rowitem id='authtype'><div id='mrp' title='Rapier Marshal' class='catarmored smallicon twenty container2'></div></rowitem>";
