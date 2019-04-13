@@ -97,6 +97,7 @@ function populateReport()
 		success: function (result) {
             var auths = [];
             var extraStyle = "expired";
+            var count = 1;
 			$.each(result, function(idx, obj) {                    
                if (lastPersonId == 0){
                    res += buildHeader();
@@ -105,18 +106,20 @@ function populateReport()
                    extraStyle = "expired";
                    var expireDate = new Date (obj.expire_date);                  
                    var today = new Date();
+                   if (count == 1) lastExpire = expireDate; //this person only had 1 auth total, the last row is this row.               
                    if (lastExpire > today) extraStyle = "";  
                     res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
                     res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
                     auths = [];
-                    
+                    count = 1;
                }
                
                auths.push(obj.type_id);
                lastPersonId = obj.person_id;
                lastExpire = new Date (obj.expire_date);
                lastName = obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ');
-               lastBranch = obj.branch
+               lastBranch = obj.branch;
+               count++;
 			});
             
             res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
