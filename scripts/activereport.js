@@ -1,6 +1,7 @@
 var selectedRegion = 0;
 var selectedAuth = 0;
-    isLoggedIn();
+isLoggedIn();
+var personAuths = new Array();
 
 function isLoggedIn()
 {
@@ -80,28 +81,41 @@ function clearField()
     }
 }
 
-
-function populateReport()
+function addToAuthArray(auth)
 {
-	var res = "";
-    var lastPersonId = 0;
-    var lastName = "";
-    var lastBranch = "";
+    var found = false;
+    //look over collection to see if this Pid is in it
+    $.each(personAuths, function(index, value){
+        if (this.pId == auth.pId)
+        {
+            //it is found, so add the authId to the one in the collection
+            this.authTypes.push(auth.authTypes[0]); 
+            found = true;
+            return;
+        }
+    });
+    
+    //it wasn't found if we get here, so add this auth to the collection
+    if (!found) personAuths.push(auth);
+}
 
-	$.ajax({
-		url: "https://marshaldb.midrealm.org/mid/dynamicreport.php?rId="+selectedRegion+"&aId="+selectedAuth,
-		type: 'GET',
-		contentType: "application/json",
-		dataType: "json",
-		data: {},
-		success: function (result) {
-            var auths = [];
-            var extraStyle = "expired";
-            var count = 1;
-			$.each(result, function(idx, obj) {                    
-               if (lastPersonId == 0){
-                   res += buildHeader();
-               } 
+function writeAuthReportBody(personAuths)
+{
+    var today = new Date();
+	var res = "";
+    
+    $.each(personAuths, function(index, value){
+        var extraStyle = "expired";
+        var expireDate = new Date (this.expDate);                  
+
+        if (expireDate > today) extraStyle = "";  
+        res += "<reportrow><rowdata onClick='rowClick("+this.pId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + this.name +"</rowitem><rowitem id='branch'>"+this.branch+"</rowitem>";
+        res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(this.authTypes, this.pId) + "</rowcheckboxes></reportrow>";         
+    });
+
+    $('reportbody').html(res);   
+    
+    /*
                if ((obj.person_id != lastPersonId) && (lastPersonId != 0)){         
                    extraStyle = "expired";
                    var expireDate = new Date (obj.expire_date);                  
@@ -127,13 +141,42 @@ function populateReport()
             
             res += "</reportrow>";
             $('reportbody').html(res);
+            */
+}
+
+
+function populateReport()
+{
+    buildHeader(selectedAuth);
+    personAuths = new Array();
+
+	$.ajax({
+		url: "https://marshaldb.midrealm.org/mid/dynamicreport.php?rId="+selectedRegion+"&aId="+selectedAuth,
+		type: 'GET',
+		contentType: "application/json",
+		dataType: "json",
+		data: {},
+		success: function (result) {
+            
+			$.each(result, function(idx, obj) {                    
+
+              var auth = {
+                pId : obj.person_id,
+                name : obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' '),
+                branch : obj.branch,
+                expDate : obj.expire_date,
+                authTypes : new Array(obj.type_id)
+                };
+            
+                addToAuthArray(auth);
+                writeAuthReportBody(personAuths);
+            });
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert("Error updateAuth:" + errorThrown);
 		}
 	});
-    
-	return res;
+
 }
 
 function auth(authId, personId)
