@@ -1,7 +1,7 @@
 <?php
     
 class Encryption {
-    var $skey = "183hdjuafdjhd834"; // you can change it
+    var $skey = "183hdjuafdjhd834"; 
 
     public  function safe_b64encode($string) {
         $data = base64_encode($string);

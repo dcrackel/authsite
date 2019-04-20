@@ -7,4 +7,6 @@
     $dbpass = $converter->decode($config['db_password']);    
     $dbhost = $config['db_host'];
     $dbname = $config['db_name'];
+
+    
 ?>
