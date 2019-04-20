@@ -1,8 +1,5 @@
 <?php
-    $hostname="localhost:3306";
-    $username="marshaldbmidreal"; //marshaldbmidreal_authsite rocco_auths
-    $password="Cando@123"; //Dr4g0nMidrealm! Dr4g0n
-    $dbname="marshald_marshaldb"; //marshald_marshaldb rocco_auths
+    include('properties.php');
 
 	$pid = $_GET['pId'];
 	$editfirstname = $_GET['editfirstname'];
@@ -28,7 +25,7 @@
 	//echo 'personId ' . $personId  . ' authid ' . $authid . ' addfunction ' . $addfunction . ' usernote ' . $usernote;
 
 	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
     
     $editfirstname = mysqli_real_escape_string($conn, $editfirstname);
     $editfirstlast = mysqli_real_escape_string($conn, $editfirstlast);
