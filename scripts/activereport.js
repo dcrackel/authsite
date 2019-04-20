@@ -1,6 +1,7 @@
 var selectedRegion = 0;
 var selectedAuth = 0;
-    isLoggedIn();
+isLoggedIn();
+var personAuths = new Array();
 
 function isLoggedIn()
 {
@@ -80,13 +81,74 @@ function clearField()
     }
 }
 
+function addToAuthArray(auth)
+{
+    var found = false;
+    //look over collection to see if this Pid is in it
+    $.each(personAuths, function(index, value){
+        if (this.pId == auth.pId)
+        {
+            //it is found, so add the authId to the one in the collection
+            this.authTypes.push(auth.authTypes[0]); 
+            found = true;
+            return;
+        }
+    });
+    
+    //it wasn't found if we get here, so add this auth to the collection
+    if (!found) personAuths.push(auth);
+}
+
+function writeAuthReportBody(personAuths)
+{
+    var today = new Date();
+	var res = "";
+    
+    $.each(personAuths, function(index, value){
+        var extraStyle = "expired";
+        var expireDate = new Date (this.expDate);                  
+
+        if (expireDate > today) extraStyle = "";  
+        res += "<reportrow><rowdata onClick='rowClick("+this.pId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + this.name +"</rowitem><rowitem id='branch'>"+this.branch+"</rowitem>";
+        res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(this.authTypes, this.pId) + "</rowcheckboxes></reportrow>";         
+    });
+
+    $('reportbody').html(res);   
+    
+    /*
+               if ((obj.person_id != lastPersonId) && (lastPersonId != 0)){         
+                   extraStyle = "expired";
+                   var expireDate = new Date (obj.expire_date);                  
+                   var today = new Date();
+                   if (count == 1) lastExpire = expireDate; //this person only had 1 auth total, the last row is this row.               
+                   if (lastExpire > today) extraStyle = "";  
+                    res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
+                    res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
+                    auths = [];
+                    count = 1;
+               }
+               
+               auths.push(obj.type_id);
+               lastPersonId = obj.person_id;
+               lastExpire = new Date (obj.expire_date);
+               lastName = obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ');
+               lastBranch = obj.branch;
+               count++;
+			});
+            
+            res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
+            res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
+            
+            res += "</reportrow>";
+            $('reportbody').html(res);
+            */
+}
+
 
 function populateReport()
 {
-	var res = "";
-    var lastPersonId = 0;
-    var lastName = "";
-    var lastBranch = "";
+    buildHeader(selectedAuth);
+    personAuths = new Array();
 
 	$.ajax({
 		url: "https://marshaldb.midrealm.org/mid/dynamicreport.php?rId="+selectedRegion+"&aId="+selectedAuth,
@@ -95,42 +157,26 @@ function populateReport()
 		dataType: "json",
 		data: {},
 		success: function (result) {
-            var auths = [];
-            var extraStyle = "expired";
+            
 			$.each(result, function(idx, obj) {                    
-               if (lastPersonId == 0){
-                   res += buildHeader();
-               } 
-               if ((obj.person_id != lastPersonId) && (lastPersonId != 0)){         
-                   extraStyle = "expired";
-                   var expireDate = new Date (obj.expire_date);                  
-                   var today = new Date();
-                   if (lastExpire > today) extraStyle = "";  
-                    res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca' class='"+ extraStyle +"'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
-                    res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
-                    auths = [];
-                    
-               }
-               
-               auths.push(obj.type_id);
-               lastPersonId = obj.person_id;
-               lastExpire = new Date (obj.expire_date);
-               lastName = obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ');
-               lastBranch = obj.branch
-			});
+
+              var auth = {
+                pId : obj.person_id,
+                name : obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' '),
+                branch : obj.branch,
+                expDate : obj.expire_date,
+                authTypes : new Array(obj.type_id)
+                };
             
-            res += "<reportrow><rowdata onClick='rowClick("+lastPersonId+")'><rowitem id='sca'>" + lastName +"</rowitem><rowitem id='branch'>"+lastBranch+"</rowitem>";
-            res += "</rowdata><rowcheckboxes>" + makeCheckBoxes(auths, lastPersonId) + "</rowcheckboxes></reportrow>";
-            
-            res += "</reportrow>";
-            $('reportbody').html(res);
+                addToAuthArray(auth);
+                writeAuthReportBody(personAuths);
+            });
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert("Error updateAuth:" + errorThrown);
 		}
 	});
-    
-	return res;
+
 }
 
 function auth(authId, personId)
