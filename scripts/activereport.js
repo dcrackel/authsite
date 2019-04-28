@@ -147,7 +147,7 @@ function writeAuthReportBody(personAuths)
 
 function populateReport()
 {
-    buildHeader(selectedAuth);
+    $('reportheader').html(buildHeader(selectedAuth));
     personAuths = new Array();
 
 	$.ajax({
@@ -157,10 +157,59 @@ function populateReport()
 		dataType: "json",
 		data: {},
 		success: function (result) {
+            res = "";
             
-			$.each(result, function(idx, obj) {                    
-
-              var auth = {
+			$.each(result, function(idx, obj) {    
+              res += "<reportrow><rowdata>";
+              res += "<rowitem>" + obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ') + "</rowitem><rowitem id='branch'>"+obj.branch+"</rowitem></rowdata>";
+              res += 
+                  "<rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at1' title='Sword and Board' type ='checkbox' onChange='auth("+obj.a1+" , "+obj.person_id+")'"; 
+                   if (obj.a1 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Sword and Board' class='checkmark'></span></label></rowitem>";
+              res +=
+                  "<rowitem id='authtype'><label class='container'><input id='2' title='Two Stick' type ='checkbox' onChange='auth("+obj.a2+" , "+obj.person_id+")'"; 
+                   if (obj.a2 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Two Stick' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='3' title='Great Weapon' type ='checkbox' onChange='auth("+obj.a3+" , "+obj.person_id+")'"; 
+                   if (obj.a3 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Great Weapon' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='4' title='Spear' type ='checkbox' onChange='auth("+obj.a4+" , "+obj.person_id+")'"; 
+                   if (obj.a4 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Spear' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='5' title='Polearm' type ='checkbox' onChange='auth("+obj.a5+" , "+obj.person_id+")'"; 
+                   if (obj.a5 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Polearm' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='6' title='Youth Sparring' type ='checkbox' onChange='auth("+obj.a6+" , "+obj.person_id+")"; 
+                   if (obj.a6 == 1 ) res += " checked='checked' ";
+                   res += "'></input><span title='Youth Sparring' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='9' title='Combat Archery' type ='checkbox' onChange='auth("+obj.a9+" , "+obj.person_id+")'"; 
+                   if (obj.a1 == 9 ) res += " checked='checked' ";
+                   res += "></input><span title='Combat Archery' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='10' title='Seige Crew' type ='checkbox' onChange='auth("+obj.a10+" , "+obj.person_id+")'"; 
+                   if (obj.a10 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Seige Crew' class='checkmark'></span></label></rowitem>";
+              res += 
+                  "<rowitem id='authtype'><label class='container'><input id='11' title='Seige Engine' type ='checkbox' onChange='auth("+obj.a11+" , "+obj.person_id+")'"; 
+                   if (obj.a11 == 1 ) res += " checked='checked' ";
+                   res += "></input><span title='Seige Engine' class='checkmark'></span></label></rowitem></rowcheckboxes>";
+                
+                
+                
+                
+            //  res += "<rowitem>" + obj.expire_date + "</rowitem>";
+              res += "</reportrow>";
+                
+        /*       <rowitem id='authtype'><label class='container'><input id='at1' title='Sword and Board' type='checkbox' onChange='auth(1,"+pid+")' "; 
+    if ($.inArray("1", auths) > -1) ret += " checked='checked' ";
+    ret += "><span title='Sword and Board' class='checkmark'></span></label></rowitem> 
+                
+              /*var auth = {
                 pId : obj.person_id,
                 name : obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' '),
                 branch : obj.branch,
@@ -169,8 +218,10 @@ function populateReport()
                 };
             
                 addToAuthArray(auth);
-                writeAuthReportBody(personAuths);
+                writeAuthReportBody(personAuths); */
             });
+            
+            $('reportbody').html(res);  
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert("Error updateAuth:" + errorThrown);
