@@ -147,6 +147,9 @@ function writeAuthReportBody(personAuths)
 
 function populateReport()
 {
+    var today = new Date(); 
+
+
     $('reportheader').html(buildHeader(selectedAuth));
     personAuths = new Array();
 
@@ -157,11 +160,14 @@ function populateReport()
 		dataType: "json",
 		data: {},
 		success: function (result) {
-            res = "";
+            res = "";   
             
-			$.each(result, function(idx, obj) {    
-              res += "<reportrow><rowdata>";
-              res += "<rowitem>" + obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ') + "</rowitem><rowitem id='branch'>"+obj.branch+"</rowitem></rowdata>";
+			$.each(result, function(idx, obj) { 
+              var expireDate = new Date (obj.expire_date);    
+              res += "<reportrow><rowdata onClick='rowClick("+obj.person_id+")'>";
+              res += "<rowitem";
+              if (expireDate < today) res +=  " class='expired' ";
+              res += ">" + obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ') + "</rowitem><rowitem id='branch'>"+obj.branch+"</rowitem></rowdata>";
               res += 
                   "<rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at1' title='Sword and Board' type ='checkbox' onChange='auth("+obj.a1+" , "+obj.person_id+")'"; 
                    if (obj.a1 == 1 ) res += " checked='checked' ";
