@@ -109,18 +109,20 @@ if (personId == 5259) res = res + "<div id='vanity'>Conquerer of the land of She
 		}
 		res = res + "<div id='hiddenperson' style='display: none;'>";
 		res = res + "<div id='personalinfobox'>";
-		res = res + "<div class='infoheader' >Legal First Name</div>";
-		res = res + "<input id='legalfirst' class='textinputbar' value='" + obj.first_legal + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Legal Last Name</div>";
-		res = res + "<input id='legallast' class='textinputbar' value='" + obj.last_legal + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader' >Member Number</div>";
-		res = res + "<input id='membernumber' class='textinputbar' value='" + obj.member_number + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Birthday</div>";
-		res = res + "<input id='bod' class='textinputbar' value='" + obj.birthdate + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Phone Number</div>";
-		res = res + "<input id='phonenum' class='textinputbar' value='"+ obj.phone +"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Email Address</div>";
-		res = res + "<input id='email' class='textinputbar' value='"+obj.email+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+		if($.inEditMode == true){
+            res = res + "<div class='infoheader' >Legal First Name</div>";
+            res = res + "<input id='legalfirst' class='textinputbar' value='" + obj.first_legal + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Legal Last Name</div>";
+            res = res + "<input id='legallast' class='textinputbar' value='" + obj.last_legal + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader' >Member Number</div>";
+            res = res + "<input id='membernumber' class='textinputbar' value='" + obj.member_number + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Birthday</div>";
+            res = res + "<input id='bod' class='textinputbar' value='" + obj.birthdate + "' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Phone Number</div>";
+            res = res + "<input id='phonenum' class='textinputbar' value='"+ obj.phone +"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Email Address</div>";
+            res = res + "<input id='email' class='textinputbar' value='"+obj.email+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+        }
 		if($.inEditMode == true){
 			res = res + "<div class='infoheader'>Password</div>";
 			res = res + "<input id='hpassword' class='textinputbar' type='password' value=''/>";        
@@ -128,19 +130,20 @@ if (personId == 5259) res = res + "<div id='vanity'>Conquerer of the land of She
         }
 		res = res + "</div>";
 		res = res + "<div id='addressinfobox'>";
-		res = res + "<div class='infoheader'>Street Address 1</div>";
-		res = res + "<input id='address1' class='textinputbar' value='"+obj.address1+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Street Address 2</div>";
-		res = res + "<input id='address2' class='textinputbar' value='"+obj.address2+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>City</div>";
-		res = res + "<input id='city' class='textinputbar' value='"+obj.city+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>State</div>";
-		res = res + "<input id='state' class='textinputbar' value='"+obj.state+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Zip Code</div>";
-		res = res + "<input id='zip' class='textinputbar' value='"+obj.zip+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-		res = res + "<div class='infoheader'>Blue Card Exp Date</div>";
-		res = res + "<input id='pie' class='textinputbar' value='"+obj.pie+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
-
+        if($.inEditMode == true){
+            res = res + "<div class='infoheader'>Street Address 1</div>";
+            res = res + "<input id='address1' class='textinputbar' value='"+obj.address1+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Street Address 2</div>";
+            res = res + "<input id='address2' class='textinputbar' value='"+obj.address2+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>City</div>";
+            res = res + "<input id='city' class='textinputbar' value='"+obj.city+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>State</div>";
+            res = res + "<input id='state' class='textinputbar' value='"+obj.state+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Zip Code</div>";
+            res = res + "<input id='zip' class='textinputbar' value='"+obj.zip+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+            res = res + "<div class='infoheader'>Blue Card Exp Date</div>";
+            res = res + "<input id='pie' class='textinputbar' value='"+obj.pie+"' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
+        }
 		if($.inEditMode == true){
 			res = res + "<div class='infoheader'>Confirm Password</div>";
 			res = res + "<input id='hconfirmpassword' class='textinputbar' type='password' value='' onKeyUp='delay(function(){updatePerson();}, 1500 );' />";
