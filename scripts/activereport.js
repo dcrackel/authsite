@@ -153,15 +153,110 @@ function populateReport (selectedAuth)
 {
     var res = "";
     
-    //if (selectedAuth == 1) res = buildMarshalReport();
+    if (selectedAuth == 1) res = buildMarshalReport();
     if (selectedAuth == 3) res = buildArmoredReport();
     if (selectedAuth == 5) res = buildRapierReport();
     if (selectedAuth == 6) res = buildYouthReport();
-    // if (selectedAuth == 8) res = buildHorseyReportHeader();
+    if (selectedAuth == 8) res = buildHorseyReportHeader();
     
     return res;
 }
 
+function buildMarshalReport()
+{
+    var today = new Date(); 
+
+
+    $('reportheader').html(buildHeader(selectedAuth));
+    personAuths = new Array();
+
+	$.ajax({
+		url: "https://marshaldb.midrealm.org/mid/dynamicreport.php?rId="+selectedRegion+"&aId="+selectedAuth,
+		type: 'GET',
+		contentType: "application/json",
+		dataType: "json",
+		data: {},
+		success: function (result) {
+            res = "";   
+            
+			$.each(result, function(idx, obj) { 
+              var expireDate = new Date (obj.expire_date);    
+              res += "<reportrow><rowdata onClick='rowClick("+obj.person_id+")'>";
+              res += "<rowitem";
+              if (expireDate < today) res +=  " class='expired' ";
+              res += ">" + obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ') + "</rowitem><rowitem id='branch'>"+obj.branch+"</rowitem></rowdata>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at37' title='Armored' type ='checkbox'"; 
+                   if (obj.a1 == 37 ) res += " checked='checked' ";
+                   res += "onclick='auth( 37 , "+obj.person_id+")'";        
+                   res += "> </input><span id='st37' title='Armored' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at38' title='Combat Archery' type ='checkbox'"; 
+                   if (obj.a38 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 38 , "+obj.person_id+")'";
+                   res += "> </input><span id='st38' title='Combat Archery' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at39' title='Rapier' type ='checkbox'"; 
+                   if (obj.a39 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 39 , "+obj.person_id+")'";
+                   res += "> </input><span id='st39' title='Rapier' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at40' title='Archery' type ='checkbox'"; 
+                   if (obj.a40 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 40 , "+obj.person_id+")'";
+                   res += "></input><span id='st40' title='Archery' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at41' title='Equestrian' type ='checkbox'"; 
+                   if (obj.a41 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 41 , "+obj.person_id+")'";
+                   res += "></input><span id='st41' title='Equestrian' class='checkmark'></span></label></rowitem>";
+                 res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at42' title='Seige' type ='checkbox'"; 
+                   if (obj.a42 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 42 , "+obj.person_id+")'";
+                   res += "></input><span id='st6' title='Seige' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at43' title='Thrown Weapons' type ='checkbox'"; 
+                   if (obj.a43 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 43 , "+obj.person_id+")'";
+                   res += "></input><span id='st9' title='Thrown Weapons' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at44' title='Armored Youth' type ='checkbox'"; 
+                   if (obj.a44 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 44 , "+obj.person_id+")'";
+                   res += "></input><span id='st10' title='Armored Youth' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at51' title='Youth Rapier' type ='checkbox'"; 
+                   if (obj.a51 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 51 , "+obj.person_id+")'";
+                   res += "></input><span id='st51' title='Youth Rapier' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at53' title='Hound Coursing' type ='checkbox'"; 
+                   if (obj.a53 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 53 , "+obj.person_id+")'";
+                   res += "></input><span id='st53' title='Hound Coursing' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
+                
+                
+              /*var auth = {
+                pId : obj.person_id,
+                name : obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' '),
+                branch : obj.branch,
+                expDate : obj.expire_date,
+                authTypes : new Array(obj.type_id)
+                };
+            
+                addToAuthArray(auth);
+                writeAuthReportBody(personAuths); */
+            });
+            
+            $('reportbody').html(res);  
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert("Error updateAuth:" + errorThrown);
+		}
+	});
+
+}
 
 
 function buildArmoredReport()
@@ -285,37 +380,37 @@ function buildRapierReport()
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at12' title='Single' type ='checkbox'"; 
                    if (obj.a12 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 12 , "+obj.person_id+")'";
-                   res += "></input><span title='Single' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st12' title='Single' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at15' title='Parry' type ='checkbox'"; 
                    if (obj.a15 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 15 , "+obj.person_id+")'";
-                   res += "></input><span title='Parry' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st15' title='Parry' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at16' title='Dagger' type ='checkbox'"; 
                    if (obj.a16 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 16 , "+obj.person_id+")'";
-                   res += "></input><span title='Dagger' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st16' title='Dagger' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at17' title='Case' type ='checkbox'"; 
                    if (obj.a17 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 17 , "+obj.person_id+")'";
-                   res += "></input><span title='Case' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st17' title='Case' class='checkmark'></span></label></rowitem>";
                res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at18' title='Great Weapon' type ='checkbox'"; 
                    if (obj.a18 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 18 , "+obj.person_id+")'";
-                   res += "></input><span title='Great Weapon' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st18' title='Great Weapon' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at52' title='Youth Sparring' type ='checkbox'"; 
                    if (obj.a52 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 52 , "+obj.person_id+")'";
-                   res += "></input><span title='Youth Sparring' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st52' title='Youth Sparring' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at20' title='Cut and Thrust' type ='checkbox'"; 
                    if (obj.a20 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 20 , "+obj.person_id+")'";
-                   res += "></input><span title='Cut And Thrust' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
+                   res += "></input><span id='st20' title='Cut And Thrust' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
                 
            
             });
@@ -356,42 +451,42 @@ function buildYouthReport()
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at22' title='Div 1 Armored' type ='checkbox'"; 
                    if (obj.a22 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 22 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 1 Armored' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st22' title='Div 1 Armored' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at23' title='Div 1 Rapier' type ='checkbox'"; 
                    if (obj.a23 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 23 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 1 Rapier' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st23' title='Div 1 Rapier' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at24' title='Div 2 Armored' type ='checkbox'"; 
                    if (obj.a24 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 24 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 2 Armored' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st24' title='Div 2 Armored' class='checkmark'></span></label></rowitem>";
                 res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at25' title='Div 2 Armored Two Handed Weapons' type ='checkbox'"; 
                    if (obj.a25 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 25 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 2 Armored Great Two Handed Weapons' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st25' title='Div 2 Armored Great Two Handed Weapons' class='checkmark'></span></label></rowitem>";
                 res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at26' title='Div 2 Rapier' type ='checkbox'"; 
                    if (obj.a26 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 26 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 2 Rapier' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st26' title='Div 2 Rapier' class='checkmark'></span></label></rowitem>";
                  res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at27' title='Div 3 Armored' type ='checkbox'"; 
                    if (obj.a27 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 27 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 3 Armored' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st27' title='Div 3 Armored' class='checkmark'></span></label></rowitem>";
                 res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at28' title='Div 3 Armored Two Handed Weapons' type ='checkbox'"; 
                    if (obj.a28 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 28 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 3 Armored Two Handed Weapons' class='checkmark'></span></label></rowitem>";
+                   res += "></input><span id='st28' title='Div 3 Armored Two Handed Weapons' class='checkmark'></span></label></rowitem>";
               res += 
                   " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at29' title='Div 3 Rapier' type ='checkbox'"; 
                    if (obj.a29 == 1 ) res += " checked='checked' ";
                    res += "onclick='auth( 29 , "+obj.person_id+")'";
-                   res += "></input><span title='Div 3 Rapier' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
+                   res += "></input><span id='st29' title='Div 3 Rapier' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
                 
            
             });
@@ -404,6 +499,87 @@ function buildYouthReport()
 	});
 
 }
+function buildHorseyReportHeader()
+{
+    var today = new Date(); 
+
+
+    $('reportheader').html(buildHeader(selectedAuth));
+    personAuths = new Array();
+
+	$.ajax({
+		url: "https://marshaldb.midrealm.org/mid/dynamicreport.php?rId="+selectedRegion+"&aId="+selectedAuth,
+		type: 'GET',
+		contentType: "application/json",
+		dataType: "json",
+		data: {},
+		success: function (result) {
+            res = "";   
+            
+			$.each(result, function(idx, obj) { 
+              var expireDate = new Date (obj.expire_date);    
+              res += "<reportrow><rowdata onClick='rowClick("+obj.person_id+")'>";
+              res += "<rowitem";
+              if (expireDate < today) res +=  " class='expired' ";
+              res += ">" + obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' ') + "</rowitem><rowitem id='branch'>"+obj.branch+"</rowitem></rowdata>";
+                   res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at30' title='General Riding' type ='checkbox'"; 
+                   if (obj.a30 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 30 , "+obj.person_id+")'";
+                   res += "> </input><span id='st30' title='General Riding' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at31' title='Mounted Games' type ='checkbox'"; 
+                   if (obj.a31 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 31 , "+obj.person_id+")'";
+                   res += "> </input><span id='st31' title='Mounted Games' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at32' title='Mounted Archery' type ='checkbox'"; 
+                   if (obj.a32 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 32 , "+obj.person_id+")'";
+                   res += "> </input><span id='st32' title='Mounted Archery' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at33' title='Driving' type ='checkbox'"; 
+                   if (obj.a33 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 33 , "+obj.person_id+")'";
+                   res += "></input><span id='st33' title='Driving' class='checkmark'></span></label></rowitem>";
+                res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at34' title='Crest Combat' type ='checkbox'"; 
+                   if (obj.a34 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 34 , "+obj.person_id+")'";
+                   res += "></input><span id='st34' title='Crest Combat' class='checkmark'></span></label></rowitem>";
+                 res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at35' title='Mounted Combat' type ='checkbox'"; 
+                   if (obj.a35 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 35 , "+obj.person_id+")'";
+                   res += "></input><span id='st35' title='Mounted Combat' class='checkmark'></span></label></rowitem>";
+              res += 
+                  " <rowcheckboxes><rowitem id='authtype'><label class='container'><input id='at36' title='Joust' type ='checkbox'"; 
+                   if (obj.a53 == 1 ) res += " checked='checked' ";
+                   res += "onclick='auth( 36 , "+obj.person_id+")'";
+                   res += "></input><span id='st36' title='Joust' class='checkmark'></span></label></rowitem></rowcheckboxes></reportrow>";
+                
+                
+              /*var auth = {
+                pId : obj.person_id,
+                name : obj.first_SCA.replace(/\%20/g, ' ') + " " + obj.last_SCA.replace(/\%20/g, ' '),
+                branch : obj.branch,
+                expDate : obj.expire_date,
+                authTypes : new Array(obj.type_id)
+                };
+            
+                addToAuthArray(auth);
+                writeAuthReportBody(personAuths); */
+            });
+            
+            $('reportbody').html(res);  
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert("Error updateAuth:" + errorThrown);
+		}
+	});
+
+}
+
 
 
 function auth(authId, personId)
