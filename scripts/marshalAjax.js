@@ -63,12 +63,17 @@ function buildPersonHeader(personId)
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {pId: personId},
+		data: {pId: personId, t: $.token},
 		success: function (result) {
 
 
 		$.each(result, function(idx, obj) {
-
+            
+        if (obj.person_id == 1){
+            $.token = obj.token;
+            return true;
+        }
+            
 		var fname = ""
 		var lname = ""
 		var space = obj.first_SCA.indexOf('%20');
@@ -97,12 +102,18 @@ function buildPersonHeader(personId)
 		$("#cardscaname").text(unescape(fname) + " " + unescape(lname));
 		$("#cardlegalname").text(obj.first_legal + " " + obj.last_legal);
 
-		res = "<div id='innerpersoncard' class='personcard' pid='"+personId+"'><div id='namebox'><div id='personicon'></div><div id='name'>"
-if (personId == 5259) res = res + "<div id='vanity'>Conquerer of the land of Sheep and deflower-er of many petals</div>"    
+        let boxstyle = 'namebox';
+        if($.inEditMode) boxstyle = 'namebox3';
+		res = "<div id='innerpersoncard' class='personcard' pid='"+personId+"'><div id='"+boxstyle+"'><div id='personicon'></div><div id='name'>"
         res = res + "<div id='firstnamedesc' class='smallnametext'>SCA first name only, please do not enter titles</div><div id='firstname'>" + unescape(fname) + "</div><div id='lastnamedesc' class='smallnametext'>SCA middle & last name or anything after the first name</div><div id='lastname'>" + unescape(lname) + "</div></div></div>";
 		res = res + "<div id='groupbox' class='groupbox'><div id='locationicon'></div><div id='groupname'><div id='locationname' class='locname' branchid='" + obj.group_id +"' >" + obj.branch + "</div><div id='region'>" + obj.region + "</div><div id='locationdropdown' style='display:none;'></div></div></div>";
 
-		if(!$.inEditMode){ res = res + "<div id='printericon' onClick='generateCard()'></div>"; }
+		//if(!$.inEditMode){ res = res + "<div id='printericon' onClick='generateCard()'></div>"; }
+        if(!$.inEditMode)
+        { 
+            if (obj.has_waiver) res = res + "<div id='waiverbox'><div id='waivericon'></div><div id='waivertext2'>Has Waiver on File</div></div>"; 
+            if (!obj.has_waiver) res = res + "<div id='waiverbox'><div id='redwarnicon'></div><div id='waivertext'>Waiver Not File!</div></div>";
+        }
 
 		if($.inEditMode == true){
 			res = res + "<div id='editicon' onClick='expandPersonalData(false);'></div>";
@@ -126,7 +137,9 @@ if (personId == 5259) res = res + "<div id='vanity'>Conquerer of the land of She
 		if($.inEditMode == true){
 			res = res + "<div class='infoheader'>Password</div>";
 			res = res + "<input id='hpassword' class='textinputbar' type='password' value=''/>";        
-			res = res + "<div id='personnoteiconadd' onClick='addPersonNote();'></div>";    
+			res = res + "<div id='personnoteiconadd' onClick='addPersonNote();'></div>";
+            if (obj.has_waiver == '1')	 res = res + "<div id='waiver'><div id='haswaivericon' onClick='updateWaiver();'><input type='hidden' id='haswaiver' value='1'></div></div>";
+            if (obj.has_waiver == '0') res = res + "<div id='waiver'><div id='hasnotwaivericon' onClick='updateWaiver();'><input type='hidden' id='haswaiver' value='0'></div></div>";
         }
 		res = res + "</div>";
 		res = res + "<div id='addressinfobox'>";
@@ -781,7 +794,7 @@ function buildPersonAuths(personId)
 			if (armoreddate.getFullYear() > 1969){
 			  var expiredCard = "postdate";
 			  if (armoreddate < today) { expiredCard = "expiredCard"; }
-			  if (resArmored.length > 0) resArmored = "<div id='armored' class='card'><div id='armoredheader' class='cardheader'><div id='armoredicon' class='marshalicon'></div><div class='headertext'>Armored Combat</div>	<div id='amoreddate' class='" + expiredCard + "'>  <div id='amoredmonth' class='postmonth'>"+monthNames[armoreddate.getMonth()]+"</div><div id='amoredday' class='postday'>"+armoreddate.getDate()+"</div><div id='amoredyear' class='vtext'>"+armoreddate.getFullYear()+"</div>		</div></div>				<hr class='style-one'><div id='authbox' class='authbox'>" + resArmored + "</div></div>";
+			  if (resArmored.length > 0) resArmored = "<div id='armored' class='card'><div id='armoredheader' class='cardheader'><div id='armoredicon' class='marshalicon'></div><div class='headertext'>Armored Combat</div>	<div id='amoreddate' class='" + expiredCard + "'>  <div id='amoredmonth' class='postmonth'>"+monthNames[armoreddate.getMonth()]+"</div><div id='amoredday' class='postday'>"+armoreddate.getDate()+"</div><div id='amoredyear' class='vtext'>"+armoreddate.getFullYear()+"</div></div></div>				<hr class='style-one'><div id='authbox' class='authbox'>" + resArmored + "</div></div>";
 			  } else {
 					if (resArmored.length > 0) resArmored = "<div id='armored' class='card'><div id='armoredheader' class='cardheader'><div id='armoredicon' class='marshalicon'></div><div class='headertext'>Armored Combat</div>	<div id='amoreddate' class='neverCard'>  <div id='amoredmonth' class='postmonth'></div><div id='amoredday' class='postday'></div><div id='amoredyear' class='vtext'></div>		</div></div>				<hr class='style-one'><div id='authbox' class='authbox'>" + resArmored + "</div></div>";
 			  }
@@ -988,6 +1001,7 @@ function buildPersonAuthsEdit(personId)
 
 		if (resArmored.length > 0){
 			resArmored = "<div id='armored' class='card'><div id='armoredheader' class='cardheader'><div id='armoredicon' class='marshalicon'></div><div id='headertext' class='headertext'>Armored Combat</div><div id='amoreddate' prefix='amored' class='postdate' typeid='3' onclick=changeToTextField('amored','3') >  <div id='amoredmonth' prefix='amored' class='postmonth'>Jan</div><div id='amoredday' prefix='amored' class='postday'>1</div><div prefix='amored' id='amoredyear' class='vtext'>2000</div>		</div></div><hr class='style-one'><div id='authbox' class='authbox'>" + resArmored + "</div></div>";
+            
 			resArmored = resArmored + "<div id='armorednotes' class='card'><div id='armoredheader' class='cardheader'><div id='armoredicon' class='marshalicon'></div><div class='headertext'>Armored Auth Notes</div></div>				<hr class='style-one'><div id='armorednotesbox' class='authbox'></div></div>";
 			}
 
@@ -1793,6 +1807,12 @@ function loginUser(username, pass)
 		success: function (result) {
 
 			$.each(result, function(idx, obj){
+                
+                if (obj.person_id == 1) {
+                    $.token = obj.rank_id;
+                    return true;
+                }
+                
 				thisrank = obj.rank_id;
 				pId = obj.person_id;
 				$.userName = obj.first_SCA;
@@ -1824,6 +1844,21 @@ function loginUser(username, pass)
 }
 
 
+function updateWaiver()
+{
+   var haswaiver = $('#haswaiver').val();
+   if (haswaiver == '1'){ 
+       $('#haswaiver').val('0');
+       $('#waiver').html("<div id='hasnotwaivericon' onClick='updateWaiver();'><input type='hidden' id='haswaiver' value='0'></div>");                   
+   }
+   if (haswaiver == '0'){
+       $('#haswaiver').val('1'); 
+       $('#waiver').html("<div id='haswaivericon' onClick='updateWaiver();'><input type='hidden' id='haswaiver' value='1'></div>");
+   }
+   updatePerson();
+}
+
+
 function updatePerson()
 {
 	var gId = $('#editlocationname').attr('groupid');
@@ -1842,8 +1877,9 @@ function updatePerson()
 	var state = $('#state').val();
 	var zip = $('#zip').val();
 	var pie = $('#pie').val();
-
-	var hpassword = $('#hpassword').val();
+    var haswaiver = $('#haswaiver').val();
+    
+    var hpassword = $('#hpassword').val();
 	var hpasswordconfirm = $('#hconfirmpassword').val();
 	var passhash = '';
 
@@ -1866,7 +1902,7 @@ function updatePerson()
 		gId = "";
 	}
 
-            console.log("pId=" + personId + "&editfirstname=" + escape(editfirstname) + "&editfirstlast=" + escape(editfirstlast) + "&legalfirst=" + legalfirst + "&legallast=" + legallast + "&mSembernumber" + membernumber + "&bod" + bod + "&phonenum=" + phonenum + "&email=" + email + "&address1=" + address1 + "&address2" + address2 + "&city" + city + "&state=" + state + "&zip=" + zip + "&passhash=" + passhash + "&groupid=" + gId + "&pietext=" + pie);
+            console.log("pId=" + personId + "&editfirstname=" + escape(editfirstname) + "&editfirstlast=" + escape(editfirstlast) + "&legalfirst=" + legalfirst + "&legallast=" + legallast + "&mSembernumber" + membernumber + "&bod" + bod + "&phonenum=" + phonenum + "&email=" + email + "&address1=" + address1 + "&address2" + address2 + "&city" + city + "&state=" + state + "&zip=" + zip + "&passhash=" + passhash + "&groupid=" + gId + "&pietext=" + pie + "&haswaiver=" + haswaiver);
     
     if (editfirstname == "undefined"){
         console.log("UNDEFINED!");
@@ -1878,10 +1914,10 @@ function updatePerson()
 		type: 'GET',
 		contentType: "application/json",
 		dataType: "json",
-		data: {pId: personId, editfirstname: escape(editfirstname), editfirstlast: escape(editfirstlast), legalfirst: legalfirst, legallast: legallast, membernumber: membernumber, bod: bod, phonenum: phonenum, email: email, address1: address1, address2: address2, city: city, state: state, zip: zip, passhash: passhash, groupid: gId, pietext: pie},
+		data: {pId: personId, editfirstname: escape(editfirstname), editfirstlast: escape(editfirstlast), legalfirst: legalfirst, legallast: legallast, membernumber: membernumber, bod: bod, phonenum: phonenum, email: email, address1: address1, address2: address2, city: city, state: state, zip: zip, passhash: passhash, groupid: gId, pietext: pie, haswaiver: haswaiver},
 		success: function (result) {
 			//prompt(result, result);
-            console.log("Here");
+            //console.log("Here");
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			alert("Error updatePerson:" + errorThrown);

@@ -1,5 +1,4 @@
 <?php
-
 include('connectdb.php');
 
 $something = $_GET['s'];

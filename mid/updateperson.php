@@ -21,6 +21,7 @@
 	$addhash = "";
 	$groupid = "";
 	$ziptext = "";
+    $haswaiver = $_GET['haswaiver'];
 
 	//echo 'personId ' . $personId  . ' authid ' . $authid . ' addfunction ' . $addfunction . ' usernote ' . $usernote;
 
@@ -52,7 +53,7 @@
 	}
 
 	//birthdate=$bod,
-	$sql = "UPDATE person SET first_legal='$legalfirst',last_legal='$legallast',first_SCA='$editfirstname',last_SCA='$editfirstlast',member_number=$membernumber,phone='$phonenum',address1='$address1',address2='$address2',city='$city',state='$state',email='$email',birthdate='$bod', pie='$pie' $ziptext $groupid $addhash WHERE person_id = $pid;";
+	$sql = "UPDATE person SET first_legal='$legalfirst',last_legal='$legallast',first_SCA='$editfirstname',last_SCA='$editfirstlast',member_number=$membernumber,phone='$phonenum',address1='$address1',address2='$address2',city='$city',state='$state',email='$email',birthdate='$bod', pie='$pie', has_waiver=$haswaiver $ziptext $groupid $addhash WHERE person_id = $pid;";
 	//$sql = mysql_real_escape_string($sql);
 
     if (strlen($editfirstname) > 2) {

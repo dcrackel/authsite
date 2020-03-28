@@ -5,6 +5,7 @@ $.canEdit = false;
 $.personalExpanded = false;
 $.currentLocation = "";
 $.userName = "";
+$.token = "";
 
 $.session = {};
 $.session.browser = "";

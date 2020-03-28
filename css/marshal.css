@@ -232,7 +232,14 @@ activereportno
   
   display: flex;
   flex-wrap: wrap;
-   
+  width: 40%; 
+}
+
+#namebox3
+{
+  
+  display: flex;
+  flex-wrap: wrap;
   width: 50%; 
 }
 
@@ -250,7 +257,47 @@ activereportno
   background-repeat: no-repeat;  
 }
 
+#waiverbox
+{
+    width: 20%;
+    display: flex;
+}
 
+#waivericon
+{
+  width: 50px;
+  height: 50px;
+  background-image: url('../images/waiver.png');
+  background-repeat: no-repeat;  
+}
+
+#redwarnicon
+{
+  width: 50px;
+  height: 50px;
+  background-image: url('../images/redwarn.png');
+  background-repeat: no-repeat;  
+}
+
+#waivertext
+{
+    width: 58%;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #555555;
+    padding: 0px 0px 0px 10px;   
+}
+
+#waivertext2
+{
+    width: 58%;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #555555;
+    padding: 4px 0px 0px 10px;   
+}
 
 #emailbox
 {
@@ -620,6 +667,30 @@ personnotetext
     position: relative;
     margin-left: -70px;
     margin-top: -46px;
+    cursor: pointer;
+}
+
+#haswaivericon {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/waiver.png');
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    margin-left: -70px;
+    margin-top: -106px;
+    cursor: pointer;
+}
+
+#hasnotwaivericon {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/redwarn.png');
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    margin-left: -70px;
+    margin-top: -106px;
     cursor: pointer;
 }
 
@@ -2151,4 +2222,11 @@ border-radius: 10px 10px 10px 10px;
 
 .redbox {
     background-color: #ea0001;
+}
+
+.marshalformbox
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
 }
