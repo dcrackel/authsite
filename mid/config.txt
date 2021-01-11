@@ -1,0 +1,5 @@
+[database]
+db_host     = localhost:3306
+db_user     = 5k3g0qx3gPlPXsxcdEZ2m9t9QY9QyupzagRTKOYJtPI
+db_password = t9SA5Av_G8pwlmcTGA2hC_wmdNppOd9fxgtlJLRPDrA
+db_name     = marshaldb
